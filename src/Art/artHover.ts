@@ -145,3 +145,6 @@ export let urn2 = 'urn:decentraland:ethereum:erc721:0xd73be539d6b2076bab83ca6ba6
 export let urn3 = 'urn:decentraland:ethereum:erc721:0x41a322b28d0ff354040e2cbc676f0320d8c8850d:3734'
 export let urn4 = 'urn:decentraland:ethereum:erc721:0xecf7ef42b57ee37a959bf507183c5dd6bf182081:100'
 export let urn5 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:1540722'
+
+
+

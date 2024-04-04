@@ -10,6 +10,8 @@ import { playCurrentSong, playRadio, playlist, shufflePlaylist } from './audio'
 import { addArtworkData, artHoverSystem, changeArtHoverSystem, createArtID } from './Art/artHover'
 import { engine } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
+import { gallery1Pos1, gallery1Pos2, gallery1Rot1, gallery1Rot2 } from './Art/artPositions'
+import { artDescription1, artDescription2, artTitle1, artTitle2 } from './Art/artData'
 
 
 
@@ -20,7 +22,7 @@ ElevatorModule.createElevator
 initializeElevatorDoors()
 createAllDoors()
 initializeKineticArt()
-//initializeGalleryAreas()
+initializeGalleryAreas()
 
 setupUi()
 
@@ -35,7 +37,11 @@ engine.addSystem(changeArtHoverSystem)
 engine.addSystem(artHoverSystem)
 
   // Create entity for artwork 1
-  const entity100 = createArtID(Vector3.create(16, 1, 16), Vector3.One(), 1, "Art Title 1", "Art Description 1 by dskfhjñad");
-  addArtworkData(entity100, 1, "Art Title 1", "Art Description 1 by sklfjdñs", true);
+  const entityID1 = createArtID(gallery1Pos1, gallery1Rot1, 1, artTitle1, artDescription1);
+  addArtworkData(entityID1, 1, artTitle1, artDescription1, true);
 
+    // Create entity for artwork 1
+    const entityID2 = createArtID(gallery1Pos2, gallery1Rot2, 2, artTitle2, artDescription2);
+    addArtworkData(entityID2, 2, artTitle2, artDescription2, true);
+  
 }
