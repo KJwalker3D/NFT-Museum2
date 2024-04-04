@@ -9,24 +9,13 @@ import { createNFT, canvasFrame } from "./Art/nft";
 import { logoImage, logoURL, groundVideo, urn2, urn3 } from "./Art/artHover";
 
 
-enum ArtEntityType {
-    IMAGE,
-    VIDEO,
-    NFT,
-    GLB
-}
-
-
 // Add the assets you want to appear in each gallery area within the corresponding functions below (createGallery0, createGallery1, etc.) and they will load or offload depending on player proximity
-interface GalleryArea {
-    position: Vector3;
-    entities: Entity[];
-}
+
 
 // Ground floor
 async function createGallery0() {
-    /*
     const area = galleryAreas[0];
+    /*
     const entity1 = createImageArt(
         logoImage,
         gallery1Pos4,
@@ -35,7 +24,7 @@ async function createGallery0() {
         'Click',
         logoURL,
         true
-        );
+    );
     const entity2 = createImageArt(
         logoImage,
         gallery1Pos5,
@@ -45,6 +34,7 @@ async function createGallery0() {
         logoURL,
         true
     )
+    */
     const e3 = await createToggleableArt(
         gallery1Pos2,
         gallery1Rot2,
@@ -74,8 +64,8 @@ async function createGallery0() {
         'Click'
     )
    
-    area.entities.push(entity1);
-    */
+    area.entities.push( e3, e4, e5);
+
 }
 
 // First floor
@@ -96,12 +86,20 @@ function createGallery2() {
 }
 
 
-//let player = engine.PlayerEntity 
+let player = engine.PlayerEntity 
 
-export const galleryAreas: GalleryArea[] = [
-    { position: Vector3.create(10, 0, 16), entities: [] },  // Ground floor gallery
-    { position: Vector3.create(10, 10, 16), entities: [] }, // First floor gallery
-    { position: Vector3.create(10, 20, 16), entities: [] }, // Rooftop area
+// Define gallery areas
+export const galleryAreas: { position: Vector3, entities: Entity[] } [] = [
+    //Ground floor gallery
+    { position: Vector3.create(10, 0, 16), entities: [] },
+
+    //First floor gallery
+    { position: Vector3.create(10, 10, 16), entities: [] },
+
+    //Rooftop area
+    { position: Vector3.create(10, 20, 16), entities: [] },
+
+    // Add more gallery areas as needed
 ];
 
 // Load gallery area artworks
@@ -126,7 +124,6 @@ export function offloadGalleryArea(index: number) {
     }
 }
 
-
 // Trigger loading and offloading based on player's location
 export function handleGalleryAreaTrigger(playerPosition: Vector3) {
     galleryAreas.forEach((area, index) => {
@@ -142,7 +139,6 @@ export function handleGalleryAreaTrigger(playerPosition: Vector3) {
         }
     });
 }
-
 
 
 // Create trigger zones around gallery areas
@@ -176,11 +172,7 @@ export function createGalleryAreaTriggers(position: Vector3, scale: Vector3) {
     });
 }
 
-
-function createGalleryEntity(
-    
-    position: Vector3, 
-    rotation: Vector3): Entity {
+function createGalleryEntity(position: Vector3, rotation: Vector3): Entity {
     const entity = engine.addEntity();
 
     Transform.create(entity, {
@@ -194,19 +186,16 @@ function createGalleryEntity(
 }
 
 
-
 // Initialize gallery areas and triggers
 export function initializeGalleryAreas() {
 
-    //createGallery0()
+    createGallery0()
     createGallery1()
-    //createGallery2()
+    createGallery2()
 
 
     // Create trigger zones around gallery areas
 
-
-    
     // Ground floor trigger area
     createGalleryAreaTriggers(
         Vector3.create(4, 1.5, 8), // position
@@ -224,9 +213,5 @@ export function initializeGalleryAreas() {
         Vector3.create(6.65, 12.5, 8),
         Vector3.create(26.2, 10, 26)
     )
-    
-    
 }
 
-
-// VON MISES POSTERS

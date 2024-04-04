@@ -54,7 +54,7 @@ export function playlistUI() {
                     alignItems: 'flex-end',
                     padding: 4,
                     position: {
-                        top: '8%',
+                        top: '80%',
                         right: '0%',
                         bottom: '0%',
                         left: '95%'
@@ -171,7 +171,7 @@ export function radioUI() {
                     alignItems: 'flex-end',
                     padding: 4,
                     position: {
-                        top: '8%',
+                        top: '80%',
                         right: '0%',
                         bottom: '0%',
                         left: '95%'
