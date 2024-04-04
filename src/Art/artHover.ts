@@ -7,6 +7,8 @@ import { getRandomHexColor } from "../helperFunctions";
 export let hoverVisible = false
 export let currentArtworkId = 1;
 
+let visibilityTime = 5000 // duration of the art details UI in miliseconds
+
 export const ArtHover = engine.defineComponent('arthover', { visible: Schemas.Boolean })
 
 export const ArtComponent = engine.defineComponent('art-id', {
@@ -56,16 +58,21 @@ export function changeArtHoverSystem() {
         const artworkId = getArtworkId(entity);
 
         if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_HOVER_ENTER, entity)) {
-             Material.setPbrMaterial(entity, { albedoColor: Color4.fromHexString(getRandomHexColor()) });
-            console.log('hover?', hoverVisible)
+            Material.setPbrMaterial(entity, { albedoColor: Color4.fromHexString(getRandomHexColor()) });
             if (artworkId !== undefined) {
                 changeCurrentArtworkId(artworkId);
-                console.log('should work')
+                console.log('hover?', hoverVisible);
+                console.log('should work');
             }
             hoverVisible = true;
-            utils.timers.setTimeout(() => hoverVisible = false, 900);
+            // Set a timeout to hide the hover after 900 milliseconds
+            utils.timers.setTimeout(() => {
+                hoverVisible = false;
+            }, visibilityTime);
         } else if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_HOVER_LEAVE, entity)) {
             hoverVisible = false;
+            console.log('hover?', hoverVisible);
+
         }
     }
 }

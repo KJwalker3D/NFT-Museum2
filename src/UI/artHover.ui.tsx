@@ -38,7 +38,7 @@ export function artDetailsUI() {
       const artTitleWrap = wordWrap(title, 12 * tieredModalTextWrapScale, 6) 
       const artDescriptionWrap = breakLines(description, Max_Chars)
       return (
-        <UiEntity key={'main'}
+        <UiEntity key={'art-main'}
           uiTransform={{
             height: `${UiCanvasInformation.get(engine.RootEntity).height * .15}`,
             width: `${UiCanvasInformation.get(engine.RootEntity).width * .5}`,
@@ -92,7 +92,7 @@ export function artDetailsUI() {
               position: '15% 0 0 0%',
             }}
             color={descriptionColor}
-            onMouseDown={toggleHover}
+            onMouseUp={toggleHover}
           />
         </UiEntity>
   
