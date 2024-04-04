@@ -1,9 +1,8 @@
-import { createStructures } from './structures'
+import { createBaseScene } from './structures'
 import { ElevatorModule } from './Elevator/elevator'
 import { createAllDoors, doorSound } from './doors'
 import { initializeKineticArt } from './Art/kineticArt'
 import { initializeElevatorDoors } from './Elevator/elevatorDoors'
-import { handleGalleryAreaTrigger, initializeGalleryAreas, loadGalleryArea } from './galleryAreas'
 //import VLM from 'vlm-dcl'
 import { setupUi } from './UI/ui'
 import { playCurrentSong, playRadio, playlist, shufflePlaylist } from './audio'
@@ -15,18 +14,19 @@ import { artDescription1, artDescription2, artTitle1, artTitle2 } from './Art/ar
 import { createImageArt } from './Art/imageArt'
 import { createToggleableArt } from './Art/videoArt'
 import { createNFT, canvasFrame } from './Art/nft'
+import { creatAllLazyAreas } from './Lazy-Loading/lazyLoading'
 
 
 
 export function main() {
 
-createStructures()
+createBaseScene()
 ElevatorModule.createElevator
 initializeElevatorDoors()
 createAllDoors()
 initializeKineticArt()
-//initializeGalleryAreas()
-loadGalleryArea(0)
+creatAllLazyAreas()
+
 
 setupUi()
 
@@ -40,12 +40,7 @@ playCurrentSong()
 engine.addSystem(changeArtHoverSystem)
 engine.addSystem(artHoverSystem)
 
-engine.addSystem(function () {
-   // const playerPosition = engine.getComponent(Transform).entities[0].position;
-   let player = engine.PlayerEntity
-   let playerPosition = Transform.get(player).position
-    handleGalleryAreaTrigger(playerPosition);
-});
+
 
 createImageArt(
     logoImage,

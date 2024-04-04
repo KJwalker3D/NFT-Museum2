@@ -1,6 +1,5 @@
 import { engine, Transform, Entity, InputAction, PointerEventType, PointerEvents, Schemas, inputSystem, MeshCollider, MeshRenderer, Material } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
-import { galleryAreas } from "../galleryAreas";
 import { Color4, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { getRandomHexColor } from "../helperFunctions";
 
@@ -99,10 +98,6 @@ export function findArtworkById(id: number): ArtworkData | undefined {
 }
 
 
-galleryAreas.forEach((entity) => { 
-    ArtComponent.create 
-    //createArtUI(position, rotation, getArtworkId, artTitle, artDescription)
-});
 
 
 export interface ArtworkData {
