@@ -3,11 +3,10 @@ import { engine, Transform, Entity, MeshRenderer } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
 import { createWearableReward } from "./claim-dropin/rewards";
 import { createImageArt } from "./Art/imageArt";
-import { groundVideo, logoImage, logoURL } from "./Art/artData";
 import { gallery1Pos1, gallery1Pos2, gallery1Pos3, gallery1Pos4, gallery1Pos5, gallery1Rot1, gallery1Rot2, gallery1Rot3, gallery1Rot4, gallery1Rot5 } from "./Art/artPositions";
 import { createToggleableArt } from "./Art/videoArt";
-import { urn1, urn2, urn3 } from "./Art/artData";
 import { createNFT, canvasFrame } from "./Art/nft";
+import { logoImage, logoURL, groundVideo, urn2, urn3 } from "./Art/artHover";
 
 
 // Add the assets you want to appear in each gallery area within the corresponding functions below (createGallery0, createGallery1, etc.) and they will load or offload depending on player proximity

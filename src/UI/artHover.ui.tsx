@@ -3,7 +3,6 @@ import { Color4, Quaternion, Vector3 } from "@dcl/ecs-math";
 import ReactEcs, { UiEntity, Label } from "@dcl/react-ecs";
 import { ArtComponent, ArtHover, currentArtworkId, findArtworkById, hoverVisible, setArtworkId, toggleHover } from "../Art/artHover";
 import { wordWrap, tieredModalTextWrapScale, breakLines, tieredFontScale } from "../helperFunctions";
-import { addArtworkData } from "../Art/artData";
 
 
 
