@@ -34,13 +34,13 @@ export const gallery1Rot5 = Vector3.create(0, 0, 0)
 ////////////////
 // South wall three artworks east to west
 export const gallery2Pos1 = Vector3.create(24.15, 10.9, 8.27)
-export const gallery2Rot1 = Vector3.create(0, 0, 0)
+export const gallery2Rot1 = Vector3.create(0, 180, 0)
 
 export const gallery2Pos2 = Vector3.create(20.6, 10.9, 8.27)
-export const gallery2Rot2 = Vector3.create(0, 0, 0)
+export const gallery2Rot2 = Vector3.create(0, 180, 0)
 
 export const gallery2Pos3 = Vector3.create(17.09, 10.9, 8.27)
-export const gallery2Rot3 = Vector3.create(0, 0, 0)
+export const gallery2Rot3 = Vector3.create(0, 180, 0)
 
 
 // West wall two artworks south to north

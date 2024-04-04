@@ -37,7 +37,7 @@ export function createLazyArea(position: Vector3, scale: Vector3, parentPos: Ent
         createdPaintings = []
         for (const nft of nftCollection) {
           if (nft.room === id) {
-            const painting = createPainting(undefined, nft.id, nft.position, nft.urn, nft.artTitle)
+            const painting = createPainting(undefined, nft.id, nft.position, nft.urn, nft.artTitle, nft.frame, nft.color)
             createdPaintings.push(painting)
           }
         }

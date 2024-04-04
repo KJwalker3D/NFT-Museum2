@@ -73,6 +73,7 @@ createToggleableArt(
     Vector3.create(5, 5, 7)
 )
 
+/*
 createNFT(
     gallery1Pos1,
     gallery1Rot1,
@@ -92,6 +93,7 @@ createNFT(
     canvasFrame,
     'Click'
 )
+*/
 
   // Create entity for artwork 1
   const entityID1 = createArtID(gallery1Pos1, gallery1Rot1, 1, artTitle1, artDescription1);
