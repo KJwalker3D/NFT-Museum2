@@ -3,7 +3,6 @@ import { Vector3, Quaternion, Color4, Color3 } from '@dcl/sdk/math'
 import { openNftDialog } from '~system/RestrictedActions'
 import { gallery1Pos1, gallery1Pos3, gallery1Rot1, gallery1Rot3, gallery2Pos1, gallery2Pos2, gallery2Pos3, gallery2Pos6, gallery2Pos7, gallery2Pos8, gallery2Rot1, gallery2Rot2, gallery2Rot3, gallery2Rot6, gallery2Rot7, gallery2Rot8 } from '../Art/artPositions'
 import { canvasFrame, classicFrame, noFrame } from '../Art/nft'
-import { ArtComponent } from '../Art/artHover'
 
 export type NFTdata = {
   room: number
@@ -157,11 +156,9 @@ export function createPainting(
 
   Transform.create(entity, { position: position.position, rotation: position.rotation, scale: position.scale })
 
-  // Add ART and ARTHOVER components
 
     MeshCollider.setBox(entity)
 
-  //ArtComponent.create(entity, artTitle)
   if (parent !== undefined) {
     Transform.createOrReplace(entity, {
       position: position.position, 

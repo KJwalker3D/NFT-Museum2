@@ -8,37 +8,70 @@ import {
   TextureUnion,
   InputAction,
   pointerEventsSystem,
+  NftFrameType,
+  TransformType,
+  Entity,
 } from '@dcl/sdk/ecs';
 import * as utils from '@dcl-sdk/utils';
-import { Vector3, openExternalUrl } from '~system/RestrictedActions';
-import { Quaternion, Color3, Color4 } from '@dcl/sdk/math';
+import { openExternalUrl } from '~system/RestrictedActions';
+import { Quaternion, Color3, Color4, Vector3 } from '@dcl/sdk/math';
+import { gallery1Pos2, gallery1Rot2 } from './artPositions';
+import { groundVideo, logoImage, logoURL } from './artData';
 
 let videoPlayer: any = null;
 
-export async function createToggleableArt(
-  position: Vector3,
-  rotation: Vector3,
-  scale: Vector3,
+export type VideoData = {
+  room: number
+  id: number
+  position: TransformType
+  image: string,
+  video: string,
+  hoverText: string,
+  website: string,
+  triggerScale: Vector3
+}
+
+export const videoCollection: VideoData[] = [
+  {
+    room: 1,
+    id: 1,
+    position: {
+      position: gallery1Pos2,
+      rotation: Quaternion.fromEulerDegrees(gallery1Rot2.x, gallery1Rot2.y, gallery1Rot2.z),
+      scale: Vector3.One()
+    },
+    image: logoImage,
+    video: groundVideo,
+    hoverText: 'Click',
+    website: logoURL,
+    triggerScale: Vector3.create(2, 2, 2)
+  }
+]
+
+export async function createVideoArt(
+  position: TransformType,
   image: string,
   video: string,
   hoverText: string,
   website: string,
   triggerScale: Vector3
 ) {
-  const toggleableArt = engine.addEntity();
-  MeshRenderer.setPlane(toggleableArt);
-  MeshCollider.setPlane(toggleableArt);
+
+  const entity = engine.addEntity();
+  MeshRenderer.setPlane(entity);
+  MeshCollider.setPlane(entity);
 
   let isImage = true;
 
-  Transform.createOrReplace(toggleableArt, {
-    position: position,
-    rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
-    scale: scale,
+  Transform.createOrReplace(entity, {
+      position: Vector3.create(position.position.x, position.position.y, position.position.z),
+      rotation: Quaternion.fromEulerDegrees(position.rotation.x, position.rotation.y, position.rotation.z),
+    scale: position.scale,
+  
   });
 
   const imageMaterial = Material.Texture.Common({ src: image });
-  Material.setPbrMaterial(toggleableArt, {
+  Material.setPbrMaterial(entity, {
     texture: imageMaterial,
     roughness: 1,
     specularIntensity: 0,
@@ -50,7 +83,7 @@ export async function createToggleableArt(
 
   pointerEventsSystem.onPointerDown(
     {
-      entity: toggleableArt,
+      entity: entity,
       opts: {
         button: InputAction.IA_POINTER,
         hoverText: hoverText,
@@ -65,7 +98,7 @@ export async function createToggleableArt(
   );
 
   try {
-    videoPlayer = await VideoPlayer.create(toggleableArt, {
+    videoPlayer = await VideoPlayer.create(entity, {
       src: video,
       playing: false,
       loop: true,
@@ -76,8 +109,8 @@ export async function createToggleableArt(
 
   const artTrigger = utils.addTestCube(
     {
-      position: position,
-      scale: scale,
+      position: position.position,
+      scale: position.scale,
     },
     undefined,
     undefined,
@@ -97,16 +130,16 @@ export async function createToggleableArt(
     ],
     function (otherEntity) {
       // Toggle between image and video
-      const videoTexture = Material.Texture.Video({videoPlayerEntity: toggleableArt})
+      const videoTexture = Material.Texture.Video({videoPlayerEntity: entity})
 
       if (isImage) {
-        VideoPlayer.createOrReplace(toggleableArt, {
+        VideoPlayer.createOrReplace(entity, {
           src: video,
           playing: true,
           loop: true
          })
-         Material.deleteFrom(toggleableArt)
-         Material.setPbrMaterial(toggleableArt, {
+         Material.deleteFrom(entity)
+         Material.setPbrMaterial(entity, {
           texture: videoTexture,
           roughness: 1,
           specularIntensity: 0,
@@ -121,13 +154,13 @@ export async function createToggleableArt(
     },
     function (onExit) {
       if (!isImage) {
-        Material.deleteFrom(toggleableArt)
-        VideoPlayer.deleteFrom(toggleableArt)
+        Material.deleteFrom(entity)
+        VideoPlayer.deleteFrom(entity)
         let mat = Material.Texture.Common({
           src: image
          });
          isImage = true
-         Material.setPbrMaterial(toggleableArt, {
+         Material.setPbrMaterial(entity, {
           texture: Material.Texture.Common({
             src: image
           }),
@@ -142,6 +175,10 @@ export async function createToggleableArt(
     }
     
   })
-  return toggleableArt;
+  return entity;
 
+}
+
+export function removeVideos(entity: Entity) {
+  engine.removeEntity(entity)
 }

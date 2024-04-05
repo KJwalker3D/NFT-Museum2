@@ -2,12 +2,13 @@ import { Vector3, Quaternion } from '@dcl/sdk/math'
 import { Entity, Transform, engine } from '@dcl/sdk/ecs'
 import { nftCollection, createPainting, NFTdata } from './nfts'
 import * as utils from '@dcl-sdk/utils'
+import { createVideoArt, videoCollection } from '../Art/videoArt'
 
 
 export let scene1active = true
 
 
-export function createLazyArea(position: Vector3, scale: Vector3, parentPos: Entity, id: number, ) {
+export async function createLazyArea(position: Vector3, scale: Vector3, parentPos: Entity, id: number, ) {
   const entity = engine.addEntity()
 
   Transform.create(entity, {
@@ -22,23 +23,33 @@ export function createLazyArea(position: Vector3, scale: Vector3, parentPos: Ent
 
   let createdPaintings: Entity[] = []
 
+  let createdVideos: Entity[] = []
 
-  utils.triggers.addTrigger(
+  await utils.triggers.addTrigger(
     box,
     utils.LAYER_2,
     utils.LAYER_1,
     [{ type: 'box', 
     position: position,
     scale: scale }],
-    () => {
+    async () => {
       if (scene1active) {
         console.log(`ACTIVE`)
         console.log(`ENTERED ` + id)
+
         createdPaintings = []
+        createdVideos = []
+
         for (const nft of nftCollection) {
           if (nft.room === id) {
             const painting = createPainting(undefined, nft.id, nft.position, nft.urn, nft.artTitle, nft.frame, nft.color)
             createdPaintings.push(painting)
+          }
+        }
+        for (const video of videoCollection) {
+          if (video.room === id) {
+            const videoArt = await createVideoArt(video.position, video.image, video.video, video.hoverText, video.website, video.triggerScale)
+            createdVideos.push(videoArt)
           }
         }
       }
@@ -48,8 +59,12 @@ export function createLazyArea(position: Vector3, scale: Vector3, parentPos: Ent
       for (const painting of createdPaintings) {
         engine.removeEntity(painting)
       }
+      for (const videoArt of createdVideos) {
+        engine.removeEntity(videoArt)
+      }
 
       createdPaintings = [] // Clear the array
+      createdVideos = []
     }
   )
   utils.triggers.enableDebugDraw(true)
