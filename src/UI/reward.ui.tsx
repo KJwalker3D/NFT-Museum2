@@ -3,17 +3,15 @@ import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import  *  as  ui  from  'dcl-ui-toolkit'
 import { reward } from '../Rewards/rewards'
 
-let showRewardUI = reward
-
 
 export function rewardUI(thumbnail: string, wearableName: string ){
 
-if (showRewardUI) {
+if (reward) {
 
 	const customPrompt = ui.createComponent(ui.CustomPrompt, {
 		style: ui.PromptStyles.DARK,
 		height: 300,
-	})
+        	})
 
 
 	const promptTitle = customPrompt.addText({
@@ -30,33 +28,33 @@ if (showRewardUI) {
 		yPosition: 100,
 	})
 
-
+    const promptIcon = customPrompt.addIcon({
+        image: thumbnail,
+        xPosition: 0,
+        yPosition: -20,
+        height: 125,
+        width: 125
+    })
+	const name = customPrompt.addText({
+		value: wearableName,
+		xPosition: 0,
+		yPosition: -55,
+		size: 12,
+	})
 	const promptButtonE = customPrompt.addButton({
 		style: ui.ButtonStyles.E,
 		text: 'Ok',
-		xPosition: 0,
-		yPosition: -120,
+		xPosition: -15,
+		yPosition: -160,
 		onMouseDown: () => {
 			console.log('Yeah clicked')
 			customPrompt.hide()
 		},
 	})
 
-	const promptIcon = customPrompt.addIcon({
-		image: thumbnail,
-		xPosition: 0,
-		yPosition: 5,
-		height: 125,
-		width: 125
-	})
 
 
-	const name = customPrompt.addText({
-		value: wearableName,
-		xPosition: 0,
-		yPosition: -70,
-		size: 20,
-	})
+
 
 	customPrompt.show()
 }
@@ -65,7 +63,6 @@ if (showRewardUI) {
 
 export function alreadyClaimedUI(){
 
-	ReactEcsRenderer.setUiRenderer(ui.render)
 
 	const prompt = ui.createComponent(ui.OkPrompt, {
 		text: 'You already claimed this wearable!',

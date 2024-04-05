@@ -5,6 +5,7 @@ import { createVideoArt, videoCollection } from '../Art/videoArt'
 import { createKineticArt, kineticArtCollection } from '../Art/kineticArt'
 import { createImageArt, imageArtCollection } from '../Art/imageArt'
 import { createNFT, nftCollection } from '../Art/nft'
+import { createWearableReward, reward } from '../Rewards/rewards'
 
 
 export let scene1active = true
@@ -72,6 +73,9 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
             createdImages.push(image)
           }
         }
+        if (id === 3) {
+          const reward = createWearableReward()
+        }
 
       }
     },
@@ -88,6 +92,9 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
       }
       for (const image of createdImages) {
         engine.removeEntity(image)
+      }
+      if (reward) {
+        engine.removeEntity(entity)
       }
 
       createdNfts = [] // Clear the array
