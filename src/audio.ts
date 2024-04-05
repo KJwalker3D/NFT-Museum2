@@ -1,4 +1,4 @@
-import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, MeshRenderer, AvatarAttach, AvatarAnchorPointType, AudioStream } from "@dcl/sdk/ecs";
+import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, MeshRenderer, AvatarAttach, AvatarAnchorPointType, AudioStream, VisibilityComponent } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils'
 import { openExternalUrl } from '~system/RestrictedActions'
 
@@ -39,7 +39,9 @@ export function playAudioAtPlayer(audioClipUrl: string, volume: number = 100) {
 }
 
 let audioEntity: Entity | null = null;
-
+if (audioEntity) {
+  VisibilityComponent.create(audioEntity, {visible: false})
+}
 
 ///// PLAYLIST
 

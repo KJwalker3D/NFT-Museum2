@@ -8,8 +8,8 @@ import { backgroundColor, pauseIcon, playIcon, skipIcon } from "./ui";
 // Set Playlist to 'false' to hide the playlist UI:
 let Playlist: Boolean = true
 
-let songData = `${nowPlayingElement}\n ${playingArtist}`
-let songDataWrap = wordWrap(songData, 12 * tieredModalTextWrapScale, 6)
+let songData = 'Red Albert Playlist'
+let songDataWrap = wordWrap(songData, 8 * tieredModalTextWrapScale, 6)
 
 export function playlistUI() {
     if (Playlist) {
@@ -49,10 +49,10 @@ export function playlistUI() {
                         uiTransform={{
                             width: `${UiCanvasInformation.get(engine.RootEntity).height * 0.05}`,
                             height: `${UiCanvasInformation.get(engine.RootEntity).height * 0.05}`,
-                            margin: '0 0 5 0'
+                            margin: '0 0 -10 0'
                         }}
                         value={`${songDataWrap}`}
-                        fontSize={14 * tieredFontScale}
+                        fontSize={11 * tieredFontScale}
                         color={Color4.White()}
                         onMouseDown={openMixcloud}
                     />

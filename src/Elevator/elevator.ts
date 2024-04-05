@@ -1,4 +1,4 @@
-import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource } from "@dcl/sdk/ecs";
+import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, VisibilityComponent } from "@dcl/sdk/ecs";
 import { Vector3, Quaternion } from "@dcl/sdk/math";
 import * as utils from '@dcl-sdk/utils';
 import { playAudioAtPlayer } from "../audio";
@@ -13,6 +13,7 @@ const sceneParent = engine.addEntity();
 Transform.create(sceneParent, {
     position: Vector3.create(16, 0, 16)
 });
+VisibilityComponent.create(sceneParent, {visible: false})
 
 
 const arrowsButton = 'models/arrows.glb';
