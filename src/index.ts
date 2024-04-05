@@ -40,7 +40,7 @@ engine.addSystem(changeArtHoverSystem)
 engine.addSystem(artHoverSystem)
 
 
-
+/*
 createImageArt(
     logoImage,
     gallery1Pos4,
@@ -59,7 +59,8 @@ createImageArt(
     'Click',
     logoURL,
     true
-)
+    )
+    */
 
 /*
 createToggleableArt(

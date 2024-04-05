@@ -1,31 +1,73 @@
-import { InputAction, Material, MeshCollider, MeshRenderer, Transform, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
+import { InputAction, Material, MeshCollider, MeshRenderer, Transform, TransformType, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
+import { gallery1Pos4, gallery1Pos5, gallery1Rot4, gallery1Rot5 } from "./artPositions";
+import { logoImage, logoURL } from "./artData";
+import { Position } from "~system/EngineApi";
 
 // For static images that aren't loaded in as NFTs
 
+export type ImageData = {
+  room: number, 
+  id: number,
+  position: Vector3,
+  rotation: Vector3,
+  scale: Vector3
+  image: string,
+  hoverText: string,
+  url: string,
+  hasAlpha: boolean
+}
+
+export const imageArtCollection: ImageData[] = [
+  {
+    room: 1, 
+    id: 3,
+      position: Vector3.create(gallery1Pos4.x, gallery1Pos4.y, gallery1Pos4.z),
+      rotation: gallery1Rot4,
+      scale: Vector3.One()
+    ,
+    image: logoImage,
+    hoverText: 'Click',
+    url: logoURL,
+    hasAlpha: false
+  },
+  {
+    room: 1,
+    id: 5,
+    position: gallery1Pos5,
+    rotation: gallery1Rot5,
+    scale: Vector3.One(),
+    image: logoImage,
+    hoverText: 'Click',
+    url: logoURL,
+    hasAlpha: false
+  }
+]
+
+
 export function createImageArt(
-    image: string, // can be path to image file or url to hosted image
     position: Vector3,
     rotation: Vector3,
     scale: Vector3,
+    image: string, // can be path to image file or url to hosted image
     hoverText: string,
     url: string,
     hasAlpha: boolean
 ) {
 
-    let imageEntity = engine.addEntity()
-    Transform.create(imageEntity, {
+    let entity = engine.addEntity()
+    Transform.create(entity, {
         position: position, 
         rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
         scale: scale 
     })
-    MeshRenderer.setPlane(imageEntity)
-    MeshCollider.setPlane(imageEntity)
+    MeshRenderer.setPlane(entity)
+    MeshCollider.setPlane(entity)
 
     pointerEventsSystem.onPointerDown(
         {
-          entity: imageEntity,
+          entity: entity,
           opts: {
             button: InputAction.IA_POINTER,
             hoverText: hoverText,
@@ -44,7 +86,7 @@ export function createImageArt(
 
       if (!hasAlpha) {
 
-        Material.setPbrMaterial(imageEntity, {
+        Material.setPbrMaterial(entity, {
           texture: imageMaterial,
           roughness: 1,
           specularIntensity: 0,
@@ -57,7 +99,7 @@ export function createImageArt(
 
       else if (hasAlpha) {
 
-        Material.setPbrMaterial(imageEntity, {
+        Material.setPbrMaterial(entity, {
           texture: imageMaterial,
           roughness: 1,
           specularIntensity: 0,
@@ -71,5 +113,5 @@ export function createImageArt(
         })
       }
 
-      return imageEntity
+      return entity
 }

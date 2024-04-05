@@ -4,6 +4,7 @@ import { nftCollection, createPainting, NFTdata } from './nfts'
 import * as utils from '@dcl-sdk/utils'
 import { createVideoArt, videoCollection } from '../Art/videoArt'
 import { createKineticArt, kineticArtCollection } from '../Art/kineticArt'
+import { createImageArt, imageArtCollection } from '../Art/imageArt'
 
 
 export let scene1active = true
@@ -28,6 +29,8 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
 
   let createdKineticArt: Entity[] = []
 
+  let createdImages: Entity[] = []
+
   await utils.triggers.addTrigger(
     box,
     utils.LAYER_2,
@@ -43,6 +46,7 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
         createdPaintings = []
         createdVideos = []
         createdKineticArt = []
+        createdImages = []
 
         for (const nft of nftCollection) {
           if (nft.room === id) {
@@ -62,6 +66,12 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
             createdKineticArt.push(kinetic)
           }
         }
+        for (const imageArt of imageArtCollection) {
+          if (imageArt.room === id) {
+            const image = createImageArt(imageArt.position, imageArt.rotation, imageArt.scale, imageArt.image, imageArt.hoverText, imageArt.url, imageArt.hasAlpha)
+            createdImages.push(image)
+          }
+        }
 
       }
     },
@@ -76,9 +86,16 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
       for (const kinetic of createdKineticArt) {
         engine.removeEntity(kinetic)
       }
+      for (const image of createdImages) {
+        engine.removeEntity(image)
+      }
 
       createdPaintings = [] // Clear the array
       createdVideos = []
+      createdKineticArt = []
+      createdImages = []
+
+
     }
   )
   utils.triggers.enableDebugDraw(true)

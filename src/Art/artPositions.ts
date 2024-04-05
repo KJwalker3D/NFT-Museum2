@@ -18,7 +18,7 @@ export const gallery1Rot3 = Vector3.create(0, -90, 0)
 
 
 // South door
-export const gallery1Pos4 = Vector3.create(12.15, 3, 7.84)
+export const gallery1Pos4 = Vector3.create(12.15, 3, 7.89)
 export const gallery1Rot4 = Vector3.create(0, 180, 0)
 
 
@@ -26,8 +26,6 @@ export const gallery1Rot4 = Vector3.create(0, 180, 0)
 export const gallery1Pos5 = Vector3.create(12.18, 3, 24.15)
 export const gallery1Rot5 = Vector3.create(0, 0, 0)
 ////////////
-
-
 
 
 // First floor gallery: 
