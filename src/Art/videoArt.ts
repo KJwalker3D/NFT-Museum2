@@ -17,8 +17,11 @@ import { openExternalUrl } from '~system/RestrictedActions';
 import { Quaternion, Color3, Color4, Vector3 } from '@dcl/sdk/math';
 import { gallery1Pos2, gallery1Rot2 } from './artPositions';
 import { groundVideo, logoImage, logoURL } from './artData';
+import {  togglePlay } from '../audio';
 
 let videoPlayer: any = null;
+
+
 
 export type VideoData = {
   room: number
@@ -29,6 +32,7 @@ export type VideoData = {
   hoverText: string,
   website: string,
   triggerScale: Vector3
+  audio?: boolean
 }
 
 export const videoCollection: VideoData[] = [
@@ -44,7 +48,8 @@ export const videoCollection: VideoData[] = [
     video: groundVideo,
     hoverText: 'Click',
     website: logoURL,
-    triggerScale: Vector3.create(2, 2, 2)
+    triggerScale: Vector3.create(2, 2, 2),
+    audio: true
   }
 ]
 
@@ -54,7 +59,8 @@ export async function createVideoArt(
   video: string,
   hoverText: string,
   website: string,
-  triggerScale: Vector3
+  triggerScale: Vector3,
+  audio?: boolean
 ) {
 
   const entity = engine.addEntity();
@@ -69,6 +75,8 @@ export async function createVideoArt(
     scale: position.scale,
   
   });
+
+
 
   const imageMaterial = Material.Texture.Common({ src: image });
   Material.setPbrMaterial(entity, {
@@ -96,6 +104,7 @@ export async function createVideoArt(
       });
     }
   );
+
 
   try {
     videoPlayer = await VideoPlayer.create(entity, {
@@ -137,9 +146,9 @@ export async function createVideoArt(
           src: video,
           playing: true,
           loop: true
-         })
-         Material.deleteFrom(entity)
-         Material.setPbrMaterial(entity, {
+        })
+        Material.deleteFrom(entity)
+        Material.setPbrMaterial(entity, {
           texture: videoTexture,
           roughness: 1,
           specularIntensity: 0,
@@ -147,9 +156,14 @@ export async function createVideoArt(
           emissiveColor: Color3.White(),
           emissiveIntensity: 1,
           emissiveTexture: videoTexture
-         })
-         isImage = false
+        })
+        isImage = false
+        if (audio = true) {
+          togglePlay()
+          console.log('toggle audio')
+  
         }
+      }
       
     },
     function (onExit) {
@@ -158,9 +172,9 @@ export async function createVideoArt(
         VideoPlayer.deleteFrom(entity)
         let mat = Material.Texture.Common({
           src: image
-         });
-         isImage = true
-         Material.setPbrMaterial(entity, {
+        });
+        isImage = true
+        Material.setPbrMaterial(entity, {
           texture: Material.Texture.Common({
             src: image
           }),
@@ -170,9 +184,13 @@ export async function createVideoArt(
           emissiveColor: Color3.White(),
           emissiveIntensity: 1,
           emissiveTexture: mat
-         })
-    
-    }
+        })
+        
+        if (audio = true) {
+          togglePlay()
+          console.log('toggle audio')
+        }
+      }
     
   })
   return entity;

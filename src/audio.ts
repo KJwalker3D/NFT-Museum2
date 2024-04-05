@@ -3,10 +3,10 @@ import * as utils from '@dcl-sdk/utils'
 import { openExternalUrl } from '~system/RestrictedActions'
 
 /// This is the Playlist, set to false to remove it
-export let streamPlaying: boolean = true;
+export let streamPlaying: boolean = false;
 
 // This is the radio, set to true to play it 
-export let radioPlaying: boolean = false
+export let radioPlaying: boolean = true
 
 // House Radio (24 House Radio)
 let radioStation = 'https://strw3.openstream.co/1487?aw_0_1st.collectionid%3D4682%26stationId%3D4682%26publisherId%3D1511%26k%3D1708457720'
@@ -51,7 +51,6 @@ type Song = {
   };
 
 export const playlist: Song[] = [
-    // Up Down Jumper
     { title: 'DCLMF23 Set', artist: 'RED ALBERT', duration: (60 * 60), url: 'https://bafybeigyzew44hkz46vzugd3plpovkboshdztv74vkmhhflz44477kmqte.ipfs.nftstorage.link/' },
     { title: 'MVFW23 Set', artist: 'RED ALBERT', duration: (60 * 60) +1, url: 'https://bafybeicvyrgg6jnvpajfenbdspaevx4yydizslxdgmgd6f2y4tptpkzjpu.ipfs.nftstorage.link/' },
     { title: 'LPM x SOA Set 22', artist: 'RED ALBERT', duration: (59 * 60) +57, url: 'https://bafybeihis46rooueupvj3dett2sz6745lq5od3x74hvmtfvvollsldr5vq.ipfs.nftstorage.link/' },

@@ -1,13 +1,25 @@
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
-import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource } from "@dcl/sdk/ecs";
+import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, TransformType } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
 import { playAudioAtPlayer } from "../audio";
-import { doorSound } from "../doors";
 
 const kineticArtCircles = 'models/kineticArt-threeCircles.glb';
 const kineticArtCirclesClip = 'play2'
 const kineticArtCircuit = 'models/kineticArt-circuit.glb'
 const kineticArtCircuitClip = 'play3'
+
+
+export type KineticData = {
+    room: number
+    id: number
+    position: TransformType
+    triggerPosition: Vector3
+    triggerScale: Vector3
+    modelPath: string
+    animation?: string 
+    audio?: string   
+  }
+
 
 
 export function createKineticArt( 
