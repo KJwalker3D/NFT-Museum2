@@ -10,10 +10,13 @@ import { rewardUI } from '../UI/reward.ui';
 let dispenserModel = 'models/dispenser.glb'
 let dispenserPosition = Vector3.create(16, 20, 16)
 let dispenserHoverText = 'Claim Reward'
-export let reward = false
 
+export let reward = false
+export let rewardClaimed = false
 
 export function createWearableReward() {
+
+if (!rewardClaimed) {
 
   console.log('creating wearable reward')
   CONFIG.init()
@@ -46,15 +49,20 @@ export function createWearableReward() {
     },
     function () {
       reward = true
-      rewardUI('', '')
+      //rewardUI('', '')
       let camp = ClaimConfig.campaign.CAMPAIGN_TEST
       claimToken(camp, camp.campaignKeys.KEY_0)
       console.log('claimed Wearable gift')
       utils.timers.setTimeout(() => { engine.removeEntity(entity), reward = false }, 1000)
+      rewardClaimed = true
       
     }
   )
-
   return entity
+}
+else {
+  console.log('reward already collected')
+}
+
 }
 
