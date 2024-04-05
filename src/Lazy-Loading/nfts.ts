@@ -1,7 +1,7 @@
 import { Entity, Transform, NftFrameType, NftShape, TransformType, engine, pointerEventsSystem, InputAction, PointerEventType, PointerEvents, MeshCollider, MeshRenderer } from '@dcl/sdk/ecs'
 import { Vector3, Quaternion, Color4, Color3 } from '@dcl/sdk/math'
 import { openNftDialog } from '~system/RestrictedActions'
-import { gallery1Pos1, gallery1Pos3, gallery1Rot1, gallery1Rot3, gallery2Pos1, gallery2Pos2, gallery2Pos3, gallery2Rot1, gallery2Rot2, gallery2Rot3 } from '../Art/artPositions'
+import { gallery1Pos1, gallery1Pos3, gallery1Rot1, gallery1Rot3, gallery2Pos1, gallery2Pos2, gallery2Pos3, gallery2Pos6, gallery2Pos7, gallery2Pos8, gallery2Rot1, gallery2Rot2, gallery2Rot3, gallery2Rot6, gallery2Rot7, gallery2Rot8 } from '../Art/artPositions'
 import { canvasFrame, classicFrame, noFrame } from '../Art/nft'
 import { ArtComponent } from '../Art/artHover'
 
@@ -95,18 +95,46 @@ export const nftCollection: NFTdata[] = [
     color: Color3.Yellow()
   },
   {
-    room: 3,
+    room: 2,
     id: 7,
     position: {
-      position: Vector3.create(4 + 22, 2, 29),
-      rotation: Quaternion.create(0, 0, 0, 1),
-      scale: Vector3.create(2.5, 2.5, 2.5)
+      position: gallery2Pos6,
+      rotation: Quaternion.fromEulerDegrees(gallery2Rot6.x, gallery2Rot6.y, gallery2Rot6.z),
+      scale: Vector3.create(4, 4, 4)
     },
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
-    frame: noFrame,
+    frame: classicFrame,
     color: Color3.Yellow()
   },
+  {
+    room: 2,
+    id: 8,
+    position: {
+      position: gallery2Pos7,
+      rotation: Quaternion.fromEulerDegrees(gallery2Rot7.x, gallery2Rot7.y, gallery2Rot7.z),
+      scale: Vector3.create(4, 4, 4)
+    },
+    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    artTitle: '110',
+    frame: classicFrame,
+    color: Color3.Yellow()
+  },
+  {
+    room: 2,
+    id: 9,
+    position: {
+      position: gallery2Pos8,
+      rotation: Quaternion.fromEulerDegrees(gallery2Rot8.x, gallery2Rot8.y, gallery2Rot8.z),
+      scale: Vector3.create(4, 4, 4)
+    },
+    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    artTitle: '110',
+    frame: classicFrame,
+    color: Color3.Yellow()
+  },
+  
+  
  
 ]
 
