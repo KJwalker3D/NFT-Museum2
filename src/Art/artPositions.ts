@@ -1,4 +1,5 @@
 import { Vector3 } from "@dcl/ecs-math";
+import { Quaternion } from "@dcl/sdk/math";
 
 ///// ARTWORK POSITIONS AND ROTATIONS
 

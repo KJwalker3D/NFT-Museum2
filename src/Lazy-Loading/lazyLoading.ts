@@ -1,10 +1,10 @@
 import { Vector3, Quaternion } from '@dcl/sdk/math'
 import { Entity, Transform, engine } from '@dcl/sdk/ecs'
-import { nftCollection, createPainting, NFTdata } from './nfts'
 import * as utils from '@dcl-sdk/utils'
 import { createVideoArt, videoCollection } from '../Art/videoArt'
 import { createKineticArt, kineticArtCollection } from '../Art/kineticArt'
 import { createImageArt, imageArtCollection } from '../Art/imageArt'
+import { createNFT, nftCollection } from '../Art/nft'
 
 
 export let scene1active = true
@@ -23,7 +23,7 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
   const box = engine.addEntity()
   Transform.create(box, { parent: parentPos, scale: scale })
 
-  let createdPaintings: Entity[] = []
+  let createdNfts: Entity[] = []
 
   let createdVideos: Entity[] = []
 
@@ -43,20 +43,20 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
         console.log(`ACTIVE`)
         console.log(`ENTERED ` + id)
 
-        createdPaintings = []
+        createdNfts = []
         createdVideos = []
         createdKineticArt = []
         createdImages = []
 
         for (const nft of nftCollection) {
           if (nft.room === id) {
-            const painting = createPainting(undefined, nft.id, nft.position, nft.urn, nft.artTitle, nft.frame, nft.color)
-            createdPaintings.push(painting)
+            const nftArt = createNFT(nft.position, nft.rotation, nft.scale, nft.urn, nft.color, nft.frame, nft.hoverText)
+            createdNfts.push(nftArt)
           }
         }
         for (const video of videoCollection) {
           if (video.room === id) {
-            const videoArt = await createVideoArt(video.position, video.image, video.video, video.hoverText, video.website, video.triggerScale)
+            const videoArt = await createVideoArt(video.position, video.rotation, video.scale, video.image, video.video, video.hoverText, video.website, video.triggerScale)
             createdVideos.push(videoArt)
           }
         }
@@ -77,8 +77,8 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
     },
     () => {
       console.log('LEFT')
-      for (const painting of createdPaintings) {
-        engine.removeEntity(painting)
+      for (const nft of createdNfts) {
+        engine.removeEntity(nft)
       }
       for (const videoArt of createdVideos) {
         engine.removeEntity(videoArt)
@@ -90,7 +90,7 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
         engine.removeEntity(image)
       }
 
-      createdPaintings = [] // Clear the array
+      createdNfts = [] // Clear the array
       createdVideos = []
       createdKineticArt = []
       createdImages = []

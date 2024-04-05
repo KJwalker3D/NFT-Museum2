@@ -11,7 +11,6 @@ import { Transform, engine } from '@dcl/sdk/ecs'
 import { Color3, Vector3 } from '@dcl/sdk/math'
 import { gallery1Pos1, gallery1Pos2, gallery1Pos3, gallery1Pos4, gallery1Pos5, gallery1Rot1, gallery1Rot2, gallery1Rot3, gallery1Rot4, gallery1Rot5 } from './Art/artPositions'
 import { createImageArt } from './Art/imageArt'
-import { createNFT, canvasFrame } from './Art/nft'
 import { creatAllLazyAreas } from './Lazy-Loading/lazyLoading'
 import { groundVideo, logoImage, logoURL } from './Art/artData'
 

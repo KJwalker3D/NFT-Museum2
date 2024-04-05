@@ -26,7 +26,9 @@ let videoPlayer: any = null;
 export type VideoData = {
   room: number
   id: number
-  position: TransformType
+  position: Vector3,
+  rotation: Vector3,
+  scale: Vector3,
   image: string,
   video: string,
   hoverText: string,
@@ -39,11 +41,9 @@ export const videoCollection: VideoData[] = [
   {
     room: 1,
     id: 1,
-    position: {
       position: gallery1Pos2,
-      rotation: Quaternion.fromEulerDegrees(gallery1Rot2.x, gallery1Rot2.y, gallery1Rot2.z),
-      scale: Vector3.One()
-    },
+      rotation: gallery1Rot2,
+      scale: Vector3.One(),
     image: logoImage,
     video: groundVideo,
     hoverText: 'Click',
@@ -54,7 +54,9 @@ export const videoCollection: VideoData[] = [
 ]
 
 export async function createVideoArt(
-  position: TransformType,
+  position: Vector3,
+  rotation: Vector3,
+  scale: Vector3,
   image: string,
   video: string,
   hoverText: string,
@@ -70,9 +72,9 @@ export async function createVideoArt(
   let isImage = true;
 
   Transform.createOrReplace(entity, {
-      position: Vector3.create(position.position.x, position.position.y, position.position.z),
-      rotation: Quaternion.fromEulerDegrees(position.rotation.x, position.rotation.y, position.rotation.z),
-    scale: position.scale,
+      position: position,
+      rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
+     scale: scale,
   
   });
 
@@ -118,8 +120,8 @@ export async function createVideoArt(
 
   const artTrigger = utils.addTestCube(
     {
-      position: position.position,
-      scale: position.scale,
+      position: position,
+      scale: scale,
     },
     undefined,
     undefined,

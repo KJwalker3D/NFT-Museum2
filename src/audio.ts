@@ -140,8 +140,20 @@ export function skipSong() {
     } else if (!stream.playing) {
       stream.playing = true;
       streamPlaying = true;
-    }
-  }
+    } else if (!radioPlaying) {
+      const audioStream = AudioStream.getMutable(streamEntity);
+   
+      audioStream.url = radioStation;
+      audioStream.playing = true;
+
+    } else if (radioPlaying) {
+      const audioStream = AudioStream.getMutable(streamEntity);
+   
+      audioStream.url = radioStation;
+      audioStream.playing = false;
+     }
+     }
+  
 
   export function openMixcloud() {
     openExternalUrl({url: "https://www.mixcloud.com/alberto-mart%C3%ADnez-cobos/uploads/"})
