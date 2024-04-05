@@ -98,7 +98,7 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
 
     }
   )
-  utils.triggers.enableDebugDraw(true)
+  //utils.triggers.enableDebugDraw(true)
 
   return entity
 }
