@@ -1,11 +1,11 @@
 import { Color4 } from '@dcl/sdk/math';
 import *  as  ui from 'dcl-ui-toolkit'
-import { ReactEcsRenderer } from 'vlm-dcl';
 import { setupUiInfoEngine } from '../helperFunctions';
 import { artDetailsUI } from './artHover.ui';
 import { rewardUI } from './claim.ui';
 import { playlistUI } from './playlist.ui';
 import { radioUI } from './radio.ui';
+import { ReactEcsRenderer } from '@dcl/sdk/react-ecs';
 
 
 

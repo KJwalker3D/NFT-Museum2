@@ -1,7 +1,7 @@
 import { Color4 } from '@dcl/sdk/math'
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import  *  as  ui  from  'dcl-ui-toolkit'
-import { reward } from '../claim-dropin/rewards'
+import { reward } from '../Rewards/rewards'
 
 let showRewardUI = reward
 

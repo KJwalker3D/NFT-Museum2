@@ -9,7 +9,7 @@ export let hoverVisible = false
 export let currentArtworkId = 1;
 
 let visibilityTime = 5000 // duration of the art details UI in miliseconds
-let defaultScale = Vector3.create(3.5, 0.85, 1) // art hover trigger size
+let defaultScale = Vector3.create(3.5, 0.85, 0.5) // art hover trigger size
 
 export const ArtHover = engine.defineComponent('arthover', { visible: Schemas.Boolean })
 

@@ -13,6 +13,7 @@ import { gallery1Pos1, gallery1Pos2, gallery1Pos3, gallery1Pos4, gallery1Pos5, g
 import { createImageArt } from './Art/imageArt'
 import { creatAllLazyAreas } from './Lazy-Loading/lazyLoading'
 import { groundVideo, logoImage, logoURL } from './Art/artData'
+import { createSocials } from './social'
 
 
 
@@ -25,7 +26,7 @@ createAllDoors()
 initializeKineticArt()
 creatAllLazyAreas()
 createArtHovers()
-
+createSocials()
 setupUi()
 
 // Use these functions to trigger the playlist (also toggle playlist and radio booleans in audio.ts and ui.tsx)
@@ -37,62 +38,6 @@ playRadio()
 
 engine.addSystem(changeArtHoverSystem)
 engine.addSystem(artHoverSystem)
-
-
-/*
-createImageArt(
-    logoImage,
-    gallery1Pos4,
-    gallery1Rot4,
-    Vector3.create(1, 1, 1),
-    'Click',
-    logoURL,
-    true
-);
-
-createImageArt(
-    logoImage,
-    gallery1Pos5,
-    gallery1Rot5,
-    Vector3.One(),
-    'Click',
-    logoURL,
-    true
-    )
-    */
-
-/*
-createToggleableArt(
-    gallery1Pos2,
-    gallery1Rot2,
-    Vector3.create(.005 * 1096, .005 * 720, 1),
-    logoImage,
-    groundVideo,
-    'Click',
-    logoURL,
-    Vector3.create(5, 5, 7)
-)
-
-createNFT(
-    gallery1Pos1,
-    gallery1Rot1,
-    Vector3.create(4, 4, 4),
-    urn2,
-    Color3.Yellow(),
-    canvasFrame,
-    'Click'
-)
-
-createNFT(
-    gallery1Pos3,
-    gallery1Rot3,
-    Vector3.create(4, 4, 4),
-    urn3,
-    Color3.Yellow(),
-    canvasFrame,
-    'Click'
-)
-*/
 
 
   
