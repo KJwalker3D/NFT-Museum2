@@ -1,7 +1,7 @@
 import { InputAction, Material, MeshCollider, MeshRenderer, Transform, TransformType, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
-import { gallery1Pos4, gallery1Pos5, gallery1Rot4, gallery1Rot5 } from "./artPositions";
+import { gallery1Pos4, gallery1Pos5, gallery1Rot4, gallery1Rot5, gallery2Pos4, gallery2Pos5, gallery2Rot4, gallery2Rot5 } from "./artPositions";
 import { logoImage, logoURL } from "./artData";
 import { Position } from "~system/EngineApi";
 
@@ -37,6 +37,28 @@ export const imageArtCollection: ImageData[] = [
     id: 5,
     position: gallery1Pos5,
     rotation: gallery1Rot5,
+    scale: Vector3.One(),
+    image: logoImage,
+    hoverText: 'Click',
+    url: logoURL,
+    hasAlpha: false
+  },
+  {
+    room: 2,
+    id: 9,
+    position: gallery2Pos4,
+    rotation: gallery2Rot4,
+    scale: Vector3.One(),
+    image: logoImage,
+    hoverText: 'Click',
+    url: logoURL,
+    hasAlpha: false
+  },
+  {
+    room: 2,
+    id: 10,
+    position: gallery2Pos5,
+    rotation: gallery2Rot5,
     scale: Vector3.One(),
     image: logoImage,
     hoverText: 'Click',

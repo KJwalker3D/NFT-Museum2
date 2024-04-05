@@ -15,7 +15,7 @@ import {
 import * as utils from '@dcl-sdk/utils';
 import { openExternalUrl } from '~system/RestrictedActions';
 import { Quaternion, Color3, Color4, Vector3 } from '@dcl/sdk/math';
-import { gallery1Pos2, gallery1Rot2 } from './artPositions';
+import { gallery1Pos2, gallery1Rot2, gallery2Pos10, gallery2Pos20, gallery2Pos21, gallery2Pos9, gallery2Rot10, gallery2Rot20, gallery2Rot21, gallery2Rot9 } from './artPositions';
 import { groundVideo, logoImage, logoURL } from './artData';
 import {  togglePlay } from '../audio';
 
@@ -33,7 +33,8 @@ export type VideoData = {
   video: string,
   hoverText: string,
   website: string,
-  triggerScale: Vector3
+  triggerScale: Vector3,
+  triggerPosition: Vector3,
   audio?: boolean
 }
 
@@ -49,6 +50,63 @@ export const videoCollection: VideoData[] = [
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(2, 2, 2),
+    triggerPosition: Vector3.One(),
+    audio: true
+  },
+  {
+    room: 2,
+    id: 14,
+      position: gallery2Pos9,
+      rotation: gallery2Rot9,
+      scale: Vector3.One(),
+    image: logoImage,
+    video: groundVideo,
+    hoverText: 'Click',
+    website: logoURL,
+    triggerScale: Vector3.create(2, 2, 2),
+    triggerPosition: Vector3.One(),
+    audio: true
+  },
+  {
+    room: 2,
+    id: 15,
+      position: gallery2Pos10,
+      rotation: gallery2Rot10,
+      scale: Vector3.One(),
+    image: logoImage,
+    video: groundVideo,
+    hoverText: 'Click',
+    website: logoURL,
+    triggerScale: Vector3.create(2, 2, 2),
+    triggerPosition: Vector3.One(),
+    audio: true
+  },
+  {
+    room: 2,
+    id: 25,
+      position: gallery2Pos20,
+      rotation: gallery2Rot20,
+      scale: Vector3.create(6.75, 8.65, 1),
+    image: logoImage,
+    video: groundVideo,
+    hoverText: 'Click',
+    website: logoURL,
+    triggerScale: Vector3.create(8, 6, 6),
+    triggerPosition: Vector3.create(gallery2Pos20.x, gallery2Pos20.y -1, gallery2Pos20.z -2),
+    audio: true
+  },
+  {
+    room: 2,
+    id: 26,
+      position: gallery2Pos21,
+      rotation: gallery2Rot21,
+      scale: Vector3.create(6.75, 8.65, 1),
+    image: logoImage,
+    video: groundVideo,
+    hoverText: 'Click',
+    website: logoURL,
+    triggerScale: Vector3.create(8, 6, 8),
+    triggerPosition: Vector3.create(gallery2Pos21.x, gallery2Pos21.y -1, gallery2Pos21.z +2),
     audio: true
   }
 ]
@@ -62,6 +120,7 @@ export async function createVideoArt(
   hoverText: string,
   website: string,
   triggerScale: Vector3,
+  triggerPosition: Vector3,
   audio?: boolean
 ) {
 
@@ -120,8 +179,8 @@ export async function createVideoArt(
 
   const artTrigger = utils.addTestCube(
     {
-      position: position,
-      scale: scale,
+      position: triggerPosition,
+      scale: triggerScale,
     },
     undefined,
     undefined,

@@ -44,11 +44,11 @@ export const gallery2Rot3 = Vector3.create(0, 180, 0)
 
 // West wall two artworks south to north
 export const gallery2Pos4 = Vector3.create(3.57, 10.9, 10.89)
-export const gallery2Rot4 = Vector3.create(0, 90, 0)
+export const gallery2Rot4 = Vector3.create(0, -90, 0)
 
 
 export const gallery2Pos5 = Vector3.create(3.57, 10.9, 21.09)
-export const gallery2Rot5 = Vector3.create(0, 90, 0)
+export const gallery2Rot5 = Vector3.create(0, -90, 0)
 
 
 // North wall three artworks west to east
@@ -68,10 +68,10 @@ export const gallery2Rot8 = Vector3.create(0, 0, 0)
 
 // West wall two artworks south to north
 export const gallery2Pos9 = Vector3.create(3.5, 15.43, 12)
-export const gallery2Rot9 = Vector3.create(0, 90, 0)
+export const gallery2Rot9 = Vector3.create(0, -90, 0)
 
 export const gallery2Pos10 = Vector3.create(3.5, 15.43, 20.15)
-export const gallery2Rot10 = Vector3.create(0, 90, 0)
+export const gallery2Rot10 = Vector3.create(0, -90, 0)
 
 // North wall three artworks west to east
 export const gallery2Pos11 = Vector3.create(8.44, 15.43, 23.73)
@@ -95,10 +95,18 @@ export const gallery2Rot16 = Vector3.create(0, 90, 0)
 
 //South wall three artworks east to west
 export const gallery2Pos17 = Vector3.create(21.5, 15.43, 8.34)
-export const gallery2Rot17 = Vector3.create(0, 0, 0)
+export const gallery2Rot17 = Vector3.create(0, 180, 0)
 
 export const gallery2Pos18 = Vector3.create(15, 15.43, 8.34)
-export const gallery2Rot18 = Vector3.create(0, 0, 0)
+export const gallery2Rot18 = Vector3.create(0, 180, 0)
 
 export const gallery2Pos19 = Vector3.create(8.4, 15.43, 8.34)
-export const gallery2Rot19 = Vector3.create(0, 0, 0)
+export const gallery2Rot19 = Vector3.create(0, 180, 0)
+
+
+///Exterior Video south
+export const gallery2Pos20 = Vector3.create(21.75, 13.25, 7.5)
+export const gallery2Rot20 = Vector3.create(0, 0, 0)
+
+export const gallery2Pos21 = Vector3.create(21.75, 13.25, 24.5)
+export const gallery2Rot21 = Vector3.create(0, 180, 0)
