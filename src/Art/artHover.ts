@@ -2,8 +2,8 @@ import { engine, Transform, Entity, InputAction, PointerEventType, PointerEvents
 import * as utils from '@dcl-sdk/utils';
 import { Color4, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { getRandomHexColor } from "../helperFunctions";
-import { artTitle1, artDescription1, artTitle2, artDescription2, artDescription10, artDescription11, artDescription12, artDescription13, artDescription14, artDescription15, artDescription16, artDescription17, artDescription18, artDescription19, artDescription20, artDescription21, artDescription22, artDescription23, artDescription24, artDescription3, artDescription4, artDescription5, artDescription6, artDescription7, artDescription8, artDescription9, artTitle10, artTitle11, artTitle12, artTitle13, artTitle14, artTitle15, artTitle16, artTitle17, artTitle18, artTitle19, artTitle20, artTitle21, artTitle22, artTitle23, artTitle24, artTitle3, artTitle4, artTitle5, artTitle6, artTitle7, artTitle8, artTitle9 } from "./artData";
-import { gallery1Pos1, gallery1Rot1, gallery1Pos2, gallery1Rot2, gallery1Pos3, gallery1Rot3, gallery1Pos4, gallery1Rot4, gallery1Pos5, gallery1Rot5, gallery2Pos1, gallery2Rot1, gallery2Pos2, gallery2Rot2, gallery2Pos3, gallery2Rot3, gallery2Pos4, gallery2Rot4, gallery2Pos5, gallery2Rot5, gallery2Pos6, gallery2Rot6, gallery2Pos7, gallery2Rot7, gallery2Pos8, gallery2Rot8, gallery2Pos9, gallery2Rot9, gallery2Pos10, gallery2Rot10, gallery2Pos11, gallery2Rot11, gallery2Pos12, gallery2Rot12, gallery2Pos13, gallery2Rot13, gallery2Pos14, gallery2Rot14, gallery2Pos15, gallery2Rot15, gallery2Pos16, gallery2Rot16, gallery2Pos17, gallery2Rot17, gallery2Pos18, gallery2Rot18, gallery2Pos19, gallery2Rot19 } from "./artPositions";
+import { artTitle1, artDescription1, artTitle2, artDescription2, artDescription10, artDescription11, artDescription12, artDescription13, artDescription14, artDescription15, artDescription16, artDescription17, artDescription18, artDescription19, artDescription20, artDescription21, artDescription22, artDescription23, artDescription24, artDescription3, artDescription4, artDescription5, artDescription6, artDescription7, artDescription8, artDescription9, artTitle10, artTitle11, artTitle12, artTitle13, artTitle14, artTitle15, artTitle16, artTitle17, artTitle18, artTitle19, artTitle20, artTitle21, artTitle22, artTitle23, artTitle24, artTitle3, artTitle4, artTitle5, artTitle6, artTitle7, artTitle8, artTitle9, artTitle25, artDescription25, artTitle26, artDescription26 } from "./artData";
+import { gallery1Pos1, gallery1Rot1, gallery1Pos2, gallery1Rot2, gallery1Pos3, gallery1Rot3, gallery1Pos4, gallery1Rot4, gallery1Pos5, gallery1Rot5, gallery2Pos1, gallery2Rot1, gallery2Pos2, gallery2Rot2, gallery2Pos3, gallery2Rot3, gallery2Pos4, gallery2Rot4, gallery2Pos5, gallery2Rot5, gallery2Pos6, gallery2Rot6, gallery2Pos7, gallery2Rot7, gallery2Pos8, gallery2Rot8, gallery2Pos9, gallery2Rot9, gallery2Pos10, gallery2Rot10, gallery2Pos11, gallery2Rot11, gallery2Pos12, gallery2Rot12, gallery2Pos13, gallery2Rot13, gallery2Pos14, gallery2Rot14, gallery2Pos15, gallery2Rot15, gallery2Pos16, gallery2Rot16, gallery2Pos17, gallery2Rot17, gallery2Pos18, gallery2Rot18, gallery2Pos19, gallery2Rot19, gallery2Pos20, gallery2Rot20, gallery2Pos21, gallery2Rot21 } from "./artPositions";
 
 export let hoverVisible = false
 export let currentArtworkId = 1;
@@ -20,21 +20,17 @@ export const ArtComponent = engine.defineComponent('art-id', {
 
 export function createArtID(position: Vector3, rotation: Vector3, artworkId: number, artTitle: string, artDescription: string): Entity {
     const entity = engine.addEntity()
-
-    //ArtComponent.create(entity, { artTitle, artDescription })
     addArtworkData(entity, artworkId, artTitle, artDescription, true);
     setArtworkId(entity, artworkId);
     Transform.create(entity, {
         position: Vector3.create(position.x, position.y - 1, position.z),
         rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
         scale: defaultScale
-    }) // default
+    }) 
 
     MeshRenderer.setBox(entity)
     MeshCollider.setBox(entity)
-
     Material.setPbrMaterial(entity, { albedoColor: Color4.fromHexString(getRandomHexColor()) })
-
     ArtHover.create(entity, { visible: false })
     PointerEvents.create(entity, {
         pointerEvents: [
@@ -71,7 +67,6 @@ export function changeArtHoverSystem() {
                 console.log('should work');
             }
             hoverVisible = true;
-            // Set a timeout to hide the hover after 900 milliseconds
             utils.timers.setTimeout(() => {
                 hoverVisible = false;
             }, visibilityTime);
@@ -99,12 +94,23 @@ export function changeCurrentArtworkId(newId: number) {
 }
 
 
-// Function to find artwork by ID
 export function findArtworkById(id: number): ArtworkData | undefined {
     return artworkData.find(artwork => artwork.artworkId === id);
 }
 
 
+// Create a map to store artwork IDs associated with entities
+export const ArtworkIdMap = new Map<Entity, number>();
+
+// Function to set artwork ID for an entity
+export function setArtworkId(entity: Entity, artworkId: number) {
+    ArtworkIdMap.set(entity, artworkId);
+}
+
+// Function to get artwork ID for an entity
+export function getArtworkId(entity: Entity): number | undefined {
+    return ArtworkIdMap.get(entity);
+}
 
 
 export interface ArtworkData {
@@ -122,25 +128,12 @@ export function addArtworkData(entity: Entity, artworkId: number, title: string,
     artworkData.push({ entity, artworkId, title, description, visible });
 }
 
-// Create a map to store artwork IDs associated with entities
-export const ArtworkIdMap = new Map<Entity, number>();
-
-// Function to set artwork ID for an entity
-export function setArtworkId(entity: Entity, artworkId: number) {
-    ArtworkIdMap.set(entity, artworkId);
-}
-
-// Function to get artwork ID for an entity
-export function getArtworkId(entity: Entity): number | undefined {
-    return ArtworkIdMap.get(entity);
-}
 
 export function createArtHovers() {
-    // Create entity for artwork 1
+    // Create art hover entity for each artwork
     const entityID1 = createArtID(gallery1Pos1, gallery1Rot1, 1, artTitle1, artDescription1);
     addArtworkData(entityID1, 1, artTitle1, artDescription1, true);
 
-    // Create entity for artwork 2
     const entityID2 = createArtID(gallery1Pos2, gallery1Rot2, 2, artTitle2, artDescription2);
     addArtworkData(entityID2, 2, artTitle2, artDescription2, true);
 
@@ -209,5 +202,11 @@ export function createArtHovers() {
 
     const entityID24 = createArtID(gallery2Pos19, gallery2Rot19, 24, artTitle24, artDescription24);
     addArtworkData(entityID24, 24, artTitle24, artDescription24, true);
+
+    const entityID25 = createArtID(gallery2Pos20, gallery2Rot20, 25, artTitle25, artDescription25);
+    addArtworkData(entityID25, 25, artTitle25, artDescription25, true);
+
+    const entityID26 = createArtID(gallery2Pos21, gallery2Rot21, 26, artTitle26, artDescription26);
+    addArtworkData(entityID26, 26, artTitle26, artDescription26, true);
 }
 

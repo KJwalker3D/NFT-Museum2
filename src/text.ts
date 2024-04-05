@@ -3,9 +3,25 @@
 
 /// Text Panels and Customisable Titles here:
 
-import { engine, Transform, TextShape, Font } from "@dcl/sdk/ecs"
+import { engine, Transform, TextShape, Font, GltfContainer } from "@dcl/sdk/ecs"
 import { Color3, Color4, Quaternion, Vector3 } from "@dcl/sdk/math"
 import { wordWrap } from "./helperFunctions"
+import { sceneCentrePosition } from "./structures"
+
+
+/// Default NFT Museum Texts (feel free to remove and replace with custom models or code based text like below)
+export function createDefaultTexts() {
+    const defaultTexts = engine.addEntity()
+    Transform.create(defaultTexts, {
+        position: sceneCentrePosition
+    })
+    GltfContainer.create(defaultTexts, {
+        src: 'models/museumText.glb'
+    })
+}
+
+
+
 
 // Fonts: 
 const serif = Font.F_SERIF
@@ -71,7 +87,7 @@ export function createText(
 }
 
 
-export function createTextPanels() {
+export function createCustomTextPanels() {
 
     createText(
         Vector3.create(8.99, 3.3, 4.66),
@@ -115,7 +131,7 @@ export function createTextPanels() {
     )
 }
 
-export function createTextTitles() {
+export function createCustomTextTitles() {
 
 
 
@@ -152,6 +168,24 @@ export function createTextTitles() {
     createText(
         Vector3.create(31.7, 11.2, 30.5),
         Vector3.create(0, -90, 0),
+        museumSignText,
+        museumSignFont,
+        museumSignFontSize,
+        museumSignFontColor,
+        maxWidthTitle
+    )
+    createText(
+        Vector3.create(31.7, 11.2, 1.35),
+        Vector3.create(0, -90, 0),
+        museumSignText,
+        museumSignFont,
+        museumSignFontSize,
+        museumSignFontColor,
+        maxWidthTitle
+    )
+    createText(
+        Vector3.create(31.2, 11.2, 1.54),
+        Vector3.create(0, 90, 0),
         museumSignText,
         museumSignFont,
         museumSignFontSize,

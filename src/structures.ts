@@ -1,15 +1,17 @@
-import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
+import { Animator, ColliderLayer, GltfContainer, Transform, VisibilityComponent, engine } from "@dcl/sdk/ecs";
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
+import * as utils from '@dcl-sdk/utils'
+
 
 export let sceneCentrePosition = Vector3.create(16, 0, 16)
 
 export function createBaseScene() {
-   
+
     const scene = engine.addEntity()
     Transform.create(scene, {
-      position: Vector3.create(0, 0, 0),
-      rotation: Quaternion.create(0, 0, 0, 1),
-      scale: Vector3.create(1, 1, 1)
+        position: Vector3.create(0, 0, 0),
+        rotation: Quaternion.create(0, 0, 0, 1),
+        scale: Vector3.create(1, 1, 1)
     })
 
     const museum = engine.addEntity()
@@ -21,6 +23,26 @@ export function createBaseScene() {
     })
     GltfContainer.create(museum, {
         src: 'models/museum.glb'
+    })
+
+    const museumAnimation = engine.addEntity()
+    Transform.create(museumAnimation, {
+        position: sceneCentrePosition,
+        rotation: Quaternion.fromEulerDegrees(0, 0, 0),
+        scale: Vector3.One(),
+        parent: scene
+    })
+    GltfContainer.create(museumAnimation, {
+        src: 'models/museumAnimation.glb'
+    })
+    Animator.create(museumAnimation, {
+        states: [
+            {
+                clip: 'play6',
+                playing: true,
+                loop: true
+            }
+        ]
     })
 
     return scene

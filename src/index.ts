@@ -14,7 +14,7 @@ import { createImageArt } from './Art/imageArt'
 import { creatAllLazyAreas } from './Lazy-Loading/lazyLoading'
 import { groundVideo, logoImage, logoURL } from './Art/artData'
 import { createSocials } from './social'
-import { createTextPanels, createTextTitles } from './text'
+import { createCustomTextPanels, createCustomTextTitles, createDefaultTexts } from './text'
 
 
 
@@ -28,10 +28,19 @@ initializeKineticArt()
 creatAllLazyAreas()
 createArtHovers()
 createSocials()
-createTextPanels()
 setupUi()
 
-createTextTitles()
+
+// Change the active function below to toggle between default and custom title texts
+createDefaultTexts()
+//createCustomTextTitles()
+
+// Customise in text.ts
+createCustomTextPanels()
+
+
+
+
 // Use these functions to trigger the playlist (also toggle playlist and radio booleans in audio.ts and ui.tsx)
 //shufflePlaylist(playlist)
 //playCurrentSong()
