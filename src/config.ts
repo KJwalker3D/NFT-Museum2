@@ -1,4 +1,4 @@
-
+/*
 const ENV = "prd"
 const DEBUG_FLAGS: Record<string,boolean> = {
     "local":true,
@@ -17,3 +17,4 @@ export function initConfig() {
     CONFIG.init()
     return CONFIG
 }
+*/

@@ -1,3 +1,5 @@
+
+/*
 import { Vector3 } from "@dcl/ecs-math";
 import { Quaternion } from "@dcl/sdk/math";
 
@@ -110,3 +112,4 @@ export const gallery2Rot20 = Vector3.create(0, 0, 0)
 
 export const gallery2Pos21 = Vector3.create(21.75, 13.25, 24.5)
 export const gallery2Rot21 = Vector3.create(0, 180, 0)
+*/

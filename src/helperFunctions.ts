@@ -1,3 +1,5 @@
+
+/*
 import { PBUiCanvasInformation, UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 
 let setupUiInfoEngineAlready = false
@@ -272,4 +274,4 @@ export function getRandomHexColor(): string {
     return color;
   }
   
-  
+  */

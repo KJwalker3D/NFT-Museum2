@@ -1,3 +1,4 @@
+/*
 import { Animator, ColliderLayer, GltfContainer, Transform, VisibilityComponent, engine } from "@dcl/sdk/ecs";
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import * as utils from '@dcl-sdk/utils'
@@ -47,3 +48,4 @@ export function createBaseScene() {
 
     return scene
 }
+*/

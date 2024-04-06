@@ -1,5 +1,5 @@
 //Double pane sliding door
-
+/*
 import { AudioSource, ColliderLayer, GltfContainer, PBAudioSource, Transform, engine } from "@dcl/ecs"
 import { Quaternion, Vector3 } from "@dcl/ecs-math"
 import * as utils from '@dcl-sdk/utils';
@@ -285,7 +285,7 @@ export function createAllDoors() {
         0
     )
 }
-
+*/
 
 
 

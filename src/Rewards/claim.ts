@@ -1,3 +1,4 @@
+/*
 import { getRealm } from "~system/Runtime"
 import { signedFetch } from "~system/SignedFetch"
 // import { GAME_STATE } from "../gameData"
@@ -87,3 +88,4 @@ async function processResponse(response: any, campaign_key: string) {
 	// test
 	//openUI('images/scene-thumbnail.png', 'Wearable Name')
 }
+*/

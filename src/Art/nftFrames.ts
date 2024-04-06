@@ -1,4 +1,4 @@
-
+/*
 // Styles of NFT frames
 
 import { NftFrameType } from "@dcl/sdk/ecs"
@@ -26,3 +26,4 @@ export let woodWideFrame = NftFrameType.NFT_WOOD_WIDE
 export let woodTwigsFrame = NftFrameType.NFT_WOOD_TWIGS
 export let canvasFrame = NftFrameType.NFT_CANVAS
 export let noFrame = NftFrameType.NFT_NONE
+*/

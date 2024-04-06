@@ -1,3 +1,4 @@
+/*
 import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, VisibilityComponent } from "@dcl/sdk/ecs";
 import { Vector3, Quaternion } from "@dcl/sdk/math";
 import * as utils from '@dcl-sdk/utils';
@@ -8,7 +9,6 @@ import { setCurrentFloor, currentFloor } from "./elevatorState";
 //add sound when elevator path complete
 
 /// This file relies on audio code present in audio.ts
-
 const sceneParent = engine.addEntity();
 Transform.create(sceneParent, {
     position: Vector3.create(16, 0, 16)
@@ -112,6 +112,7 @@ function moveToFloor(entity: Entity, floorIndex: number) {
 }
 */
 
+/*
 // For elevators moving together use this moveToFloor function
 function moveToFloor(entity: Entity, floorIndex: number) {
     if (isMoving) return; // Ensure that both elevators are not already moving
@@ -145,7 +146,6 @@ function moveToFloor(entity: Entity, floorIndex: number) {
         // No need to duplicate pathComplete, setCurrentFloor, console.log, and playAudioAtPlayer statements since they are common for both elevators
     });
 }
-
 
 
 function createElevatorButton(parent: Entity, position: Vector3, modelSrc: string, yOffset: number, index: number, doorsShouldOpen: boolean) {
@@ -308,3 +308,4 @@ export const ElevatorModule = {
     createElevator,
     initializeElevatorButtons,
 };
+*/

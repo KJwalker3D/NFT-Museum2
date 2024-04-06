@@ -1,3 +1,4 @@
+/*
 import { engine, Transform, Entity, InputAction, PointerEventType, PointerEvents, Schemas, inputSystem, MeshCollider, MeshRenderer, Material } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
 import { Color4, Quaternion, Vector3 } from "@dcl/sdk/math";
@@ -210,3 +211,4 @@ export function createArtHovers() {
     addArtworkData(entityID26, 26, artTitle26, artDescription26, true);
 }
 
+*/

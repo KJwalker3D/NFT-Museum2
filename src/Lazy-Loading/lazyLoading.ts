@@ -1,3 +1,4 @@
+/*
 import { Vector3, Quaternion } from '@dcl/sdk/math'
 import { Entity, Transform, engine } from '@dcl/sdk/ecs'
 import * as utils from '@dcl-sdk/utils'
@@ -153,3 +154,4 @@ export function creatAllLazyAreas() {
   createLazyArea(Vector3.create(8.5, 1.5, 16), Vector3.create(16.2, 10, 26), lazyArea, 1)
 
 }
+*/

@@ -1,3 +1,5 @@
+
+/*
 import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 import { Color4 } from "@dcl/sdk/math";
 import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
@@ -126,3 +128,4 @@ export function playlistUI() {
         return null; // Return null if Playlist is false
     }
 }
+*/

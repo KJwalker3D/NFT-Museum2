@@ -1,5 +1,5 @@
 import { Entity } from "@dcl/ecs";
-
+/*
 // Use server hosted images or paths to files in your project folder
 export let logoImage = 'https://bafkreih4ndg6qpczqw2ardbrrdoj23t43hiegbceo36hbi3vjqskcoi4yu.ipfs.nftstorage.link/'
 export let logoURL = 'https://LowPolyModelsWorld.com'
@@ -97,3 +97,4 @@ export let artDescription25 = 'Description 25'
 
 export let artTitle26 = 'Artwork 26'
 export let artDescription26 = 'Description 26'
+*/

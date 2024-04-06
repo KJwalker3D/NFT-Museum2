@@ -1,3 +1,5 @@
+/*
+
 import { Entity, InputAction, MeshCollider, PointerEventType, PointerEvents, Transform, UiCanvasInformation, engine } from "@dcl/ecs";
 import { Color4, Quaternion, Vector3 } from "@dcl/ecs-math";
 import ReactEcs, { UiEntity, Label } from "@dcl/react-ecs";
@@ -59,7 +61,9 @@ export function artDetailsUI() {
           }}
   
         >
-          {/* Label displaying Art Title */}
+          {/* Label displaying Art Title */
+            /*
+          }
           <Label key={'artTitle'}
             value={artTitleWrap}
             fontSize={16 * tieredFontScale}
@@ -77,7 +81,9 @@ export function artDetailsUI() {
             onMouseDown={toggleHover}
             
           />
-          {/* Label displaying Art Details */}
+          {/* Label displaying Art Details */
+            /*
+          }
           <Label key={'artDetails'}
             value={artDescriptionWrap}
             fontSize={10 * tieredFontScale}
@@ -102,4 +108,4 @@ export function artDetailsUI() {
     }}
   
   }
-  
+  */

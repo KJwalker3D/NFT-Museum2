@@ -1,3 +1,4 @@
+/*
 import { ColliderLayer, GltfContainer, InputAction, Transform, TransformType, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import { Vector2, openExternalUrl } from "~system/RestrictedActions";
@@ -174,3 +175,4 @@ export function createSocials() {
     )
     
 }
+*/

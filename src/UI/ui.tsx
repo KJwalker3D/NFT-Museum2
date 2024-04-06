@@ -1,3 +1,4 @@
+/*
 import { Color4 } from '@dcl/sdk/math';
 import *  as  ui from 'dcl-ui-toolkit'
 import { setupUiInfoEngine } from '../helperFunctions';
@@ -35,7 +36,7 @@ export const uiComponent = () => [
     rewardUI(rewardImage, rewardName),
     ui.render()
 ]
-
+*/
 
 
 

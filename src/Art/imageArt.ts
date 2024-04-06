@@ -1,3 +1,5 @@
+
+/*
 import { InputAction, Material, MeshCollider, MeshRenderer, Transform, TransformType, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
@@ -137,3 +139,5 @@ export function createImageArt(
 
       return entity
 }
+
+*/

@@ -1,3 +1,4 @@
+/*
 import { Color4 } from '@dcl/sdk/math'
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import  *  as  ui  from  'dcl-ui-toolkit'
@@ -78,3 +79,4 @@ export function alreadyClaimedUI(){
 		startHidden: false,
 	})
 }
+*/

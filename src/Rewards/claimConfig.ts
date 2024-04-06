@@ -1,3 +1,4 @@
+/*
 import { CONFIG } from "../config"
 
 /// Change the TEST_CAMPAIGN_ID to match your campaign (find it on the rewards server)
@@ -36,3 +37,4 @@ export const ClaimConfig = {
     },
  
 }
+*/

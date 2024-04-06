@@ -29,16 +29,14 @@
 			"default": true,
 			"position": {
 				"x": [
-					20,
-					3
+					16
 				],
 				"y": [
 					0,
 					0
 				],
 				"z": [
-					20,
-					3
+					16
 				]
 			},
 			"cameraTarget": {

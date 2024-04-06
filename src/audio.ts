@@ -1,3 +1,5 @@
+/*
+
 import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, MeshRenderer, AvatarAttach, AvatarAnchorPointType, AudioStream, VisibilityComponent } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils'
 import { openExternalUrl } from '~system/RestrictedActions'
@@ -174,3 +176,4 @@ export function skipSong() {
      audioStream.playing = true;
     }
   }
+  */

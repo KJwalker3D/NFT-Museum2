@@ -1,3 +1,4 @@
+/*
 import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 import { Color4 } from "@dcl/sdk/math";
 import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
@@ -98,3 +99,4 @@ export function radioUI() {
         return null; // Return null if Radio is false
     }
 }
+*/

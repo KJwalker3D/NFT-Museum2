@@ -1,3 +1,4 @@
+/*
 import { NftFrameType, NftShape, Transform, engine } from "@dcl/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/ecs-math";
 import { pointerEventsSystem, InputAction, MeshCollider, TransformType, Entity } from "@dcl/sdk/ecs";
@@ -280,3 +281,4 @@ export function removeNFTs(entity: Entity) {
   engine.removeEntity(entity)
 }
 
+*/

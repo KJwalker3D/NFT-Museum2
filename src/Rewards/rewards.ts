@@ -1,3 +1,4 @@
+/*
 import { ColliderLayer, engine, GltfContainer, Transform, VideoState, MeshCollider, MeshRenderer, pointerEventsSystem, PointerEvents, InputAction } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math';
 import { CONFIG } from '../config';
@@ -65,4 +66,4 @@ else {
 }
 
 }
-
+*/

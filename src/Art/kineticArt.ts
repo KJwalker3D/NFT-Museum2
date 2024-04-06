@@ -1,3 +1,5 @@
+
+/*
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, TransformType } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
@@ -137,7 +139,7 @@ export function initializeKineticArt() {
         kineticArtCircuit, // path to model
         kineticArtCircuitClip // animation clip
         )
-        */
-
-
+        
+        
 }
+        */
