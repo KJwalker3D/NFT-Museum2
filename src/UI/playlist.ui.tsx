@@ -1,9 +1,9 @@
 import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 import { Color4 } from "@dcl/sdk/math";
 import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
-import { openMixcloud, streamPlaying, togglePlay, skipSong, updateNowPlayingTitle, nowPlayingElement, playingArtist } from "../audio";
 import { tieredFontScale, tieredModalTextWrapScale, wordWrap } from "../helperFunctions";
 import { backgroundColor, pauseIcon, playIcon, skipIcon } from "./ui";
+import { nowPlayingElement, openMixcloud, playingArtist, skipSong, streamPlayingRef, togglePlaylist, updateNowPlayingTitle } from "../playlist";
 
 // Set Playlist to 'false' to hide the playlist UI:
 let Playlist: Boolean = true
@@ -69,7 +69,7 @@ export function playlistUI() {
                         uiBackground={{
                             textureMode: 'nine-slices',
                             texture: {
-                                src: streamPlaying ? pauseIcon : playIcon,
+                                src: streamPlayingRef.value ? pauseIcon : playIcon,
                             },
                             textureSlices: {
                                 top: -0.0,
@@ -78,7 +78,7 @@ export function playlistUI() {
                                 right: -0.0,
                             },
                         }}
-                        onMouseDown={togglePlay}
+                        onMouseDown={togglePlaylist}
                     />
                     <Button
                         uiTransform={{

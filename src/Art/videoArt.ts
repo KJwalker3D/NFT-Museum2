@@ -49,8 +49,8 @@ export const videoCollection: VideoData[] = [
     video: groundVideo,
     hoverText: 'Click',
     website: logoURL,
-    triggerScale: Vector3.create(2, 2, 2),
-    triggerPosition: Vector3.One(),
+    triggerScale: Vector3.create(4, 2, 10),
+    triggerPosition: Vector3.create(gallery1Pos2.x + 2, gallery1Pos2.y -1, gallery1Pos2.z),
     audio: true
   },
   {
@@ -64,7 +64,7 @@ export const videoCollection: VideoData[] = [
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(2, 2, 2),
-    triggerPosition: Vector3.One(),
+    triggerPosition: Vector3.create(gallery2Pos9.x + 2, gallery2Pos9.y -1, gallery2Pos9.z),
     audio: true
   },
   {
@@ -78,7 +78,7 @@ export const videoCollection: VideoData[] = [
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(2, 2, 2),
-    triggerPosition: Vector3.One(),
+    triggerPosition: Vector3.create(gallery2Pos10.x + 2, gallery2Pos10.y -1, gallery2Pos10.z),
     audio: true
   },
   {
@@ -121,7 +121,7 @@ export async function createVideoArt(
   website: string,
   triggerScale: Vector3,
   triggerPosition: Vector3,
-  audio?: boolean
+  audio: boolean = false
 ) {
 
   const entity = engine.addEntity();
@@ -199,6 +199,9 @@ export async function createVideoArt(
       },
     ],
     function (otherEntity) {
+      
+      if (otherEntity) {
+
       // Toggle between image and video
       const videoTexture = Material.Texture.Video({videoPlayerEntity: entity})
 
@@ -219,15 +222,18 @@ export async function createVideoArt(
           emissiveTexture: videoTexture
         })
         isImage = false
-        if (audio = true) {
+        if (audio === true) {
           togglePlay()
           console.log('toggle audio')
   
         }
       }
+    }
+
       
     },
     function (onExit) {
+      if (onExit) {
       if (!isImage) {
         Material.deleteFrom(entity)
         VideoPlayer.deleteFrom(entity)
@@ -247,17 +253,22 @@ export async function createVideoArt(
           emissiveTexture: mat
         })
         
-        if (audio = true) {
+        if (audio === true) {
           togglePlay()
           console.log('toggle audio')
         }
       }
+    }
     
   })
+  
   return entity;
 
 }
 
 export function removeVideos(entity: Entity) {
-  engine.removeEntity(entity)
+  if (entity != null) {
+
+    engine.removeEntity(entity)
+  }
 }

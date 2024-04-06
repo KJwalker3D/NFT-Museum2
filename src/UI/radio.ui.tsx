@@ -1,14 +1,18 @@
 import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 import { Color4 } from "@dcl/sdk/math";
 import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
-import { radioPlaying, togglePlay, openRadio } from "../audio";
-import { tieredFontScale } from "../helperFunctions";
+import { radioPlaying, openRadio, toggleRadio } from "../radio";
+import { tieredFontScale, wordWrap } from "../helperFunctions";
 import { backgroundColor, pauseIcon, playIcon } from "./ui";
 
 // Set Radio to 'true' to show the radio UI:
 let Radio: Boolean = false
 
-
+let radioStationName = '24 House Radio'
+let radioStationNameWrap = wordWrap(radioStationName, 10, 3)
+let textColor = Color4.White()
+let bigFont = 14
+let smallFont = 10
 
 export function radioUI() {
     if (Radio) {
@@ -24,13 +28,13 @@ export function radioUI() {
                     alignItems: 'flex-end',
                     padding: 4,
                     position: {
-                        top: '80%',
+                        top: '85%',
                         right: '0%',
                         bottom: '0%',
                         left: '95%'
                     },
                     maxWidth: 100,
-                    maxHeight: 200
+                    maxHeight: 150
                 }}
                 uiBackground={{
                     color: backgroundColor
@@ -50,9 +54,9 @@ export function radioUI() {
                             height: `${UiCanvasInformation.get(engine.RootEntity).height * 0.05}`,
                             margin: '0 0 5 0'
                         }}
-                        value={'Radio'}
-                        fontSize={14 * tieredFontScale}
-                        color={Color4.White()}
+                        value={radioStationNameWrap}
+                        fontSize={bigFont * tieredFontScale}
+                        color={textColor}
                     />
                     <Button  key={'radiotoggle'}
                         uiTransform={{
@@ -62,8 +66,8 @@ export function radioUI() {
                         }}
                         value=''
                         variant='secondary'
-                        fontSize={24 * tieredFontScale}
-                        color={Color4.White()}
+                        fontSize={bigFont * tieredFontScale}
+                        color={textColor}
                         uiBackground={{
                             textureMode: 'nine-slices',
                             texture: {
@@ -76,19 +80,19 @@ export function radioUI() {
                                 right: -0.0,
                             },
                         }}
-                        onMouseDown={togglePlay}
+                        onMouseDown={toggleRadio}
                     />
                     
                     <Button key={'radiobutton'}
                         uiTransform={{
-                            width: `${UiCanvasInformation.get(engine.RootEntity).height * 0.07}`,
+                            width: `${UiCanvasInformation.get(engine.RootEntity).height * 0.075}`,
                             height: `${UiCanvasInformation.get(engine.RootEntity).height * 0.02}`,
                             margin: '0 0 5 0'
                         }}
-                        value='24 House Radio'
+                        value={radioStationName}
                         variant='primary'
-                        fontSize={10 * tieredFontScale}
-                        color={Color4.White()}
+                        fontSize={smallFont * tieredFontScale}
+                        color={textColor}
                         onMouseDown={openRadio}
                     />
                 </UiEntity>
