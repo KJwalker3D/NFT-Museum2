@@ -21,7 +21,7 @@ export let urn5 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070
 // Change titles and descriptions here to match your art :) 
 
 export let artTitle1 = 'Artwork 1'
-export let artDescription1 = 'Description 1'
+export let artDescription1 = 'Description 1 Description 1 Description 1 Description 1'
 
 export let artTitle2 = 'Artwork 2'
 export let artDescription2 = 'Description 2'

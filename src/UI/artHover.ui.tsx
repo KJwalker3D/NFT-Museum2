@@ -6,10 +6,10 @@ import { wordWrap, tieredModalTextWrapScale, breakLines, tieredFontScale } from 
 
 
 
-const Max_Chars = 35
+const Max_Chars = 38
 const Min_Chars = 25
-const titleFontSize = 24;
-const descriptionFontSize = 16
+const titleFontSize = 22;
+const descriptionFontSize = 12
 const artHoverScale = Vector3.create(1, 1, 1) // Default size of the trigger area for art UI details
 
 const titleFont = 'serif'
@@ -37,41 +37,49 @@ export function artDetailsUI() {
           const { title, description } = artwork;
       const artTitleWrap = wordWrap(title, 12 * tieredModalTextWrapScale, 6) 
       const artDescriptionWrap = breakLines(description, Max_Chars)
+
+
       return (
         <UiEntity key={'art-main'}
           uiTransform={{
-            height: `${UiCanvasInformation.get(engine.RootEntity).height * .15}`,
+            height: `${UiCanvasInformation.get(engine.RootEntity).height * .2}`,
             width: `${UiCanvasInformation.get(engine.RootEntity).width * .5}`,
             positionType: 'absolute',
-            position: `5% 0 0 89%`,
+            position: `85% 0 0 90%`,
             flexDirection: 'column',
             alignItems: 'center',
-            maxHeight: '15%',
-            maxWidth: '500px',
-            minWidth: '500px',
+            maxHeight: '200px',
+            maxWidth: '200px',
+            minWidth: '200px',
             
   
           }}
           onMouseDown={toggleHover}
           uiBackground={{
             texture: { src: artFrame }, 
-            textureMode: "stretch", uvs: [1, 1, 1, 1]
+            textureMode: 'nine-slices', 
+            textureSlices: {
+              top: -0.0,
+              bottom: -0.0,
+              left: -0.0,
+              right: -0.0,
+          },
           }}
   
         >
           {/* Label displaying Art Title */}
           <Label key={'artTitle'}
             value={artTitleWrap}
-            fontSize={16 * tieredFontScale}
+            fontSize={titleFontSize * tieredFontScale}
             font={titleFont}
             textAlign="middle-center"
             uiTransform={{
               width: 'auto',
               height: 'auto',
-              alignSelf: 'stretch',
-              margin: `0px 0px 0px ${UiCanvasInformation.get(engine.RootEntity).width * .0075}`,
+              alignSelf: 'center',
+              margin: `25px 0px 0px ${UiCanvasInformation.get(engine.RootEntity).width * .023}`,
               positionType: 'absolute',
-              position: '-25% 0 0 0%',
+              position: '-18% 0 0 0%',
             }}
             color={titleColor}
             onMouseDown={toggleHover}
@@ -80,16 +88,16 @@ export function artDetailsUI() {
           {/* Label displaying Art Details */}
           <Label key={'artDetails'}
             value={artDescriptionWrap}
-            fontSize={10 * tieredFontScale}
+            fontSize={descriptionFontSize * tieredFontScale}
             font={descriptionFont}
-            textAlign="middle-left"
+            textAlign="middle-center"
             uiTransform={{
               width: 'auto',
               height: 'auto',
-              alignSelf: 'stretch',
-              margin: `10px 0px 0px ${UiCanvasInformation.get(engine.RootEntity).width * .0075}`,
+              alignSelf: 'center',
+              margin: `0px 0px 0px ${UiCanvasInformation.get(engine.RootEntity).width * .015}`,
               positionType: 'absolute',
-              position: '15% 0 0 0%',
+              position: '10% 0 -9% 0%',
             }}
             color={descriptionColor}
             onMouseUp={toggleHover}
