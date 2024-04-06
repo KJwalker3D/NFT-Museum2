@@ -25,23 +25,22 @@ export const imageArtCollection: ImageData[] = [
     id: 3,
       position: Vector3.create(gallery1Pos4.x, gallery1Pos4.y, gallery1Pos4.z),
       rotation: gallery1Rot4,
-      scale: Vector3.One()
-    ,
+      scale: Vector3.create(1.5, 1.5, 1.5),
     image: logoImage,
     hoverText: 'Click',
     url: logoURL,
-    hasAlpha: false
+    hasAlpha: true
   },
   {
     room: 1,
     id: 5,
     position: gallery1Pos5,
     rotation: gallery1Rot5,
-    scale: Vector3.One(),
+    scale: Vector3.create(1.5, 1.5, 1.5),
     image: logoImage,
     hoverText: 'Click',
     url: logoURL,
-    hasAlpha: false
+    hasAlpha: true
   },
   {
     room: 2,

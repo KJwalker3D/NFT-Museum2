@@ -11,7 +11,7 @@ import { Quaternion } from "@dcl/sdk/math";
 export const gallery1Pos1 = Vector3.create(2.79, 3, 9.8)
 export const gallery1Rot1 = Vector3.create(0, -90, 0)
 
-export const gallery1Pos2 = Vector3.create(2.89, 3, 16)
+export const gallery1Pos2 = Vector3.create(2.8, 3, 16)
 export const gallery1Rot2 = Vector3.create(0, -90, 0)
 
 export const gallery1Pos3 = Vector3.create(2.82, 3, 22.19)

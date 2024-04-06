@@ -28,9 +28,9 @@ export function createArtID(position: Vector3, rotation: Vector3, artworkId: num
         scale: defaultScale
     }) 
 
-    MeshRenderer.setBox(entity)
+    //MeshRenderer.setBox(entity)
     MeshCollider.setBox(entity)
-    Material.setPbrMaterial(entity, { albedoColor: Color4.fromHexString(getRandomHexColor()) })
+    //Material.setPbrMaterial(entity, { albedoColor: Color4.fromHexString(getRandomHexColor()) })
     ArtHover.create(entity, { visible: false })
     PointerEvents.create(entity, {
         pointerEvents: [
@@ -60,7 +60,7 @@ export function changeArtHoverSystem() {
         const artworkId = getArtworkId(entity);
 
         if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_HOVER_ENTER, entity)) {
-            Material.setPbrMaterial(entity, { albedoColor: Color4.fromHexString(getRandomHexColor()) });
+            //Material.setPbrMaterial(entity, { albedoColor: Color4.fromHexString(getRandomHexColor()) });
             if (artworkId !== undefined) {
                 changeCurrentArtworkId(artworkId);
                 console.log('hover?', hoverVisible);

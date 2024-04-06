@@ -44,7 +44,7 @@ export const videoCollection: VideoData[] = [
     id: 1,
       position: gallery1Pos2,
       rotation: gallery1Rot2,
-      scale: Vector3.One(),
+      scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
     image: logoImage,
     video: groundVideo,
     hoverText: 'Click',
@@ -58,7 +58,7 @@ export const videoCollection: VideoData[] = [
     id: 14,
       position: gallery2Pos9,
       rotation: gallery2Rot9,
-      scale: Vector3.One(),
+      scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
     image: logoImage,
     video: groundVideo,
     hoverText: 'Click',
@@ -72,7 +72,7 @@ export const videoCollection: VideoData[] = [
     id: 15,
       position: gallery2Pos10,
       rotation: gallery2Rot10,
-      scale: Vector3.One(),
+      scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
     image: logoImage,
     video: groundVideo,
     hoverText: 'Click',
@@ -188,7 +188,7 @@ export async function createVideoArt(
     undefined,
     true
   );
-  utils.triggers.addTrigger(
+utils.triggers.addTrigger(
     artTrigger,
     utils.NO_LAYERS,
     utils.LAYER_1,

@@ -20,18 +20,11 @@ const descriptionColor = Color4.White()
 
 const artFrame = 'images/artFrame.png'
 
-
-
-
-
-
-  // for each gallery entity => position = position.y -1, rotation = rotation, scale: scale,
-// artworkid = artwork id, arttitle = arttile, artdescription = art description
+// Set all Art Titles and Descriptions in artData.ts 
 
 
 export function artDetailsUI() {
     if (hoverVisible) {
-      //console.log('show ui')
       const artwork = findArtworkById(currentArtworkId);
       if (artwork && artwork.visible) {
           const { title, description } = artwork;
