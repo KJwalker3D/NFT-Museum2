@@ -7,7 +7,7 @@ import { backgroundColor, pauseIcon, playIcon } from "./ui";
 import { radioPlaying } from "../audio";
 
 // Set Radio to 'true' to show the radio UI:
-let Radio: Boolean = true
+let Radio: Boolean = false
 
 let radioStationName = '24 House Radio'
 let radioStationNameWrap = wordWrap(radioStationName, 10, 3)

@@ -1,15 +1,15 @@
 
 import { engine, Entity, AvatarAttach, AvatarAnchorPointType, AudioSource } from "@dcl/sdk/ecs";
 import { openExternalUrl } from '~system/RestrictedActions';
-import { streamEntity, togglePlaylist } from "./playlist";
+import { playPlaylist, streamEntity, togglePlaylist } from "./playlist";
 import { playRadio, toggleRadio } from "./radio";
 
 /// This is the Playlist, set to false to remove it
-export let Playlist: Boolean = false;
+export let Playlist: Boolean = true;
 
 
 // This is the radio, set to true to play it 
-export let radioPlaying: boolean = true;
+export let radioPlaying: boolean = false;
 
 
 // Function to set the radio state
@@ -50,7 +50,7 @@ export function togglePlay() {
     prevPlaylist = true;
     prevRadio = false;
     console.log(`playlist playing: ${streamPlaying}`);
-    Playlist = false
+    //Playlist = false
   }
   
   if (radioPlaying) {
@@ -62,7 +62,7 @@ export function togglePlay() {
   // If neither stream nor radio were playing, play the previously active source
   if (!streamPlaying && !radioPlaying) {
     if (prevPlaylist) {
-      togglePlaylist();
+      playPlaylist();
     } else if (prevRadio) {
       playRadio();
     }

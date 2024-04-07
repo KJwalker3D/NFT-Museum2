@@ -6,7 +6,7 @@ import { openExternalUrl } from "~system/RestrictedActions";
 
 
 /// This is the Playlist, set to false to remove it
-export let streamPlayingRef: { value: boolean } = { value: false }; // Set an initial value
+export let streamPlayingRef: { value: boolean } = { value: true }; // Set an initial value
 
 // Update the value of streamPlayingRef when necessary
 export function updateStreamPlaying(value: boolean) {
@@ -14,22 +14,26 @@ export function updateStreamPlaying(value: boolean) {
 }
 
 export function togglePlaylist() {
-    const stream = AudioStream.getMutable(streamEntity);
-  
-    stream.playing = !stream.playing
-    console.log('Before toggle:', streamPlayingRef.value);
-  
-    if (stream.playing) {
-        stream.playing = false;
-        streamPlayingRef.value = false;
-      //  radioPlaying = false;
-    } else {
-        stream.playing = true;
-        streamPlayingRef.value = true;
-       // radioPlaying = true;
-    }
-  }
-  
+  const stream = AudioStream.getMutable(streamEntity);
+
+  // Toggle the playing state of the audio stream
+  stream.playing = !stream.playing;
+
+  // Update the value of streamPlayingRef based on the new state
+  streamPlayingRef.value = stream.playing;
+
+  console.log('After toggle:', streamPlayingRef.value);
+}
+
+export function playPlaylist() {
+  const stream = AudioStream.getMutable(streamEntity);
+
+  stream.playing = true
+  streamPlayingRef.value = stream.playing;
+
+  console.log('After toggle:', streamPlayingRef.value);
+}
+
   export function openMixcloud() {
     openExternalUrl({url: "https://www.mixcloud.com/alberto-mart%C3%ADnez-cobos/uploads/"})
   }
