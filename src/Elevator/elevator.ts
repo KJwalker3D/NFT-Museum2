@@ -1,7 +1,7 @@
 import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, VisibilityComponent } from "@dcl/sdk/ecs";
 import { Vector3, Quaternion } from "@dcl/sdk/math";
 import * as utils from '@dcl-sdk/utils';
-import { playAudioAtPlayer } from "../audio";
+import { playAudioAtPlayer } from "../Audio/audio";
 import { setCurrentFloor, currentFloor } from "./elevatorState";
 
 
@@ -272,7 +272,7 @@ function createCallButton(position: Vector3, rotation: Vector3, floorIndex: numb
             entity: callButton,
             opts: {
                 button: InputAction.IA_POINTER,
-                hoverText: `Call Elevator`,
+                hoverText: `Call Elevator ${floors[floorIndex].name}`,
                 maxDistance: 12,
             },
         },

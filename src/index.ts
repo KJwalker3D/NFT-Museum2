@@ -8,8 +8,8 @@ import { engine } from '@dcl/sdk/ecs'
 import { creatAllLazyAreas } from './Lazy-Loading/lazyLoading'
 import { createSocials } from './social'
 import { createCustomTextPanels, createCustomTextTitles, createDefaultTexts } from './text'
-import { shufflePlaylist, playlist, playCurrentSong } from './playlist'
-import { playRadio } from './radio'
+import { shufflePlaylist, playlist, playCurrentSong } from './Audio/playlist'
+import { playRadio } from './Audio/radio'
 
 
 

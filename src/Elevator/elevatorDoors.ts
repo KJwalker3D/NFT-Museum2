@@ -1,7 +1,7 @@
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import { closeDoorOffset, createDoorEntity, createSlidingDoors, doorLmodel, doorRmodel, doorSound, openDoorOffset } from "../doors";
 import { engine, Transform, AudioSource } from "@dcl/sdk/ecs";
-import { playAudioAtPlayer } from "../audio";
+import { playAudioAtPlayer } from "../Audio/audio";
 import * as utils from '@dcl-sdk/utils';
 import { currentFloor, setCurrentFloor } from "./elevatorState";
 

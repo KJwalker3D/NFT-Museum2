@@ -1,5 +1,4 @@
 import { Vector3 } from "@dcl/ecs-math";
-import { Quaternion } from "@dcl/sdk/math";
 
 ///// ARTWORK POSITIONS AND ROTATIONS
 
@@ -17,7 +16,6 @@ export const gallery1Rot2 = Vector3.create(0, -90, 0)
 export const gallery1Pos3 = Vector3.create(2.82, 3, 22.19)
 export const gallery1Rot3 = Vector3.create(0, -90, 0)
 
-
 // South door
 export const gallery1Pos4 = Vector3.create(12.15, 3, 7.89)
 export const gallery1Rot4 = Vector3.create(0, 180, 0)
@@ -29,7 +27,9 @@ export const gallery1Rot5 = Vector3.create(0, 0, 0)
 ////////////
 
 
+
 // First floor gallery: 
+
 ////////////////
 // South wall three artworks east to west
 export const gallery2Pos1 = Vector3.create(24.15, 10.9, 8.27)
@@ -63,9 +63,9 @@ export const gallery2Rot8 = Vector3.create(0, 0, 0)
 
 
 
-///////////
-// Mezzanine level
+// Mezzanine level:
 
+///////////
 // West wall two artworks south to north
 export const gallery2Pos9 = Vector3.create(3.5, 15.43, 12)
 export const gallery2Rot9 = Vector3.create(0, -90, 0)
@@ -104,9 +104,20 @@ export const gallery2Pos19 = Vector3.create(8.4, 15.43, 8.34)
 export const gallery2Rot19 = Vector3.create(0, 180, 0)
 
 
-///Exterior Video south
+/// Exterior Video south
 export const gallery2Pos20 = Vector3.create(21.75, 13.25, 7.5)
 export const gallery2Rot20 = Vector3.create(0, 0, 0)
 
+/// Exterior Video north
 export const gallery2Pos21 = Vector3.create(21.75, 13.25, 24.5)
 export const gallery2Rot21 = Vector3.create(0, 180, 0)
+
+
+
+
+/// 3D Art / Animated Sculptures: 
+export const gallery2Pos22 = Vector3.create(21.65, 10.5, 16)
+export const gallery2Rot22 = Vector3.create(0, 0, 0)
+
+export const gallery2Pos23 = Vector3.create(6.5, 9.72, 16)
+export const gallery2Rot23 = Vector3.create(0, 0, 0)

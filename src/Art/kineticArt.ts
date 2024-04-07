@@ -1,7 +1,8 @@
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, TransformType } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
-import { playAudioAtPlayer, togglePlay } from "../audio";
+import { playAudioAtPlayer, togglePlay } from "../Audio/audio";
+import { gallery2Pos22, gallery2Pos23, gallery2Rot22, gallery2Rot23 } from "./artPositions";
 
 const kineticArtCircles = 'models/kineticArt-threeCircles.glb';
 const kineticArtCirclesClip = 'play2'
@@ -25,8 +26,8 @@ export type KineticData = {
         room: 2,
         id: 5, 
         position: {
-            position: Vector3.create(21.65, 10.5, 16),
-            rotation: Quaternion.fromEulerDegrees(0, 0, 0),
+            position: gallery2Pos22,
+            rotation: Quaternion.fromEulerDegrees(gallery2Rot22.x, gallery2Rot22.y, gallery2Rot22.z),
             scale: Vector3.create(0.5, 0.5, 0.5), //scale
         },
         triggerPosition: Vector3.create(0, 0, 0),
@@ -38,8 +39,8 @@ export type KineticData = {
         room: 2,
         id: 6,
         position: {
-            position: Vector3.create(6.5, 9.72, 16), // art position
-            rotation: Quaternion.fromEulerDegrees(0, 0, 0), // rotation
+            position: gallery2Pos23, // art position
+            rotation: Quaternion.fromEulerDegrees(gallery2Rot23.x, gallery2Rot23.y, gallery2Rot23.z), // rotation
             scale: Vector3.create(0.8, 0.8, 0.8) 
         },
         triggerPosition: Vector3.create(2, 0, 0),
@@ -53,8 +54,6 @@ export type KineticData = {
 
 export function createKineticArt( 
     position: TransformType,
-    //rotation: Vector3,
-    //scale: Vector3,
     triggerPosition: Vector3,
     triggerScale: Vector3,
     modelPath: string,

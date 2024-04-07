@@ -4,7 +4,7 @@ import { AudioSource, ColliderLayer, GltfContainer, PBAudioSource, Transform, en
 import { Quaternion, Vector3 } from "@dcl/ecs-math"
 import * as utils from '@dcl-sdk/utils';
 import { Entity } from "@dcl/sdk/ecs";
-import { playAudioAtPlayer } from "./audio";
+import { playAudioAtPlayer } from "./Audio/audio";
 
 
 // Audio for the sliding doors depends on audio.ts

@@ -12,6 +12,22 @@ Radio station: 24 House Radio https://onlineradiobox.com/ro/24house/?cs=ro.24hou
 Playlist: Featuring music by DJ Red Albert, performed in DCL and available with the Red Albert Radio Smart Wearable 
 
 
+
+In artData.ts
+
+// Make artNumbers visible to help with placing and naming items in the gallery
+const artNumbers = engine.addEntity()
+Transform.create(artNumbers, { position: sceneCentrePosition })
+GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
+
+
+
+
+
+
+
+
+
 All of the audios are controlled by the functions in audio.ts so:
 
 import { playAudioAtPlayer } from "./audio";

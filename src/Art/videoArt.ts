@@ -17,7 +17,7 @@ import { openExternalUrl } from '~system/RestrictedActions';
 import { Quaternion, Color3, Color4, Vector3 } from '@dcl/sdk/math';
 import { gallery1Pos2, gallery1Rot2, gallery2Pos10, gallery2Pos20, gallery2Pos21, gallery2Pos9, gallery2Rot10, gallery2Rot20, gallery2Rot21, gallery2Rot9 } from './artPositions';
 import { groundVideo, logoImage, logoURL } from './artData';
-import {  togglePlay } from '../audio';
+import {  togglePlay } from '../Audio/audio';
 
 let videoPlayer: any = null;
 

@@ -1,4 +1,5 @@
-import { Entity } from "@dcl/ecs";
+import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
+import { sceneCentrePosition } from "../structures";
 
 // Use server hosted images or paths to files in your project folder
 export let logoImage = 'https://bafkreih4ndg6qpczqw2ardbrrdoj23t43hiegbceo36hbi3vjqskcoi4yu.ipfs.nftstorage.link/'
@@ -14,10 +15,18 @@ export let urn4 = 'urn:decentraland:ethereum:erc721:0xecf7ef42b57ee37a959bf50718
 export let urn5 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:1540722'
 
 
+// Make artNumbers visible to help with placing and naming items in the gallery :)
+const artNumbers = engine.addEntity()
+Transform.create(artNumbers, { position: sceneCentrePosition })
+GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
+
+
+
+
 
 /// Artwork data like images / videos / urls in here for ease of access
 
-// The artwork id matches the title and description no.
+// The artwork id matches the title and description number
 // Change titles and descriptions here to match your art :) 
 
 export let artTitle1 = 'Artwork 1'

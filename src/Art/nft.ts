@@ -225,15 +225,11 @@ export const nftCollection: NFTdata[] = [
     color: Color3.Yellow(),
     hoverText: 'Click'
   },
-
-
-
-
-
-
-
-
 ]
+
+
+
+
 export function createNFT(
   position: Vector3,
   rotation: Vector3,
@@ -279,4 +275,6 @@ export function createNFT(
 export function removeNFTs(entity: Entity) {
   engine.removeEntity(entity)
 }
+
+
 
