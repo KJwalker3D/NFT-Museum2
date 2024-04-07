@@ -5,11 +5,11 @@ import { playPlaylist, streamEntity, togglePlaylist } from "./playlist";
 import { playRadio, toggleRadio } from "./radio";
 
 /// This is the Playlist, set to false to remove it
-export let Playlist: Boolean = true;
+export let Playlist: Boolean = false;
 
 
 // This is the radio, set to true to play it 
-export let radioPlaying: boolean = false;
+export let radioPlaying: boolean = true;
 
 
 // Function to set the radio state
