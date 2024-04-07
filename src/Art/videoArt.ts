@@ -21,6 +21,12 @@ import {  togglePlay } from '../audio';
 
 let videoPlayer: any = null;
 
+let verticalVideo = 'https://player.vimeo.com/external/931742718.m3u8?s=efbe1b55804e4ba10b2e8c17e241d1809d324f36&logging=false'
+let verticalVideoPlaceholder = 'https://bafkreicuvnybcylixwtpxslw4cvwmtwg566z2d6cinxshqbg25lhojkqtq.ipfs.nftstorage.link/' // image placeholder
+let horizontalVideoMVFW23 = 'https://player.vimeo.com/external/931744777.m3u8?s=2a274c3898d4aa78fdb7cddf0a0329d25693b056&logging=false'
+let horizontalVideoMVFW23placeholder = 'https://bafybeigpiynyk563o5rd4wzz62lx7gkncdrnozhzit4l7s4maxc5mffgbm.ipfs.nftstorage.link/' // image placeholder
+let horizontalVideoLPMxSOA = 'https://player.vimeo.com/external/711197011.m3u8?s=1fe29a85f3c1455580a070eee4fb93abcb2ed5a2&logging=false'
+let horizontalVideoLPMxSOAplaceholder = 'https://bafkreigpeshmzddtlhw5tpxa55z3lfv7yjyzpkoj3s7vc5wxyuy367o5ji.ipfs.nftstorage.link/' // image placeholder
 
 
 export type VideoData = {
@@ -45,8 +51,8 @@ export const videoCollection: VideoData[] = [
       position: gallery1Pos2,
       rotation: gallery1Rot2,
       scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
-    image: logoImage,
-    video: groundVideo,
+    image: horizontalVideoMVFW23placeholder,
+    video: horizontalVideoMVFW23,
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(4, 2, 10),
@@ -59,8 +65,8 @@ export const videoCollection: VideoData[] = [
       position: gallery2Pos9,
       rotation: gallery2Rot9,
       scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
-    image: logoImage,
-    video: groundVideo,
+    image: horizontalVideoLPMxSOAplaceholder,
+    video: horizontalVideoLPMxSOA,
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(2, 2, 2),
@@ -73,8 +79,8 @@ export const videoCollection: VideoData[] = [
       position: gallery2Pos10,
       rotation: gallery2Rot10,
       scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
-    image: logoImage,
-    video: groundVideo,
+    image: horizontalVideoMVFW23placeholder,
+    video: horizontalVideoMVFW23,
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(2, 2, 2),
@@ -87,8 +93,8 @@ export const videoCollection: VideoData[] = [
       position: gallery2Pos20,
       rotation: gallery2Rot20,
       scale: Vector3.create(6.75, 8.65, 1),
-    image: logoImage,
-    video: groundVideo,
+    image: verticalVideoPlaceholder,
+    video: verticalVideo,
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(8, 6, 6),
@@ -101,8 +107,8 @@ export const videoCollection: VideoData[] = [
       position: gallery2Pos21,
       rotation: gallery2Rot21,
       scale: Vector3.create(6.75, 8.65, 1),
-    image: logoImage,
-    video: groundVideo,
+    image: verticalVideoPlaceholder,
+    video: verticalVideo,
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(8, 6, 8),
@@ -121,7 +127,7 @@ export async function createVideoArt(
   website: string,
   triggerScale: Vector3,
   triggerPosition: Vector3,
-  audio: boolean = false
+  audio: boolean = true
 ) {
 
   const entity = engine.addEntity();
@@ -188,7 +194,7 @@ export async function createVideoArt(
     undefined,
     true
   );
-utils.triggers.addTrigger(
+  utils.triggers.addTrigger(
     artTrigger,
     utils.NO_LAYERS,
     utils.LAYER_1,
@@ -199,68 +205,61 @@ utils.triggers.addTrigger(
       },
     ],
     function (otherEntity) {
-      
       if (otherEntity) {
-
-      // Toggle between image and video
-      const videoTexture = Material.Texture.Video({videoPlayerEntity: entity})
-
-      if (isImage) {
-        VideoPlayer.createOrReplace(entity, {
-          src: video,
-          playing: true,
-          loop: true
-        })
-        Material.deleteFrom(entity)
-        Material.setPbrMaterial(entity, {
-          texture: videoTexture,
-          roughness: 1,
-          specularIntensity: 0,
-          metallic: 0,
-          emissiveColor: Color3.White(),
-          emissiveIntensity: 1,
-          emissiveTexture: videoTexture
-        })
-        isImage = false
-        if (audio === true) {
-          togglePlay()
-          console.log('toggle audio')
-  
+        // Toggle between image and video
+        const videoTexture = Material.Texture.Video({ videoPlayerEntity: entity });
+        if (isImage) {
+          VideoPlayer.createOrReplace(entity, {
+            src: video,
+            playing: true,
+            loop: true,
+          });
+          Material.deleteFrom(entity);
+          Material.setPbrMaterial(entity, {
+            texture: videoTexture,
+            roughness: 1,
+            specularIntensity: 0,
+            metallic: 0,
+            emissiveColor: Color3.White(),
+            emissiveIntensity: 1,
+            emissiveTexture: videoTexture,
+          });
+          isImage = false;
+          if (audio === true) {
+            togglePlay(); // Toggle audio play state
+          }
         }
       }
-    }
-
-      
     },
     function (onExit) {
       if (onExit) {
-      if (!isImage) {
-        Material.deleteFrom(entity)
-        VideoPlayer.deleteFrom(entity)
-        let mat = Material.Texture.Common({
-          src: image
-        });
-        isImage = true
-        Material.setPbrMaterial(entity, {
-          texture: Material.Texture.Common({
-            src: image
-          }),
-          roughness: 1,
-          specularIntensity: 0,
-          metallic: 0,
-          emissiveColor: Color3.White(),
-          emissiveIntensity: 1,
-          emissiveTexture: mat
-        })
-        
-        if (audio === true) {
-          togglePlay()
-          console.log('toggle audio')
+        if (!isImage) {
+          Material.deleteFrom(entity);
+          VideoPlayer.deleteFrom(entity);
+          let mat = Material.Texture.Common({
+            src: image,
+          });
+          isImage = true;
+          Material.setPbrMaterial(entity, {
+            texture: Material.Texture.Common({
+              src: image,
+            }),
+            roughness: 1,
+            specularIntensity: 0,
+            metallic: 0,
+            emissiveColor: Color3.White(),
+            emissiveIntensity: 1,
+            emissiveTexture: mat,
+          });
+          if (audio === true) {
+            togglePlay(); // Toggle audio play state
+          }
         }
       }
     }
-    
-  })
+  );
+  
+  
   
   return entity;
 

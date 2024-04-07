@@ -3,10 +3,10 @@ import { Color4 } from "@dcl/sdk/math";
 import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
 import { tieredFontScale, tieredModalTextWrapScale, wordWrap } from "../helperFunctions";
 import { backgroundColor, pauseIcon, playIcon, skipIcon } from "./ui";
-import { nowPlayingElement, openMixcloud, playingArtist, skipSong, streamPlayingRef, togglePlaylist, updateNowPlayingTitle } from "../playlist";
+import { nowPlayingElement, openMixcloud, playingArtist, skipSong, togglePlaylist, updateNowPlayingTitle } from "../playlist";
+import { Playlist } from "../audio";
 
 // Set Playlist to 'false' to hide the playlist UI:
-let Playlist: Boolean = false;
 
 let songData = 'RED ALBERT Playlist';
 let songDataWrap = wordWrap(songData, 8 * tieredModalTextWrapScale, 6);
@@ -75,7 +75,7 @@ export function playlistUI() {
                         uiBackground={{
                             textureMode: 'nine-slices',
                             texture: {
-                                src: streamPlayingRef.value ? pauseIcon : playIcon,
+                                src: Playlist ? pauseIcon : playIcon,
                             },
                             textureSlices: {
                                 top: -0.0,

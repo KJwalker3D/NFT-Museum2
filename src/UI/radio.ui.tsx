@@ -1,9 +1,10 @@
 import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 import { Color4 } from "@dcl/sdk/math";
 import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
-import { radioPlaying, openRadio, toggleRadio } from "../radio";
+import { openRadio, toggleRadio } from "../radio";
 import { tieredFontScale, wordWrap } from "../helperFunctions";
 import { backgroundColor, pauseIcon, playIcon } from "./ui";
+import { radioPlaying } from "../audio";
 
 // Set Radio to 'true' to show the radio UI:
 let Radio: Boolean = true

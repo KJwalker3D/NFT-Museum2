@@ -16,6 +16,7 @@ export function updateStreamPlaying(value: boolean) {
 export function togglePlaylist() {
     const stream = AudioStream.getMutable(streamEntity);
   
+    stream.playing = !stream.playing
     console.log('Before toggle:', streamPlayingRef.value);
   
     if (stream.playing) {
