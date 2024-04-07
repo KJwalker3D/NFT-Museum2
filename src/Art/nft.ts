@@ -2,7 +2,7 @@ import { NftFrameType, NftShape, Transform, engine } from "@dcl/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/ecs-math";
 import { pointerEventsSystem, InputAction, MeshCollider, TransformType, Entity } from "@dcl/sdk/ecs";
 import { openNftDialog } from "~system/RestrictedActions";
-import { gallery1Pos1, gallery1Rot1, gallery1Pos3, gallery1Rot3, gallery2Pos1, gallery2Rot1, gallery2Pos2, gallery2Rot2, gallery2Pos3, gallery2Rot3, gallery2Pos6, gallery2Rot6, gallery2Pos7, gallery2Rot7, gallery2Pos8, gallery2Rot8, gallery2Rot11, gallery2Pos11, gallery2Pos12, gallery2Rot12, gallery2Pos13, gallery2Rot13, gallery2Pos14, gallery2Rot14, gallery2Pos15, gallery2Rot15, gallery2Pos16, gallery2Rot16, gallery2Pos17, gallery2Rot17, gallery2Pos18, gallery2Rot18, gallery2Pos19, gallery2Rot19 } from "./artPositions";
+import { artPos1, artRot1, artPos3, artRot3, artPos6, artRot6, artPos7, artRot7, artPos8, artRot8, artPos11, artRot11, artPos12, artRot12, artPos13, artPos16, artRot16, artPos17, artRot17, artPos18, artRot18, artPos19, artRot19, artPos20, artRot20, artPos21, artRot21, artPos22, artRot22, artPos23, artRot23, artPos24, artRot24, artRot13 } from "./artPositions";
 import { canvasFrame, noFrame, classicFrame } from "./nftFrames";
 
 
@@ -23,8 +23,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 1,
     id: 1,
-    position: gallery1Pos1,
-    rotation: gallery1Rot1,
+    position: artPos1,
+    rotation: artRot1,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: 'adkfj',
@@ -34,9 +34,9 @@ export const nftCollection: NFTdata[] = [
   },
   {
     room: 1,
-    id: 2,
-    position: gallery1Pos3,
-    rotation: gallery1Rot3,
+    id: 3,
+    position: artPos3,
+    rotation: artRot3,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: 'kdjfh',
@@ -47,9 +47,9 @@ export const nftCollection: NFTdata[] = [
 
   {
     room: 2,
-    id: 4,
-    position: gallery2Pos1,
-    rotation: gallery2Rot1,
+    id: 6,
+    position: artPos6,
+    rotation: artRot6,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '100',
@@ -59,9 +59,9 @@ export const nftCollection: NFTdata[] = [
   },
   {
     room: 2,
-    id: 5,
-    position: gallery2Pos2,
-    rotation: gallery2Rot2,
+    id: 7,
+    position: artPos7,
+    rotation: artRot7,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '101',
@@ -71,9 +71,9 @@ export const nftCollection: NFTdata[] = [
   },
   {
     room: 2,
-    id: 6,
-    position: gallery2Pos3,
-    rotation: gallery2Rot3,
+    id: 8,
+    position: artPos8,
+    rotation: artRot8,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '102',
@@ -83,9 +83,9 @@ export const nftCollection: NFTdata[] = [
   },
   {
     room: 2,
-    id: 7,
-    position: gallery2Pos6,
-    rotation: gallery2Rot6,
+    id: 11,
+    position: artPos11,
+    rotation: artRot11,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -95,9 +95,9 @@ export const nftCollection: NFTdata[] = [
   },
   {
     room: 2,
-    id: 8,
-    position: gallery2Pos7,
-    rotation: gallery2Rot7,
+    id: 12,
+    position: artPos12,
+    rotation: artRot12,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -107,9 +107,9 @@ export const nftCollection: NFTdata[] = [
   },
   {
     room: 2,
-    id: 9,
-    position: gallery2Pos8,
-    rotation: gallery2Rot8,
+    id: 13,
+    position: artPos13,
+    rotation: artRot13,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -120,8 +120,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 16,
-    position: gallery2Pos11,
-    rotation: gallery2Rot11,
+    position: artPos16,
+    rotation: artRot16,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -132,8 +132,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 17,
-    position: gallery2Pos12,
-    rotation: gallery2Rot12,
+    position: artPos17,
+    rotation: artRot17,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -144,8 +144,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 18,
-    position: gallery2Pos13,
-    rotation: gallery2Rot13,
+    position: artPos18,
+    rotation: artRot18,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -156,8 +156,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 19,
-    position: gallery2Pos14,
-    rotation: gallery2Rot14,
+    position: artPos19,
+    rotation: artRot19,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -168,8 +168,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 20,
-    position: gallery2Pos15,
-    rotation: gallery2Rot15,
+    position: artPos20,
+    rotation: artRot20,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -180,8 +180,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 21,
-    position: gallery2Pos16,
-    rotation: gallery2Rot16,
+    position: artPos21,
+    rotation: artRot21,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -192,8 +192,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 22,
-    position: gallery2Pos17,
-    rotation: gallery2Rot17,
+    position: artPos22,
+    rotation: artRot22,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -204,8 +204,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 23,
-    position: gallery2Pos18,
-    rotation: gallery2Rot18,
+    position: artPos23,
+    rotation: artRot23,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',
@@ -216,8 +216,8 @@ export const nftCollection: NFTdata[] = [
   {
     room: 2,
     id: 24,
-    position: gallery2Pos19,
-    rotation: gallery2Rot19,
+    position: artPos24,
+    rotation: artRot24,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
     artTitle: '110',

@@ -106,3 +106,15 @@ export let artDescription25 = 'Description 25'
 
 export let artTitle26 = 'Artwork 26'
 export let artDescription26 = 'Description 26'
+
+export let artTitleA = 'Artwork A'
+export let artDescriptionA = 'Description A'
+
+export let artTitleB = 'Artwork B'
+export let artDescriptionB = 'Description B'
+
+export let artTitleC = 'Artwork C'
+export let artDescriptionC = 'Description C'
+
+export let artTitleD = 'Artwork D'
+export let artDescriptionD = 'Description D'

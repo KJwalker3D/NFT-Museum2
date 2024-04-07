@@ -6,7 +6,7 @@ import { ClaimConfig } from "./claimConfig";
 import * as utils from '@dcl-sdk/utils'
 import { rewardUI } from '../UI/reward.ui';
 
-
+// Lazy Loading: room: 3
 let dispenserModel = 'models/dispenser.glb'
 let dispenserPosition = Vector3.create(14.55, 19.53, 16)
 let dispenserScale = Vector3.create(0.8, 0.8, 0.8)

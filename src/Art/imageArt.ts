@@ -1,7 +1,7 @@
 import { InputAction, Material, MeshCollider, MeshRenderer, Transform, TransformType, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
-import { gallery1Pos4, gallery1Pos5, gallery1Rot4, gallery1Rot5, gallery2Pos4, gallery2Pos5, gallery2Rot4, gallery2Rot5 } from "./artPositions";
+import { artPos10, artPos3, artPos4, artPos5, artPos9, artRot10, artRot3, artRot4, artRot5, artRot9 } from "./artPositions";
 import { logoImage, logoURL } from "./artData";
 import { Position } from "~system/EngineApi";
 
@@ -26,9 +26,9 @@ export type ImageData = {
 export const imageArtCollection: ImageData[] = [
   {
     room: 1, 
-    id: 3,
-      position: Vector3.create(gallery1Pos4.x, gallery1Pos4.y, gallery1Pos4.z),
-      rotation: gallery1Rot4,
+    id: 4,
+      position: artPos4,
+      rotation: artRot4,
       scale: Vector3.create(1.5, 1.5, 1.5),
     image: logoImage,
     hoverText: 'Click',
@@ -38,8 +38,8 @@ export const imageArtCollection: ImageData[] = [
   {
     room: 1,
     id: 5,
-    position: gallery1Pos5,
-    rotation: gallery1Rot5,
+    position: artPos5,
+    rotation: artRot5,
     scale: Vector3.create(1.5, 1.5, 1.5),
     image: logoImage,
     hoverText: 'Click',
@@ -49,8 +49,8 @@ export const imageArtCollection: ImageData[] = [
   {
     room: 2,
     id: 9,
-    position: gallery2Pos4,
-    rotation: gallery2Rot4,
+    position: artPos9,
+    rotation: artRot9,
     scale: Vector3.create(1, 2, 1),
     image: verticalImageAR,
     hoverText: 'Click',
@@ -60,8 +60,8 @@ export const imageArtCollection: ImageData[] = [
   {
     room: 2,
     id: 10,
-    position: gallery2Pos5,
-    rotation: gallery2Rot5,
+    position: artPos10,
+    rotation: artRot10,
     scale: Vector3.create(1, 2, 1),
     image: verticalImageRender,
     hoverText: 'Click',
