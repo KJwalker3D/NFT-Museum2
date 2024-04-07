@@ -41,8 +41,8 @@ export function artDetailsUI() {
             position: `85% 0 0 90%`,
             flexDirection: 'column',
             alignItems: 'center',
-            maxHeight: '200px',
-            maxWidth: '200px',
+            maxHeight: `${UiCanvasInformation.get(engine.RootEntity).height * .2}`,
+            maxWidth: `${UiCanvasInformation.get(engine.RootEntity).width * .1}`,
             minWidth: '200px',
             
   
@@ -70,7 +70,7 @@ export function artDetailsUI() {
               width: 'auto',
               height: 'auto',
               alignSelf: 'center',
-              margin: `25px 0px 0px ${UiCanvasInformation.get(engine.RootEntity).width * .023}`,
+              margin: `15% 0px 0px ${UiCanvasInformation.get(engine.RootEntity).width * .023}`,
               positionType: 'absolute',
               position: '-18% 0 0 0%',
             }}
