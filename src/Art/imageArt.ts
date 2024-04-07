@@ -2,8 +2,7 @@ import { InputAction, Material, MeshCollider, MeshRenderer, Transform, Transform
 import { Color3, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
 import { artPos10, artPos3, artPos4, artPos5, artPos9, artRot10, artRot3, artRot4, artRot5, artRot9 } from "./artPositions";
-import { logoImage, logoURL } from "./artData";
-import { Position } from "~system/EngineApi";
+import { linktreeURL, logoImage, websiteURL } from "./artData";
 
 // For static images that aren't loaded in as NFTs
 
@@ -32,7 +31,7 @@ export const imageArtCollection: ImageData[] = [
       scale: Vector3.create(1.5, 1.5, 1.5),
     image: logoImage,
     hoverText: 'Click',
-    url: logoURL,
+    url: linktreeURL,
     hasAlpha: true
   },
   {
@@ -43,7 +42,7 @@ export const imageArtCollection: ImageData[] = [
     scale: Vector3.create(1.5, 1.5, 1.5),
     image: logoImage,
     hoverText: 'Click',
-    url: logoURL,
+    url: linktreeURL,
     hasAlpha: true
   },
   {
@@ -54,7 +53,7 @@ export const imageArtCollection: ImageData[] = [
     scale: Vector3.create(1, 2, 1),
     image: verticalImageAR,
     hoverText: 'Click',
-    url: logoURL,
+    url: websiteURL,
     hasAlpha: false
   },
   {
@@ -65,7 +64,7 @@ export const imageArtCollection: ImageData[] = [
     scale: Vector3.create(1, 2, 1),
     image: verticalImageRender,
     hoverText: 'Click',
-    url: logoURL,
+    url: websiteURL,
     hasAlpha: false
   }
 ]

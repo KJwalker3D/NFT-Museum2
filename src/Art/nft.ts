@@ -4,16 +4,16 @@ import { pointerEventsSystem, InputAction, MeshCollider, TransformType, Entity }
 import { openNftDialog } from "~system/RestrictedActions";
 import { artPos1, artRot1, artPos3, artRot3, artPos6, artRot6, artPos7, artRot7, artPos8, artRot8, artPos11, artRot11, artPos12, artRot12, artPos13, artPos16, artRot16, artPos17, artRot17, artPos18, artRot18, artPos19, artRot19, artPos20, artRot20, artPos21, artRot21, artPos22, artRot22, artPos23, artRot23, artPos24, artRot24, artRot13 } from "./artPositions";
 import { canvasFrame, noFrame, classicFrame } from "./nftFrames";
+import { artTitle1, artTitle11, artTitle12, artTitle13, artTitle16, artTitle17, artTitle18, artTitle19, artTitle20, artTitle21, artTitle22, artTitle23, artTitle24, artTitle3, artTitle6, artTitle7, artTitle8 } from "./artData";
 
 
 export type NFTdata = {
-  room: number
+  room: number // location >> room 1 = ground floor; room 2 = first floor + mezzanine; room 3: rooftop area
   id: number
   position: Vector3
   rotation: Vector3,
   scale: Vector3,
   urn: string
-  artTitle: string
   frame: NftFrameType,
   color: Color3
   hoverText: string
@@ -27,7 +27,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot1,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: 'adkfj',
     frame: canvasFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -39,7 +38,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot3,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: 'kdjfh',
     frame: canvasFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -52,7 +50,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot6,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '100',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -64,7 +61,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot7,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '101',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -76,7 +72,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot8,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '102',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -88,7 +83,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot11,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -100,7 +94,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot12,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -112,7 +105,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot13,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -124,7 +116,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot16,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -136,7 +127,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot17,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -148,7 +138,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot18,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -160,7 +149,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot19,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -172,7 +160,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot20,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -184,7 +171,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot21,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -196,7 +182,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot22,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -208,7 +193,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot23,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -220,7 +204,6 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot24,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
-    artTitle: '110',
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'

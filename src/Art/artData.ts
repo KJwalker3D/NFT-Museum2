@@ -3,10 +3,9 @@ import { sceneCentrePosition } from "../structures";
 
 // Use server hosted images or paths to files in your project folder
 export let logoImage = 'https://bafkreih4ndg6qpczqw2ardbrrdoj23t43hiegbceo36hbi3vjqskcoi4yu.ipfs.nftstorage.link/'
-export let logoURL = 'https://LowPolyModelsWorld.com'
 
-export let groundVideo = 'https://player.vimeo.com/external/711197011.m3u8?s=1fe29a85f3c1455580a070eee4fb93abcb2ed5a2&logging=false'
-export let groundVidURL = 'https://LowPolyModelsWorld.com'
+export let linktreeURL = 'https://linktr.ee/lowpolymodelsworld'
+export let websiteURL = 'https://LowPolyModelsWorld.com'
 
 export let urn1 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536'
 export let urn2 = 'urn:decentraland:ethereum:erc721:0xd73be539d6b2076bab83ca6ba62dfe189abc6bbe:64359'

@@ -1,17 +1,21 @@
 import { engine, Transform, Entity, InputAction, PointerEventType, PointerEvents, Schemas, inputSystem, MeshCollider, MeshRenderer, Material } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
-import { Color4, Quaternion, Vector3 } from "@dcl/sdk/math";
+import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import { getRandomHexColor } from "../helperFunctions";
 import { artTitle1, artDescription1, artTitle2, artDescription2, artDescription10, artDescription11, artDescription12, artDescription13, artDescription14, artDescription15, artDescription16, artDescription17, artDescription18, artDescription19, artDescription20, artDescription21, artDescription22, artDescription23, artDescription24, artDescription3, artDescription4, artDescription5, artDescription6, artDescription7, artDescription8, artDescription9, artTitle10, artTitle11, artTitle12, artTitle13, artTitle14, artTitle15, artTitle16, artTitle17, artTitle18, artTitle19, artTitle20, artTitle21, artTitle22, artTitle23, artTitle24, artTitle3, artTitle4, artTitle5, artTitle6, artTitle7, artTitle8, artTitle9, artTitle25, artDescription25, artTitle26, artDescription26, artTitleA, artDescriptionA, artTitleB, artDescriptionB, artTitleC, artDescriptionC, artTitleD, artDescriptionD } from "./artData";
 import { artPos1, artRot1, artPos2, artRot2, artPos3, artRot3, artPos4, artRot4, artPos5, artRot5, artPos6, artRot6, artPos7, artPos8, artRot8, artPos9, artRot9, artPos10, artRot10, artPos11, artRot11, artPos12, artRot12, artPos13, artRot13, artPos14, artRot14, artPos15, artRot15, artPos16, artRot16, artPos17, artRot17, artPos18, artRot18, artPos19, artRot19, artPos20, artRot20, artPos21, artRot21, artPos22, artRot22, artPos23, artRot23, artPos24, artRot24, artPos25, artRot25, artPos26, artRot26, artPosA, artRotA, artPosB, artRotB, artPosC, artRotC, artPosD, artRotD, artRot7 } from "./artPositions";
 
-export let hoverVisible = false
-export let currentArtworkId = 1;
 
 let hoverDistance = 8 // Distance at which artHover UI will appear
-
-let visibilityTime = 9000 // duration of the art details UI in miliseconds
+let visibilityTime = 9000 // duration of the artHover UI in miliseconds
 let defaultScale = Vector3.create(1.5, 0.85, 0.5) // art hover trigger size
+
+
+
+
+
+export let hoverVisible = false
+export let currentArtworkId = 1;
 
 export const ArtHover = engine.defineComponent('arthover', { visible: Schemas.Boolean })
 

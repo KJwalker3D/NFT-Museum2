@@ -16,8 +16,8 @@ import * as utils from '@dcl-sdk/utils';
 import { openExternalUrl } from '~system/RestrictedActions';
 import { Quaternion, Color3, Color4, Vector3 } from '@dcl/sdk/math';
 import { artPos14, artPos15, artPos2, artPos25, artPos26, artRot14, artRot15, artRot2, artRot25, artRot26 } from './artPositions';
-import { logoURL } from './artData';
 import {  togglePlay } from '../Audio/audio';
+import { linktreeURL, websiteURL } from './artData';
 
 let videoPlayer: any = null;
 
@@ -61,7 +61,7 @@ export const videoCollection: VideoData[] = [
     image: horizontalVideoMVFW23placeholder,
     video: horizontalVideoMVFW23,
     hoverText: 'Click',
-    website: logoURL,
+    website: websiteURL,
     triggerScale: Vector3.create(4, 2, 10),
     triggerPosition: Vector3.create(artPos2.x + 2, artPos2.y -1, artPos2.z),
     audio: true
@@ -75,7 +75,7 @@ export const videoCollection: VideoData[] = [
     image: horizontalVideoLPMxSOAplaceholder,
     video: horizontalVideoLPMxSOA,
     hoverText: 'Click',
-    website: logoURL,
+    website: linktreeURL,
     triggerScale: Vector3.create(2, 2, 2),
     triggerPosition: Vector3.create(artPos14.x + 2, artPos14.y -1, artPos14.z),
     audio: true
@@ -89,7 +89,7 @@ export const videoCollection: VideoData[] = [
     image: horizontalVideoIndieVillagePlaceholder,
     video: horizontalVideoIndieVillage,
     hoverText: 'Click',
-    website: logoURL,
+    website: linktreeURL,
     triggerScale: Vector3.create(2, 2, 2),
     triggerPosition: Vector3.create(artPos15.x + 2, artPos15.y -1, artPos15.z),
     audio: true
@@ -103,7 +103,7 @@ export const videoCollection: VideoData[] = [
     image: verticalVarbarianPlaceholder,
     video: verticalVarbarianVid,
     hoverText: 'Click',
-    website: logoURL,
+    website: linktreeURL,
     triggerScale: Vector3.create(8, 6, 6),
     triggerPosition: Vector3.create(artPos25.x, artPos25.y -1, artPos25.z -2),
     audio: true
@@ -117,7 +117,7 @@ export const videoCollection: VideoData[] = [
     image: verticalVideoPlaceholder,
     video: verticalVideo,
     hoverText: 'Click',
-    website: logoURL,
+    website: linktreeURL,
     triggerScale: Vector3.create(8, 6, 8),
     triggerPosition: Vector3.create(artPos26.x, artPos26.y -1, artPos26.z +2),
     audio: true
