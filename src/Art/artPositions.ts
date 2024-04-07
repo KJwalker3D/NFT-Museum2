@@ -11,7 +11,7 @@ import { Quaternion } from "@dcl/sdk/math";
 export const gallery1Pos1 = Vector3.create(2.79, 3, 9.8)
 export const gallery1Rot1 = Vector3.create(0, -90, 0)
 
-export const gallery1Pos2 = Vector3.create(2.8, 3, 16)
+export const gallery1Pos2 = Vector3.create(2.8, 3.6, 16)
 export const gallery1Rot2 = Vector3.create(0, -90, 0)
 
 export const gallery1Pos3 = Vector3.create(2.82, 3, 22.19)
@@ -43,11 +43,11 @@ export const gallery2Rot3 = Vector3.create(0, 180, 0)
 
 
 // West wall two artworks south to north
-export const gallery2Pos4 = Vector3.create(3.57, 10.9, 10.89)
+export const gallery2Pos4 = Vector3.create(3.57, 11.1, 11.2)
 export const gallery2Rot4 = Vector3.create(0, -90, 0)
 
 
-export const gallery2Pos5 = Vector3.create(3.57, 10.9, 21.09)
+export const gallery2Pos5 = Vector3.create(3.57, 11.1, 20.8)
 export const gallery2Rot5 = Vector3.create(0, -90, 0)
 
 

@@ -23,11 +23,18 @@ let videoPlayer: any = null;
 
 let verticalVideo = 'https://player.vimeo.com/external/931742718.m3u8?s=efbe1b55804e4ba10b2e8c17e241d1809d324f36&logging=false'
 let verticalVideoPlaceholder = 'https://bafkreicuvnybcylixwtpxslw4cvwmtwg566z2d6cinxshqbg25lhojkqtq.ipfs.nftstorage.link/' // image placeholder
+
+let verticalVarbarianVid = 'https://player.vimeo.com/external/931794663.m3u8?s=3a78fb41c8f6e7f39962465441abecbe7a056262&logging=false'
+let verticalVarbarianPlaceholder = 'https://bafkreibuzswvpnmmvux3b6vfwfeggbmakubxwdztrqmqerjjm7ba6efcpu.ipfs.nftstorage.link/'
+
 let horizontalVideoMVFW23 = 'https://player.vimeo.com/external/931744777.m3u8?s=2a274c3898d4aa78fdb7cddf0a0329d25693b056&logging=false'
 let horizontalVideoMVFW23placeholder = 'https://bafybeigpiynyk563o5rd4wzz62lx7gkncdrnozhzit4l7s4maxc5mffgbm.ipfs.nftstorage.link/' // image placeholder
+
 let horizontalVideoLPMxSOA = 'https://player.vimeo.com/external/711197011.m3u8?s=1fe29a85f3c1455580a070eee4fb93abcb2ed5a2&logging=false'
 let horizontalVideoLPMxSOAplaceholder = 'https://bafkreigpeshmzddtlhw5tpxa55z3lfv7yjyzpkoj3s7vc5wxyuy367o5ji.ipfs.nftstorage.link/' // image placeholder
 
+let horizontalVideoIndieVillage = 'https://player.vimeo.com/external/931792879.m3u8?s=fa7ece24dfd2899ddac2112250092c4be5dbdff0&logging=false'
+let horizontalVideoIndieVillagePlaceholder = 'https://bafkreie2rucyrbnl5en7bccthydcxsmddhffp4oincu7afc2jt53u4eb6e.ipfs.nftstorage.link/'
 
 export type VideoData = {
   room: number
@@ -47,7 +54,7 @@ export type VideoData = {
 export const videoCollection: VideoData[] = [
   {
     room: 1,
-    id: 1,
+    id: 2,
       position: gallery1Pos2,
       rotation: gallery1Rot2,
       scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
@@ -79,8 +86,8 @@ export const videoCollection: VideoData[] = [
       position: gallery2Pos10,
       rotation: gallery2Rot10,
       scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
-    image: horizontalVideoMVFW23placeholder,
-    video: horizontalVideoMVFW23,
+    image: horizontalVideoIndieVillagePlaceholder,
+    video: horizontalVideoIndieVillage,
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(2, 2, 2),
@@ -92,9 +99,9 @@ export const videoCollection: VideoData[] = [
     id: 25,
       position: gallery2Pos20,
       rotation: gallery2Rot20,
-      scale: Vector3.create(6.75, 8.65, 1),
-    image: verticalVideoPlaceholder,
-    video: verticalVideo,
+      scale: Vector3.create(6, 8.65, 1),
+    image: verticalVarbarianPlaceholder,
+    video: verticalVarbarianVid,
     hoverText: 'Click',
     website: logoURL,
     triggerScale: Vector3.create(8, 6, 6),
@@ -106,7 +113,7 @@ export const videoCollection: VideoData[] = [
     id: 26,
       position: gallery2Pos21,
       rotation: gallery2Rot21,
-      scale: Vector3.create(6.75, 8.65, 1),
+      scale: Vector3.create(6, 8.65, 1),
     image: verticalVideoPlaceholder,
     video: verticalVideo,
     hoverText: 'Click',

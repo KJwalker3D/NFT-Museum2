@@ -7,6 +7,10 @@ import { Position } from "~system/EngineApi";
 
 // For static images that aren't loaded in as NFTs
 
+let verticalImageAR = 'https://bafybeig2s7rg4dwuebwnmzwefz5h6c3p3x4eazcm6qng2wgtqqfe2l2m2i.ipfs.nftstorage.link/'
+let verticalImageRender = 'https://bafkreia5xiavtlcbrvfr4os7om5bdzbzjdtvm4jcuki52r5wkn6lzzb74a.ipfs.nftstorage.link/'
+
+
 export type ImageData = {
   room: number, 
   id: number,
@@ -47,8 +51,8 @@ export const imageArtCollection: ImageData[] = [
     id: 9,
     position: gallery2Pos4,
     rotation: gallery2Rot4,
-    scale: Vector3.One(),
-    image: logoImage,
+    scale: Vector3.create(1, 2, 1),
+    image: verticalImageAR,
     hoverText: 'Click',
     url: logoURL,
     hasAlpha: false
@@ -58,8 +62,8 @@ export const imageArtCollection: ImageData[] = [
     id: 10,
     position: gallery2Pos5,
     rotation: gallery2Rot5,
-    scale: Vector3.One(),
-    image: logoImage,
+    scale: Vector3.create(1, 2, 1),
+    image: verticalImageRender,
     hoverText: 'Click',
     url: logoURL,
     hasAlpha: false

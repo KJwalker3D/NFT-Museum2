@@ -1,7 +1,6 @@
 import { createBaseScene } from './structures'
 import { ElevatorModule } from './Elevator/elevator'
 import { createAllDoors, doorSound } from './doors'
-import { initializeKineticArt } from './Art/kineticArt'
 import { initializeElevatorDoors } from './Elevator/elevatorDoors'
 import { setupUi } from './UI/ui'
 import { addArtworkData, artHoverSystem, changeArtHoverSystem, createArtHovers, createArtID } from './Art/artHover'
@@ -20,7 +19,6 @@ createBaseScene()
 ElevatorModule.createElevator
 initializeElevatorDoors()
 createAllDoors()
-initializeKineticArt()
 creatAllLazyAreas()
 createArtHovers()
 createSocials()

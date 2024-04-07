@@ -272,7 +272,7 @@ function createCallButton(position: Vector3, rotation: Vector3, floorIndex: numb
             entity: callButton,
             opts: {
                 button: InputAction.IA_POINTER,
-                hoverText: `Call Elevator ${floors[floorIndex].name}`,
+                hoverText: `Call Elevator`,
                 maxDistance: 12,
             },
         },

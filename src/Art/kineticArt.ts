@@ -38,7 +38,7 @@ export type KineticData = {
         room: 2,
         id: 6,
         position: {
-            position: Vector3.create(6.5, 9.75, 16), // art position
+            position: Vector3.create(6.5, 9.72, 16), // art position
             rotation: Quaternion.fromEulerDegrees(0, 0, 0), // rotation
             scale: Vector3.create(0.8, 0.8, 0.8) 
         },
@@ -113,31 +113,3 @@ export function createKineticArt(
 }
 
 
-export function initializeKineticArt() {
-
-    /*
-    createKineticArt(
-        Vector3.create(21.65, 10.5, 16), // art position
-        Vector3.create(0, 0, 0), // rotation
-        Vector3.create(0.5, 0.5, 0.5), //scale
-        Vector3.create(0, 0, 0), // trigger position
-        Vector3.create(6, 5, 10), // trigger scale
-        kineticArtCircles, // path to model
-        kineticArtCirclesClip, // animation clip
-    )
-    
-    createKineticArt(
-        {
-            position: Vector3.create(6.5, 9.75, 16), // art position
-            rotation: Quaternion.fromEulerDegrees(0, 0, 0), // rotation
-            scale: Vector3.create(0.8, 0.8, 0.8)
-        }, 
-        Vector3.create(2, 0, 0), // trigger position
-        Vector3.create(10, 4, 10), // trigger scale
-        kineticArtCircuit, // path to model
-        kineticArtCircuitClip // animation clip
-        )
-        */
-
-
-}

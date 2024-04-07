@@ -8,7 +8,8 @@ import { rewardUI } from '../UI/reward.ui';
 
 
 let dispenserModel = 'models/dispenser.glb'
-let dispenserPosition = Vector3.create(16, 20, 16)
+let dispenserPosition = Vector3.create(14.55, 19.53, 16)
+let dispenserScale = Vector3.create(0.8, 0.8, 0.8)
 let dispenserHoverText = 'Claim Reward'
 
 export let reward = false
@@ -24,7 +25,7 @@ if (!rewardClaimed) {
   let entity = engine.addEntity()
   Transform.create(entity, {
     position: dispenserPosition,
-    scale: Vector3.create(2, 2, 2)
+    scale: dispenserScale
   })
 
   GltfContainer.create(entity, {
