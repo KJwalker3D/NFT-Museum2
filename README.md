@@ -3,7 +3,10 @@
 
 This project is a scene template for an SDK7 NFT Museum with lazy loading and different types of artwork including NFTs, video art, image art and 3D art. The repository also includes elevator functionality, sliding doors, reward claiming and different audio sources such as a radio station and playlist.
 
+
+
 ## Try it out
+
 
 **Previewing the scene**
 
@@ -40,7 +43,6 @@ GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
 ```
 
 
-
 # Customize the NFT Art
 
 ## To change the NFT art:
@@ -65,8 +67,6 @@ GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
 3. You can adjust, add, and remove NFTs as needed. Just ensure that the artwork ID, position, and rotation all match.
 
 By default, clicking on an NFT will open the default NFT UI, displaying details about the NFT.
-
-
 
 
 
@@ -123,7 +123,6 @@ By default, clicking on an NFT will open the default NFT UI, displaying details 
 
 
 
-
 # Customize the 3D Art
 
 ## To change the 3D art:
@@ -150,9 +149,6 @@ By default, clicking on an NFT will open the default NFT UI, displaying details 
 
 
 
-
-
-
 # Customize the Art Hover Details UI
 
 1. Open `artData.ts`, you'll find a list of `artTitles` and `artDescriptions` matching the Artwork IDs. Update the corresponding artwork ID title and description and the info will be updated in the UI. 
@@ -168,8 +164,6 @@ artDescription1 = 'your description for Artwork ID 1'
 ```
 
 If you change the position or rotation of your artworks, the artHover details will update automatically as long as you maintain consistency with the artworkID. 
-
-
 
 
 
@@ -192,6 +186,7 @@ To create a lazy area, open `lazyLoading.ts` and locate `createAllLazyAreas()`. 
 
 // The index number is equivalent to the number order of the lazy areas; the first is 1, the second is 2, the third is 3, the next one would be 4 and so on. This index number is the same as your room id number when creating the artworks.
 ```
+
 
 
 ## Customize the Audio
@@ -238,6 +233,7 @@ radio.ui.tsx:
 let Radio: Boolean = false
 ```
 
+
 # Customize the Radio Station: 
 
 Change the radioStation url in `radio.ts`:
@@ -255,6 +251,7 @@ let radioStationNameWrap = wordWrap(radioStationName, 10, 3)
 let textColor = Color4.White()
 let smallFont = 10
 ```
+
 
 
 # Customize the Playlist: 
@@ -278,6 +275,7 @@ let playlistFontSize = 12;
 ```
 
 
+
 # Elevator: 
 
 To add an elevator to your scene, copy and paste the `Elevator` src folder into your scene project and add the following into `index.ts`:
@@ -287,6 +285,7 @@ import { ElevatorModule } from './elevator'
 
 ElevatorModule.createElevator
 ```
+
 
 
 # Sliding Doors: 
@@ -302,11 +301,19 @@ createAllDoors()
 Inside `doors.ts` there's a function called `createAllDoors()` within which you can define the amount of doors, their positions and rotations.
 
 
+
 # Customize Social Links: 
+
+To customize the social media links, navigate to `social.ts` and update the urls to match your desired sites. You can also adjust the 3D model paths, positions, rotations, hover texts and scale in this file. 
 
 
 
 # Customize Texts: 
+
+To customize the text visible on the NFT Museum, you can hide all visible text from the 3D model and make customizable code based text which you can customize. 
+Open `texts.ts` to customize any element of the texts on display including value, font, size and color.
+Remove `createDefaultTexts()` from `index.ts` and make sure the function `createCustomTextTitles()` isn't commented out.
+
 
 
 # Find an NFT Urn
@@ -358,7 +365,7 @@ artDescription1 = 'your description for Artwork ID 1'
 - **Elevator button click sound:** [Kickhat](https://freesound.org/people/kickhat/sounds/264447/)
 - **Elevator arrival sound:** [MATRIXXX___](https://freesound.org/people/MATRIXXX_/sounds/514864/)
 - **Radio station:** [24 House Radio](https://onlineradiobox.com/ro/24house/?cs=ro.24house)
-- **Playlist:** Featuring music by DJ (Red Albert)[https://www.mixcloud.com/alberto-mart%C3%ADnez-cobos/uploads/], performed in DCL and available with the Red Albert Radio (Smart Wearable)
+- **Playlist:** Featuring music by DJ [Red Albert](https://www.mixcloud.com/alberto-mart%C3%ADnez-cobos/uploads/), performed in DCL and available with the Red Albert Radio (Smart Wearable)
 
 
 
