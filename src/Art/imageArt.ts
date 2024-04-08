@@ -2,10 +2,12 @@ import { InputAction, Material, MeshCollider, MeshRenderer, Transform, engine, p
 import { Color3, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
 import { artPos10, artPos4, artPos5, artPos9, artRot10, artRot4, artRot5, artRot9 } from "./artPositions";
-import { logoImage, websiteURL } from "./artData";
+import { websiteURL } from "./artData";
 import { linktreeURL } from "../social";
 
 // For static images that aren't loaded in as NFTs
+// Use server hosted images or paths to files in your project folder
+export let logoImage = 'https://bafkreih4ndg6qpczqw2ardbrrdoj23t43hiegbceo36hbi3vjqskcoi4yu.ipfs.nftstorage.link/'
 
 let verticalImageAR = 'https://bafybeig2s7rg4dwuebwnmzwefz5h6c3p3x4eazcm6qng2wgtqqfe2l2m2i.ipfs.nftstorage.link/'
 let verticalImageRender = 'https://bafkreia5xiavtlcbrvfr4os7om5bdzbzjdtvm4jcuki52r5wkn6lzzb74a.ipfs.nftstorage.link/'

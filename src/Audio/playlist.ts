@@ -8,6 +8,24 @@ import { openExternalUrl } from "~system/RestrictedActions";
 /// This is the Playlist, set to false to remove it
 export let streamPlayingRef: { value: boolean } = { value: false }; // Set an initial value
 
+///// PLAYLIST
+
+type Song = {
+  title: string;
+  artist: string;
+  url: string;
+  duration: number; // Duration in seconds
+};
+
+
+export const playlist: Song[] = [
+  { title: 'DCLMF23 Set', artist: 'RED ALBERT', duration: (60 * 60), url: 'https://bafybeigyzew44hkz46vzugd3plpovkboshdztv74vkmhhflz44477kmqte.ipfs.nftstorage.link/' },
+  { title: 'MVFW23 Set', artist: 'RED ALBERT', duration: (60 * 60) + 1, url: 'https://bafybeicvyrgg6jnvpajfenbdspaevx4yydizslxdgmgd6f2y4tptpkzjpu.ipfs.nftstorage.link/' },
+  { title: 'LPM x SOA Set 22', artist: 'RED ALBERT', duration: (59 * 60) + 57, url: 'https://bafybeihis46rooueupvj3dett2sz6745lq5od3x74hvmtfvvollsldr5vq.ipfs.nftstorage.link/' },
+
+];
+
+
 // Update the value of streamPlayingRef when necessary
 export function updateStreamPlaying(value: boolean) {
   streamPlayingRef.value = value;
@@ -39,21 +57,6 @@ export function openMixcloud() {
 }
 
 
-///// PLAYLIST
-
-type Song = {
-  title: string;
-  artist: string;
-  url: string;
-  duration: number; // Duration in seconds
-};
-
-export const playlist: Song[] = [
-  { title: 'DCLMF23 Set', artist: 'RED ALBERT', duration: (60 * 60), url: 'https://bafybeigyzew44hkz46vzugd3plpovkboshdztv74vkmhhflz44477kmqte.ipfs.nftstorage.link/' },
-  { title: 'MVFW23 Set', artist: 'RED ALBERT', duration: (60 * 60) + 1, url: 'https://bafybeicvyrgg6jnvpajfenbdspaevx4yydizslxdgmgd6f2y4tptpkzjpu.ipfs.nftstorage.link/' },
-  { title: 'LPM x SOA Set 22', artist: 'RED ALBERT', duration: (59 * 60) + 57, url: 'https://bafybeihis46rooueupvj3dett2sz6745lq5od3x74hvmtfvvollsldr5vq.ipfs.nftstorage.link/' },
-
-];
 
 let currentSongIndex = 0;
 export const currentSong = playlist[currentSongIndex];

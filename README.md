@@ -1,20 +1,38 @@
 
+# NFT Museum SDK7 template scene
+
+This project is a scene template for an SDK7 NFT Museum with lazy loading and different types of artwork including NFTs, video art, image art and 3D art. The repository also includes elevator functionality, sliding doors, reward claiming and different audio sources such as a radio station and playlist.
+
+## Try it out
+
+**Previewing the scene**
+
+1. Download this repository.
+
+2. Install the [Decentraland Editor](https://docs.decentraland.org/creator/development-guide/sdk7/editor/)
+
+3. Open a Visual Studio Code window on this scene's root folder. Not on the root folder of the whole repo, but instead on this sub-folder that belongs to the scene.
+
+4. Open the Decentraland Editor tab, and press **Run Scene**
+
+Alternatively, you can use the command line. Inside this scene root directory run:
+
+```
+npm run start
+```
 
 
-Audio Credits: 
+## Customize the artwork
 
-Sliding doors sound: Magnesus https://freesound.org/people/Magnesus/sounds/368084/ 
-Call Button click sound: BaggoNotes https://freesound.org/people/BaggoNotes/sounds/721503/  
-Moving elevator sound: Isaac200000 https://freesound.org/people/Isaac200000/sounds/260571/ 
-Elevator button click sound: Kickhat https://freesound.org/people/kickhat/sounds/264447/ 
-Elevator arrival sound: MATRIXXX___ https://freesound.org/people/MATRIXXX_/sounds/514864/
-Radio station: 24 House Radio https://onlineradiobox.com/ro/24house/?cs=ro.24house 
-Playlist: Featuring music by DJ Red Albert, performed in DCL and available with the Red Albert Radio Smart Wearable 
+To switch out the artwork on display, follow these steps:
 
+1. There are four different types of artwork you can display in this repository: NFTs, videos, images, and 3D art. Each artwork has a number (index) and a matching set position (artPos + index).
+2. To see the index numbers, hover over the artwork to see the artHover UI, which displays the Artwork index in the title and description of each artwork.
+3. Additionally, there's a visual aid in the model `artNumbers.glb`, which displays all the corresponding artwork index numbers in the museum. To toggle its visibility, go to `artData.ts`.
+   
+To enable the visual aid, add the following code to `artData.ts`:
 
-
-In artData.ts
-
+```typescript
 // Make artNumbers visible to help with placing and naming items in the gallery
 const artNumbers = engine.addEntity()
 Transform.create(artNumbers, { position: sceneCentrePosition })
@@ -22,13 +40,225 @@ GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
 
 
 
+# Customize the NFT art
+
+## To change the NFT art:
+
+1. Open `nftArt.ts` and locate the `nftCollection` array:
+
+    ```typescript
+    export const nftCollection: NFTdata[] = []
+    ```
+
+2. Inside `nftCollection`, you'll find a set of NFTs that you can manage independently. Each NFT object includes the following properties:
+   - `room`: Indicates the room where the NFT will be displayed (see lazy loading for more info).
+   - `id`: The artwork ID.
+   - `position`: The artwork position (more details in `artPositions.ts`).
+   - `rotation`: The artwork rotation (more details in `artPositions.ts`).
+   - `scale`: The artwork scale. Adjust to match your artwork proportions.
+   - `urn`: The URN for the NFT you want to display. (See how to get a URN [here](#))
+   - `frame`: The type of NFT frame (see `nftFrames.ts` for more details).
+   - `color`: The background color of the NFT frame.
+   - `hoverText`: The text that appears when the cursor is on the NFT.
+
+3. You can adjust, add, and remove NFTs as needed. Just ensure that the artwork ID, position, and rotation all match.
+
+By default, clicking on an NFT will open the default NFT UI, displaying details about the NFT.
+
+
+
+
+
+# Customize the image art
+
+## To change the image art:
+
+1. Navigate to `imageArt.ts` and locate the `imageArtCollection` array:
+
+    ```typescript
+    export const imageArtCollection: ImageData[]
+    ```
+
+2. Inside `imageArtCollection`, you'll find a set of images that you can manage independently. Each image object includes the following properties:
+   - `room`: Indicates the room where the image will appear (see lazy loading for more info).
+   - `id`: The artwork ID.
+   - `position`: The artwork position (more details in `artPositions.ts`).
+   - `rotation`: The artwork rotation (more details in `artPositions.ts`).
+   - `scale`: The artwork scale. Adjust to match your artwork proportions.
+   - `image`: The image to be displayed. You can either use a URL or a path to an image in your project folder. (For example, change `logoImage` to `'images/yourImage.jpg'` or `'https://your-image-url'`). To host images on servers, try a service like NFT.Storage.
+   - `hoverText`: The text that appears when the cursor is on the image.
+   - `url`: The URL that opens when the image is clicked on. Change it to your desired URL. For organization purposes, all the URLs are in `social.ts`.
+   - `hasAlpha`: Set this to true or false depending on whether you want your image to be semi-transparent or not.
+
+3. You can adjust, add, and remove images as needed. Just ensure that the artwork ID, position, and rotation all match.
+
+
+
+# Customize the video art
+
+## To change the video art:
+
+1. Open `videoArt.ts` and locate the `videoCollection` array:
+
+    ```typescript
+    export const videoCollection: VideoData[]
+    ```
+
+2. Inside `videoCollection`, you'll find a set of videos that you can manage independently. Each video object includes the following properties:
+   - `room`: Indicates the room where the video will appear (see lazy loading for more info).
+   - `id`: The artwork ID.
+   - `position`: The artwork position (more details in `artPositions.ts`).
+   - `rotation`: The artwork rotation (more details in `artPositions.ts`).
+   - `scale`: The artwork scale. Adjust to match your artwork proportions.
+   - `image`: The placeholder image to be displayed when the video isn't playing. You can use a URL or a path to an image in your project folder.
+   - `video`: The video that will play on player approach. It's recommended to use an external streaming service such as Vimeo Pro and use an m3u8 link for better scene performance.
+   - `hoverText`: The text that appears when the cursor is on the video.
+   - `website`: The URL that opens when the video is clicked on. Change it to your desired URL. For organization purposes, all the URLs are in `social.ts`.
+   - `triggerScale`: The scale of the trigger box. The video will play when a player is inside the trigger box.
+   - `triggerPosition`: The position of the trigger box. The video will play when a player is in this area.
+   - `audio`: Set to true if your video has audio, and false if it doesn't. When a player approaches the video, the radio or playlist will pause and start playing again once the player leaves the trigger area.
+
+3. Adjust, add, and remove videos as needed, ensuring that the artwork ID, position, and rotation all match.
+
+
+
+
+# Customize the 3D art
+
+## To change the 3D art:
+
+1. Open `kineticArt.ts` and locate the `kineticArtCollection` array:
+
+    ```typescript
+    export const kineticArtCollection: KineticData[]
+    ```
+
+2. Inside `kineticArtCollection`, you'll find a set of 3D artworks that you can manage independently. Each artwork object includes the following properties:
+   - `room`: Indicates the room where the artwork will appear (see lazy loading for more info).
+   - `id`: The artwork ID.
+   - `position`: The artwork position, rotation, and scale. Adjust to match your artwork proportions.
+   - `triggerPosition`: The position of the trigger box. The 3D art animation will play when a player is in this area.
+   - `triggerScale`: The scale of the trigger box. The 3D art animation will play when a player is inside the trigger box.
+   - `modelPath`: The path to the 3D model. You can switch this to a path in your project folder.
+   - `animationClip`: The name of the animation clip you want to be triggered when a player approaches the art.
+   - `audio`: The audio that will play when a player approaches the 3D art. If set to null, no audio will play.
+   - `url`: The website that will open when the 3D art is clicked. Change it to your desired URL. For organization purposes, all the URLs are in `social.ts`.
+   - `hoverText`: The text that appears when the cursor is on the 3D art.
+
+3. Adjust, add, and remove 3D artworks as needed, ensuring that the artwork ID, position, rotation, and scale all match.
 
 
 
 
 
 
-All of the audios are controlled by the functions in audio.ts so:
+# Customize the art hover details UI
+
+
+/// To change the artHover details (UI art information)
+
+Go to artData.ts, you'll find a list of artTitles and artDescriptions matching the Artwork IDs. Update the corresponding artwork ID title and description to see the info update in the UI. 
+If you change the position or rotation of your artworks, the artHover details should update automatically as long as you maintain consistency with the artworkID. For instance: 
+
+ArtworkID = 1
+ArtworkPosition = artPos1
+ArtworkRotation = artRot1
+artTitle1 = 'your title for Artwork ID 1'
+artDescription1 = 'your description for Artwork ID 1'
+
+
+You can adjust, add and remove 3D artworks, just make sure the artwork id, position, and rotation all match. 
+
+
+
+## Customize the audio
+
+To toggle between the playlist and the radio go into the Audio src folder: 
+
+In audio.ts there are two booleans at the top: Playlist and radioPlaying, set them to true or false according to which you want. 
+
+/// This is the Playlist, set to false to remove it
+export let Playlist: Boolean = false;
+
+
+// This is the radio, set to true to play it 
+export let radioPlaying: boolean = true;
+
+
+In playlist.ts set the streamPlayingRef to true or false. (True = playlist, false = no playlist)
+
+/// This is the Playlist, set to false to remove it
+export let streamPlayingRef: { value: boolean } = { value: false }; // Set an initial value
+
+
+In radio.ts set the radioPlaying boolean to true or false (true = radio, false = no radio)
+
+// This is the radio, set to true to play it 
+export let radioPlaying: boolean = true;
+
+# Customize the audio UI
+
+In the UI folder, set the playlist and radio booleans to match playlist.ts and radio.ts
+
+playlist.ui.tsx:
+// Set Playlist to 'false' to hide the playlist UI:
+let Playlist: Boolean = true;
+
+radio.ui.tsx:
+// Set Radio to 'true' to show the radio UI:
+let Radio: Boolean = false
+
+
+/// To customize the radio station: 
+
+Change the radioStation url in radio.ts 
+
+// House Radio (24 House Radio)
+let radioStation = 'https://strw3.openstream.co/1487?aw_0_1st.collectionid%3D4682%26stationId%3D4682%26publisherId%3D1511%26k%3D1708457720'
+
+Adapt the UI however you like in radio.ui.tsx
+
+let radioStationName = '24 House Radio'
+let radioStationNameWrap = wordWrap(radioStationName, 10, 3)
+let textColor = Color4.White()
+let smallFont = 10
+
+
+// To customize the playlist: 
+
+Update the data in the playlist Song array to match the song titles, song artists, song duration, and streaming link. 
+
+export const playlist: Song[] = [
+  { title: 'DCLMF23 Set', artist: 'RED ALBERT', duration: (60 * 60), url: 'https://bafybeigyzew44hkz46vzugd3plpovkboshdztv74vkmhhflz44477kmqte.ipfs.nftstorage.link/' },
+  { title: 'MVFW23 Set', artist: 'RED ALBERT', duration: (60 * 60) + 1, url: 'https://bafybeicvyrgg6jnvpajfenbdspaevx4yydizslxdgmgd6f2y4tptpkzjpu.ipfs.nftstorage.link/' },
+  { title: 'LPM x SOA Set 22', artist: 'RED ALBERT', duration: (59 * 60) + 57, url: 'https://bafybeihis46rooueupvj3dett2sz6745lq5od3x74hvmtfvvollsldr5vq.ipfs.nftstorage.link/' },
+
+];
+
+Adapt the UI however you like in playlist.ui.tsx
+
+let songData = 'RED ALBERT Playlist';
+let songDataWrap = wordWrap(songData, 8 * tieredModalTextWrapScale, 6);
+let playlistFontSize = 12;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+All of the audios are controlled by the functions in audio.ts
 
 import { playAudioAtPlayer } from "./audio";
 
@@ -53,8 +283,13 @@ Inside doors.ts there's a function called 'createAllDoors()' within which you ca
 
 
 
+# Find an NFT urn
+
+
 To add nfts use the function provided in nft.ts, you can customize the urn of the NFT on display (see how to get the URN here: 
 For example:
+
+
 
 urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536
 
@@ -63,274 +298,53 @@ The example above fetches an NFT with the contract address 0x06012c8cf97BEaD5deA
 as well as the frame background colour and frame style. You can also reposition, rotate and scale the nft within the same function
 
 
-To set up Wearable claiming, copy and paste the claim-droping folder into your project, alongside config.ts and claim.ui.tsx
+
+## Rewards system 
+To set up Wearable claiming, copy and paste the claim-droping folder into your project, alongside config.ts and claim.ui.tsx.
+See src folder Rewards for further info. 
 
 
+
+## External Image Hosting 
 To host your images on an external site, instead of uploading them as files in your scene, you can use CORS friendly hosting services such as NFT.storage (https://nft.storage/). Upload your image, click 'Actions' - 'View URL' and copy the full url from the browser. 
 
 
-# SDK7 Template scene
+## Change Artwork Positions 
+To move artwork we suggest adjusting the values directly in artPositions.ts, then they will automatically update throughout the rest of your code as long as you're following the numbering system, i.e.: 
 
-## Try it out
+ArtworkID = 1
+ArtworkPosition = artPos1
+ArtworkRotation = artRot1
+artTitle1 = 'your title for Artwork ID 1'
+artDescription1 = 'your description for Artwork ID 1'
 
-**Previewing the scene**
+(same setup for ArtworkID 1-30)
 
-1. Download this repository.
 
-2. Install the [Decentraland Editor](https://docs.decentraland.org/creator/development-guide/sdk7/editor/)
 
-3. Open a Visual Studio Code window on this scene's root folder. Not on the root folder of the whole repo, but instead on this sub-folder that belongs to the scene.
 
-4. Open the Decentraland Editor tab, and press **Run Scene**
 
-Alternatively, you can use the command line. Inside this scene root directory run:
 
-```
-npm run start
-```
+## Audio Credits
 
-## What's new on SDK 7
+- **Sliding doors sound:** [Magnesus](https://freesound.org/people/Magnesus/sounds/368084/)
+- **Call Button click sound:** [BaggoNotes](https://freesound.org/people/BaggoNotes/sounds/721503/)
+- **Moving elevator sound:** [Isaac200000](https://freesound.org/people/Isaac200000/sounds/260571/)
+- **Elevator button click sound:** [Kickhat](https://freesound.org/people/kickhat/sounds/264447/)
+- **Elevator arrival sound:** [MATRIXXX___](https://freesound.org/people/MATRIXXX_/sounds/514864/)
+- **Radio station:** [24 House Radio](https://onlineradiobox.com/ro/24house/?cs=ro.24house)
+- **Playlist:** Featuring music by DJ Red Albert, performed in DCL and available with the Red Albert Radio (Smart Wearable)
 
-Below are some basic concepts about the SDK 7 syntax. For more details, see the [Documentation site](https://docs.decentraland.org/creator/).
 
-### Entities
 
-An Entity is just an ID. It is an abstract concept not represented by any data structure. There is no "class Entity". Just a number that is used as a reference to group different components.
 
-```ts
-const myEntity = engine.addEntity()
-console.console.log(myEntity) // 100
+**Questions and Feedback**
+For questions, suggestions and improvements feel free to push directly to this repository or contact @LowPolyModelsW on X and Instagram. 
 
-// Remove Entity
-engine.removeEntity(myEntity)
-```
 
-> Note: Note that it's no longer necessary to separately create an entity and then add it to the engine, this is all done in a single act.
 
-### Components
 
-The component is just a data container, WITHOUT any functions.
 
-To add a component to an entity, the entry point is now the component type, not the entity.
 
-```ts
-Transform.create(myEntity, <params>)
-```
 
-This is different from how the syntax was in SDK6:
 
-```ts
-// OLD Syntax
-myEntity.addComponent(Transform)
-```
-
-#### Base Components
-
-Base components already come packed as part of the SDK. Most of them interact directly with the renderer in some way. This is the full list of currently supported base components:
-
-- Transform
-- Animator
-- Material
-- MeshRenderer
-- MeshCollider
-- AudioSource
-- AudioStream
-- AvatarAttach
-- AvatarModifierArea
-- AvatarShape
-- Billboard
-- CameraMode
-- CameraModeArea
-- GltfContainer
-- NftShape
-- PointerEventsResult
-- PointerHoverFeedback
-- PointerLock
-- Raycast
-- RaycastResult
-- TextShape
-- VisibilityComponent
-
-```ts
-const entity = engine.addEntity()
-Transfrom.create(entity, {
-  position: Vector3.create(12, 1, 12)
-  scale: Vector3.One(),
-  rotation: Quaternion.Identity()
-})
-GltfContainer.create(zombie, {
-  withCollisions: true,
-  isPointerBlocker: true,
-  visible: true,
-  src: 'models/zombie.glb'
-})
-```
-
-#### Custom Components
-
-Each component must have a unique number ID. If a number is repeated, the engine or another player receiving updates might apply changes to the wrong component. Note that numbers 1-2000 are reserved for the base components.
-
-When creating a custom component you declare the schema of the data to be stored in it. Every field in a component MUST belong to one of the built-in special schemas provided as part of the SDK. These special schemas include extra functionality that allows them to be serialized/deserialized.
-
-Currently, the names of these special schemas are:
-
-##### Primitives
-
-1. `Schemas.Boolean`: true or false (serialized as a Byte)
-2. `Schemas.String`: UTF8 strings (serialized length and content)
-3. `Schemas.Float`: single precission float
-4. `Schemas.Double`: double precision float
-5. `Schemas.Byte`: a single byte, integer with range 0..255
-6. `Schemas.Short`: 16 bits signed-integer with range -32768..32767
-7. `Schemas.Int`: 32 bits signed-integer with range -2³¹..(2³¹-1)
-8. `Schemas.Int64`: 64 bits signed-integer
-9. `Schemas.Number`: an alias to Schemas.Float
-
-##### Specials
-
-10. `Schemas.Entity`: a wrapper to int32 that casts the type to `Entity`
-11. `Schemas.Vector3`: a Vector3 with { x, y, z }
-12. `Schemas.Quaternion`: a Quaternion with { x, y, z, w}
-13. `Schemas.Color3`: a Color3 with { r, g, b }
-14. `Schemas.Color4`: a Colo4 with { r, g, b, a }
-
-##### Schema generator
-
-15. `Schemas.Enum`: passing the serialization Schema and the original Enum as generic
-16. `Schemas.Array`: passing the item Schema
-17. `Schemas.Map`: passing a Map with Schemas as values
-18. `Schemas.Optional`: passing the schema to serialize
-
-Below are some examples of how these schemas can be declared.
-
-```ts
-const object = Schemas.Map({ x: Schemas.Int }) // { x: 1 }
-
-const array = Schemas.Map(Schemas.Int) // [1,2,3,4]
-
-const objectArray = Schemas.Array(Schemas.Map({ x: Schemas.Int })) // [{ x: 1 }, { x: 2 }]
-
-const BasicSchemas = Schemas.Map({
-  x: Schemas.Int,
-  y: Schemas.Float,
-  text: Schemas.String,
-  flag: Schemas.Boolean
-}) // { x: 1, y: 1.412, text: 'ecs 7 text', flag: true }
-
-const VelocitySchema = Schemas.Map({
-  x: Schemas.Float,
-  y: Schemas.Float,
-  z: Schemas.Float
-})
-```
-
-To then create a custom component using one of these schemas, use the following syntax:
-
-```ts
-export const myCustomComponent = engine.defineComponent(MyDataSchema, ComponentID)
-```
-
-For contrast, below is an example of how components were constructed prior to SDK 7.
-
-```ts
-/**
- * OLD SDK
- */
-
-// Define Component
-@Component('velocity')
-export class Velocity extends Vector3 {
-  constructor(x: number, y: number, z: number) {
-    super(x, y, z)
-  }
-}
-// Create entity
-const wheel = new Entity()
-
-// Create instance of component with default values
-wheel.addComponent(new WheelSpin())
-
-/**
- * ECS 7
- */
-// Define Component
-const VelocitySchema = Schemas.Map({
-  x: Schemas.Float,
-  y: Schemas.Float,
-  z: Schemas.Float
-})
-const COMPONENT_ID = 2008
-const VelocityComponent = engine.defineComponent(Velocity, COMPONENT_ID)
-// Create Entity
-const entity = engine.addEntity()
-
-// Create instance of component
-VelocityComponent.create(entity, { x: 1, y: 2.3, z: 8 })
-
-// Remove instance of a component
-VelocityComponent.deleteFrom(entity)
-```
-
-### Systems
-
-Systems are pure & simple functions.
-All your logic comes here.
-A system might hold data which is relevant to the system itself, but no data about the entities it processes.
-
-To add a system, all you need to do is define a function and add it to the engine. The function may optionally include a `dt` parameter with the delay since last frame, just like in prior versions of the SDK.
-
-```ts
-// Basic system
-function mySystem() {
-  console.log('my system is running')
-}
-
-engine.addSystem(mySystem)
-
-// System with dt
-function mySystemDT(dt: number) {
-  console.log('time since last frame:  ', dt)
-}
-
-engine.addSystem(mySystemDT)
-```
-
-#### Query components
-
-The way to group/query the components inside systems is using the method getEntitiesWith.
-`engine.getEntitiesWith(...components)`.
-
-```ts
-function physicsSystem(dt: number) {
-  for (const [entity, transform, velocity] of engine.getEntitiesWith(Transform, Velocity)) {
-    // transform & velocity are read only components.
-    if (transform.position.x === 10) {
-      // To update a component, you need to call the `.mutable` method
-      const mutableVelocity = VelocityComponent.getMutable(entity)
-      mutableVelocity.x += 1
-    }
-  }
-}
-
-// Add system to the engine
-engine.addSystem(physicsSystem)
-
-// Remove system
-engine.removeSystem(physicsSystem)
-```
-
-### Mutability
-
-Mutability is now an important distinction. We can choose to deal with mutable or with immutable versions of a component. We should use `getMutable` only when we plan to make changes to a component. Dealing with immutable versions of components results in a huge gain in performance.
-
-The `.get()` function in a component returns an immutable version of the component. You can only read its values, but can't change any of the properties on it.
-
-```ts
-const immutableTransform = Transform.get(myEntity)
-```
-
-To fetch the mutable version of a component, call it via `ComponentDefinition.getMutable()`. For example:
-
-```ts
-const mutableTransform = Transform.getMutable(myEntity)
-```

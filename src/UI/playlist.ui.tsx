@@ -10,8 +10,8 @@ let Playlist: Boolean = true;
 
 let songData = 'RED ALBERT Playlist';
 let songDataWrap = wordWrap(songData, 8 * tieredModalTextWrapScale, 6);
-
 let playlistFontSize = 12;
+
 
 export function playlistUI() {
     const canvasHeight = UiCanvasInformation.get(engine.RootEntity).height;

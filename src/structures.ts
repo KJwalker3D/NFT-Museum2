@@ -1,6 +1,5 @@
 import { Animator, ColliderLayer, GltfContainer, Transform, VisibilityComponent, engine } from "@dcl/sdk/ecs";
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
-import * as utils from '@dcl-sdk/utils'
 
 
 export let sceneCentrePosition = Vector3.create(16, 0, 16)
