@@ -37,7 +37,7 @@ To enable the visual aid, add the following code to `artData.ts`:
 const artNumbers = engine.addEntity()
 Transform.create(artNumbers, { position: sceneCentrePosition })
 GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
-
+    ```
 
 
 # Customize the NFT art
@@ -168,6 +168,27 @@ artDescription1 = 'your description for Artwork ID 1'
 
 
 You can adjust, add and remove 3D artworks, just make sure the artwork id, position, and rotation all match. 
+
+
+
+
+## Customize the lazy loading
+
+Lazy loading helps with scene performance by loading and offloading items depending on the player position. In lazyLoading.ts you can add, remove or adjust lazy loading areas. In the function createAllLazyAreas() you can adjust the existing lazy loading area positions, rotations and scales. You can also add or remove lazy loading areas.
+
+To create a lazy area, in lazyLoading.ts: 
+
+In createAllLazyAreas(): 
+
+ const newLazyArea = engine.addEntity()
+  Transform.create(lazyArea, {
+    position: // your position,
+    rotation: // your rotation,
+    scale: // your scale,
+    parent: lazyParent
+  })
+
+    createLazyArea( your position, your rotation, newLazyArea, index number)
 
 
 
