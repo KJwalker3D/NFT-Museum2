@@ -37,7 +37,8 @@ To enable the visual aid, add the following code to `artData.ts`:
 const artNumbers = engine.addEntity()
 Transform.create(artNumbers, { position: sceneCentrePosition })
 GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
-    ```
+```
+
 
 
 # Customize the NFT art
