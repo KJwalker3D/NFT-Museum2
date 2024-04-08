@@ -57,7 +57,6 @@ export function artHoverSystem(dt: number) {
 }
 
 
-
 export function changeArtHoverSystem() {
     for (const [entity] of engine.getEntitiesWith(ArtHover, PointerEvents)) {
         const artworkId = getArtworkId(entity);
@@ -111,7 +110,6 @@ export function setArtworkId(entity: Entity, artworkId: number) {
 export function getArtworkId(entity: Entity): number | undefined {
     return ArtworkIdMap.get(entity);
 }
-
 
 export interface ArtworkData {
     entity: Entity;

@@ -4,11 +4,11 @@ import { playPlaylist, togglePlaylist } from "./playlist";
 import { playRadio, toggleRadio } from "./radio";
 
 /// This is the Playlist, set to false to remove it
-export let Playlist: Boolean = false;
+export let Playlist: Boolean = true;
 
 
 // This is the radio, set to true to play it 
-export let radioPlaying: boolean = true;
+export let radioPlaying: boolean = false;
 
 
 // Function to set the radio state

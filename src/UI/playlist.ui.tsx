@@ -37,9 +37,6 @@ export function playlistUI() {
                     maxWidth: 100,
                     maxHeight: 200
                 }}
-                uiBackground={{
-                    // color: backgroundColor
-                }}
             >
                 <Button
                     uiTransform={{
@@ -66,7 +63,7 @@ export function playlistUI() {
                         uiTransform={{
                             width: `${canvasHeight * 0.025}`,
                             height: `${canvasHeight * 0.025}`,
-                            margin: '0 5px 15px 0' // Added space between buttons
+                            margin: '0 5px 15px 0' // space between buttons
                         }}
                         value=''
                         variant='secondary'
@@ -90,7 +87,7 @@ export function playlistUI() {
                         uiTransform={{
                             width: `${canvasHeight * 0.025}`,
                             height: `${canvasHeight * 0.025}`,
-                            margin: '0 0 15px 0' // Removed the extra space after the last button
+                            margin: '0 0 15px 0'
                         }}
                         value=''
                         variant='secondary'

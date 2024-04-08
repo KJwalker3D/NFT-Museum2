@@ -1,4 +1,4 @@
-import { Animator, ColliderLayer, GltfContainer, Transform, VisibilityComponent, engine } from "@dcl/sdk/ecs";
+import { Animator, GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 
 

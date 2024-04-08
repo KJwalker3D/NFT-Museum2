@@ -1,4 +1,4 @@
-import { ColliderLayer, engine, GltfContainer, Transform, VideoState, MeshCollider, MeshRenderer, pointerEventsSystem, PointerEvents, InputAction } from '@dcl/sdk/ecs'
+import { ColliderLayer, engine, GltfContainer, Transform, pointerEventsSystem, InputAction } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math';
 import { CONFIG } from './config';
 import { claimToken } from "./claim";
@@ -11,8 +11,11 @@ let dispenserPosition = Vector3.create(14.55, 19.53, 16)
 let dispenserScale = Vector3.create(0.8, 0.8, 0.8)
 let dispenserHoverText = 'Claim Reward'
 
+
+
 export let reward = false
 export let rewardClaimed = false
+
 
 export function createWearableReward() {
 

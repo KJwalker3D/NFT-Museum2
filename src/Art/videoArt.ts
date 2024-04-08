@@ -1,9 +1,9 @@
-import { engine, Transform, MeshRenderer, MeshCollider, Material, VideoPlayer, InputAction, pointerEventsSystem, Entity} from '@dcl/sdk/ecs';
+import { engine, Transform, MeshRenderer, MeshCollider, Material, VideoPlayer, InputAction, pointerEventsSystem, Entity } from '@dcl/sdk/ecs';
 import * as utils from '@dcl-sdk/utils';
 import { openExternalUrl } from '~system/RestrictedActions';
 import { Quaternion, Color3, Color4, Vector3 } from '@dcl/sdk/math';
 import { artPos14, artPos15, artPos2, artPos25, artPos26, artRot14, artRot15, artRot2, artRot25, artRot26 } from './artPositions';
-import {  togglePlay } from '../Audio/audio';
+import { togglePlay } from '../Audio/audio';
 import { homepageUrl, linktreeURL } from '../social';
 
 let videoPlayer: any = null;
@@ -21,7 +21,7 @@ let horizontalVideoLPMxSOA = 'https://player.vimeo.com/external/711197011.m3u8?s
 let horizontalVideoLPMxSOAplaceholder = 'https://bafkreigpeshmzddtlhw5tpxa55z3lfv7yjyzpkoj3s7vc5wxyuy367o5ji.ipfs.nftstorage.link/' // image placeholder
 
 let horizontalVideoIndieVillage = 'https://player.vimeo.com/external/931792879.m3u8?s=fa7ece24dfd2899ddac2112250092c4be5dbdff0&logging=false'
-let horizontalVideoIndieVillagePlaceholder = 'https://bafkreie2rucyrbnl5en7bccthydcxsmddhffp4oincu7afc2jt53u4eb6e.ipfs.nftstorage.link/'
+let horizontalVideoIndieVillagePlaceholder = 'https://bafkreie2rucyrbnl5en7bccthydcxsmddhffp4oincu7afc2jt53u4eb6e.ipfs.nftstorage.link/' // image placeholder
 
 export type VideoData = {
   room: number
@@ -42,71 +42,71 @@ export const videoCollection: VideoData[] = [
   {
     room: 1,
     id: 2,
-      position: artPos2,
-      rotation: artRot2,
-      scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
+    position: artPos2,
+    rotation: artRot2,
+    scale: Vector3.create(0.003 * 1920, 0.003 * 1080, 1),
     image: horizontalVideoMVFW23placeholder,
     video: horizontalVideoMVFW23,
     hoverText: 'Click',
     website: homepageUrl,
     triggerScale: Vector3.create(4, 2, 10),
-    triggerPosition: Vector3.create(artPos2.x + 2, artPos2.y -1, artPos2.z),
+    triggerPosition: Vector3.create(artPos2.x + 2, artPos2.y - 1, artPos2.z),
     audio: true
   },
   {
     room: 2,
     id: 14,
-      position: artPos14,
-      rotation: artRot14,
-      scale: Vector3.create(0.0025 * 1920, 0.0025 * 1080, 1),
+    position: artPos14,
+    rotation: artRot14,
+    scale: Vector3.create(0.0025 * 1920, 0.0025 * 1080, 1),
     image: horizontalVideoLPMxSOAplaceholder,
     video: horizontalVideoLPMxSOA,
     hoverText: 'Click',
     website: linktreeURL,
     triggerScale: Vector3.create(2, 2, 2),
-    triggerPosition: Vector3.create(artPos14.x + 2, artPos14.y -1, artPos14.z),
+    triggerPosition: Vector3.create(artPos14.x + 2, artPos14.y - 1, artPos14.z),
     audio: true
   },
   {
     room: 2,
     id: 15,
-      position: artPos15,
-      rotation: artRot15,
-      scale: Vector3.create(0.0025 * 1920, 0.0025 * 1080, 1),
+    position: artPos15,
+    rotation: artRot15,
+    scale: Vector3.create(0.0025 * 1920, 0.0025 * 1080, 1),
     image: horizontalVideoIndieVillagePlaceholder,
     video: horizontalVideoIndieVillage,
     hoverText: 'Click',
     website: linktreeURL,
     triggerScale: Vector3.create(2, 2, 2),
-    triggerPosition: Vector3.create(artPos15.x + 2, artPos15.y -1, artPos15.z),
+    triggerPosition: Vector3.create(artPos15.x + 2, artPos15.y - 1, artPos15.z),
     audio: true
   },
   {
     room: 2,
     id: 25,
-      position: artPos25,
-      rotation: artRot25,
-      scale: Vector3.create(6, 8.65, 1),
+    position: artPos25,
+    rotation: artRot25,
+    scale: Vector3.create(6, 8.65, 1),
     image: verticalVarbarianPlaceholder,
     video: verticalVarbarianVid,
     hoverText: 'Click',
     website: linktreeURL,
     triggerScale: Vector3.create(8, 6, 6),
-    triggerPosition: Vector3.create(artPos25.x, artPos25.y -1, artPos25.z -2),
-    audio: true
+    triggerPosition: Vector3.create(artPos25.x, artPos25.y - 1, artPos25.z - 2),
+    audio: false
   },
   {
     room: 2,
     id: 26,
-      position: artPos26,
-      rotation: artRot26,
-      scale: Vector3.create(6, 8.65, 1),
+    position: artPos26,
+    rotation: artRot26,
+    scale: Vector3.create(6, 8.65, 1),
     image: verticalVideoPlaceholder,
     video: verticalVideo,
     hoverText: 'Click',
     website: linktreeURL,
     triggerScale: Vector3.create(8, 6, 8),
-    triggerPosition: Vector3.create(artPos26.x, artPos26.y -1, artPos26.z +2),
+    triggerPosition: Vector3.create(artPos26.x, artPos26.y - 1, artPos26.z + 2),
     audio: true
   }
 ]
@@ -131,10 +131,10 @@ export async function createVideoArt(
   let isImage = true;
 
   Transform.createOrReplace(entity, {
-      position: position,
-      rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
-     scale: scale,
-  
+    position: position,
+    rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
+    scale: scale,
+
   });
 
 
@@ -252,9 +252,9 @@ export async function createVideoArt(
       }
     }
   );
-  
-  
-  
+
+
+
   return entity;
 
 }

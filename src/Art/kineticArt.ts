@@ -1,13 +1,15 @@
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
-import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, pointerEventsSystem, InputAction, AudioSource, TransformType } from "@dcl/sdk/ecs";
+import { Animator, engine, Transform, GltfContainer, ColliderLayer, pointerEventsSystem, InputAction, TransformType } from "@dcl/sdk/ecs";
 import * as utils from '@dcl-sdk/utils';
 import { playAudioAtPlayer, togglePlay } from "../Audio/audio";
 import { artPosC, artPosD, artRotC, artRotD } from "./artPositions";
 import { openExternalUrl } from "~system/RestrictedActions";
 import { linktreeURL } from "../social";
 
+// Paths to 3D models and animation names
 const kineticArtCircles = 'models/kineticArt-threeCircles.glb';
 const kineticArtCirclesClip = 'play2'
+
 const kineticArtCircuit = 'models/kineticArt-circuit.glb'
 const kineticArtCircuitClip = 'play3'
 
@@ -32,10 +34,10 @@ export const kineticArtCollection: KineticData[] = [
         position: {
             position: artPosC,
             rotation: Quaternion.fromEulerDegrees(artRotC.x, artRotC.y, artRotC.z),
-            scale: Vector3.create(0.5, 0.5, 0.5), //scale
+            scale: Vector3.create(0.5, 0.5, 0.5), 
         },
         triggerPosition: Vector3.create(0, 0, 0),
-        triggerScale: Vector3.create(6, 5, 10), // trigger scale
+        triggerScale: Vector3.create(6, 5, 10), 
         modelPath: kineticArtCircles,
         animationClip: kineticArtCirclesClip,
         audio: null,
@@ -46,7 +48,7 @@ export const kineticArtCollection: KineticData[] = [
         room: 2,
         id: 6,
         position: {
-            position: artPosD, // art position
+            position: artPosD, 
             rotation: Quaternion.fromEulerDegrees(artRotD.x, artRotD.y, artRotD.z), // rotation
             scale: Vector3.create(0.8, 0.8, 0.8)
         },

@@ -1,18 +1,17 @@
-import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
-import { sceneCentrePosition } from "../structures";
+// import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
+// import { sceneCentrePosition } from "../structures";
 
 
-export let websiteURL = 'https://LowPolyModelsWorld.com'
 
 
 // Make artNumbers visible to help with placing and naming items in the gallery:
-const artNumbers = engine.addEntity()
-Transform.create(artNumbers, { position: sceneCentrePosition })
-GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb' })
+/*
+ const artNumbers = engine.addEntity()
+ Transform.create(artNumbers, { position: sceneCentrePosition })
+ GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb' })
+*/
 
 
-
-/// Artwork data like images / videos / urls in here for ease of access
 
 // The artwork id matches the title and description number
 // Change titles and descriptions here to match your art :) 

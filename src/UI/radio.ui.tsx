@@ -10,7 +10,7 @@ import { radioPlaying } from "../Audio/audio";
 let Radio: Boolean = false
 
 let radioStationName = '24 House Radio'
-let radioStationNameWrap = wordWrap(radioStationName, 10, 3)
+let radioStationNameWrap = wordWrap(radioStationName, 14, 3)
 let textColor = Color4.White()
 let smallFont = 10
 
@@ -38,9 +38,6 @@ export function radioUI() {
                     maxWidth: 100,
                     maxHeight: 200
                 }}
-                uiBackground={{
-                    //  color: backgroundColor
-                }}
             >
                 <UiEntity key={'radio-space'}
                     uiTransform={{
@@ -54,7 +51,7 @@ export function radioUI() {
                         uiTransform={{
                             width: `${canvasHeight * 0.075}`,
                             height: `${canvasHeight * 0.02}`,
-                            margin: '0 0 15 0' // Added space between buttons
+                            margin: '0 0 15 0' // space between buttons
                         }}
                         value={radioStationNameWrap}
                         variant='primary'

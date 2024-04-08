@@ -2,26 +2,35 @@ import { ColliderLayer, GltfContainer, InputAction, Transform, TransformType, en
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
 
-// Socials glb models:
+// Socials GLB Models:
 const discordShape = 'models/social_media/discord.glb'
 const homepageShape = 'models/social_media/homepage.glb'
 const telegramShape = 'models/social_media/telegram.glb'
 const xShape = 'models/social_media/x.glb'
 const instagramShape = 'models/social_media/x.glb'
-const defaultScale = Vector3.create(0.8, 0.8, 0.8)
 
 
+const defaultScale = Vector3.create(0.8, 0.8, 0.8) // model size
+
+
+// Socials URLs
 export const discordUrl = 'https://linktr.ee/lowpolymodelsworld'
 export const homepageUrl = 'https://www.lowpolymodelsworld.com/'
 export const telegramUrl = 'https://linktr.ee/lowpolymodelsworld'
-export const xUrl = 'https://www.google.com/'
-export const instagramUrl = 'https://www.google.com/'
+export const xUrl = 'https://twitter.com/LowPolyModelsW'
+export const instagramUrl = 'https://www.instagram.com/LowPolyModelsW/'
 export let linktreeURL = 'https://linktr.ee/lowpolymodelsworld'
 
 
+// Socials Hover Text 
+const discordHoverText = 'Discord'
+const homepageHoverText = 'Website'
+const telegramHoverText = 'Telegram'
+const xHoverText = 'X'
+const instagramHoverText = 'Instagram'
+
 
 /// Positions
-
 // South social links
 const Xsouth =  {
     position: Vector3.create(3, 1.92, 2.75),
@@ -107,7 +116,7 @@ export function createSocialLink(
         function () {
           console.log('clicked artwork');
           openExternalUrl({
-            url: url,
+            url: url
           });
         }
       );
@@ -117,61 +126,61 @@ export function createSocials() {
     createSocialLink(
         Xsouth,
         xShape,
-        'X',
+        xHoverText,
         xUrl
     )
     createSocialLink(
         Xnorth,
         xShape,
-        'X',
+        xHoverText,
         xUrl
     )
     createSocialLink(
         discordSouth,
         discordShape,
-        'Discord',
+        discordHoverText,
         discordUrl
     )
     createSocialLink(
         discordNorth,
         discordShape,
-        'Discord',
+        discordHoverText,
         discordUrl
     )
     createSocialLink(
         homepageNorth,
         homepageShape,
-        'Website',
+        homepageHoverText,
         homepageUrl
     )
     createSocialLink(
         homepageSouth,
         homepageShape,
-        'Website',
+        homepageHoverText,
         homepageUrl
     )
     createSocialLink(
         instagramNorth,
         instagramShape,
-        'Instagram',
+        instagramHoverText,
         instagramUrl
     )
     createSocialLink(
         instagramSouth,
         instagramShape,
-        'Instagram',
+        instagramHoverText,
         instagramUrl
     )
     createSocialLink(
         telegramSouth,
         telegramShape,
-        'Telegram',
+        telegramHoverText,
         telegramUrl
     )
     createSocialLink(
         telegramNorth,
         telegramShape,
-        'Telegram',
+        telegramHoverText,
         telegramUrl
     )
     

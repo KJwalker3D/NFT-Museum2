@@ -1,4 +1,3 @@
-import { Color4 } from '@dcl/sdk/math';
 import *  as  ui from 'dcl-ui-toolkit'
 import { setupUiInfoEngine } from '../helperFunctions';
 import { artDetailsUI } from './artHover.ui';
@@ -8,8 +7,6 @@ import { ReactEcsRenderer } from '@dcl/sdk/react-ecs';
 import { rewardUI } from './reward.ui';
 
 
-
-export const backgroundColor = Color4.create(0, 0, 0, 0.9) // semi transparent black
 
 export const pauseIcon = 'images/pauseIcon.png';
 export const playIcon = 'images/playIcon.png';

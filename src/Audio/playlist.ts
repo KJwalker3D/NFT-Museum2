@@ -6,7 +6,7 @@ import { openExternalUrl } from "~system/RestrictedActions";
 
 
 /// This is the Playlist, set to false to remove it
-export let streamPlayingRef: { value: boolean } = { value: false }; // Set an initial value
+export let streamPlayingRef: { value: boolean } = { value: true }; // Set an initial value
 
 ///// PLAYLIST
 
@@ -18,6 +18,7 @@ type Song = {
 };
 
 
+// Adjust song titles, artists, durations and stream links or audio paths here 
 export const playlist: Song[] = [
   { title: 'DCLMF23 Set', artist: 'RED ALBERT', duration: (60 * 60), url: 'https://bafybeigyzew44hkz46vzugd3plpovkboshdztv74vkmhhflz44477kmqte.ipfs.nftstorage.link/' },
   { title: 'MVFW23 Set', artist: 'RED ALBERT', duration: (60 * 60) + 1, url: 'https://bafybeicvyrgg6jnvpajfenbdspaevx4yydizslxdgmgd6f2y4tptpkzjpu.ipfs.nftstorage.link/' },

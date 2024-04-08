@@ -6,6 +6,27 @@ import { artPos1, artRot1, artPos3, artRot3, artPos6, artRot6, artPos7, artRot7,
 import { canvasFrame, classicFrame } from "./nftFrames";
 
 
+
+let urn6 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536'
+let urn7 = 'urn:decentraland:ethereum:erc721:0xd73be539d6b2076bab83ca6ba62dfe189abc6bbe:64359'
+let urn3 = 'urn:decentraland:ethereum:erc721:0x41a322b28d0ff354040e2cbc676f0320d8c8850d:3734'
+let urn8 = 'urn:decentraland:ethereum:erc721:0xecf7ef42b57ee37a959bf507183c5dd6bf182081:100'
+let urn11 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:1540722'
+let urn12 = 'urn:decentraland:ethereum:erc721:0x5B8c7104122aB9d33550d43D2343B20DcD455126:72'
+let urn13 = 'urn:decentraland:ethereum:erc721:0x22c1f6050e56d2876009903609a2cc3fef83b415:13726'
+let urn16 = 'urn:decentraland:ethereum:erc721:0xe977bfe8b83db27616ec10c7862066d37e0326a9:68'
+let urn17 = 'urn:decentraland:ethereum:erc721:0xdd9c7bc159dacb19c9f6b9d7e23948c87aa2397f:1'
+let urn18 = 'urn:decentraland:ethereum:erc721:0x22c1f6050e56d2876009903609a2cc3fef83b415:15726'
+let urn19 = 'urn:decentraland:ethereum:erc721:0x22c1f6050e56d2876009903609a2cc3fef83b415:13655'
+let urn20 = 'urn:decentraland:ethereum:erc721:0x22c1f6050e56d2876009903609a2cc3fef83b415:11975'
+let urn21 = 'urn:decentraland:ethereum:erc721::0x22c1f6050e56d2876009903609a2cc3fef83b415:12123'
+let urn22 = 'urn:decentraland:ethereum:erc721:0x22c1f6050e56d2876009903609a2cc3fef83b415:12673'
+let urn23 = 'urn:decentraland:ethereum:erc721:0x22c1f6050e56d2876009903609a2cc3fef83b415:13493'
+let urn24 = 'urn:decentraland:ethereum:erc721:0x22c1f6050e56d2876009903609a2cc3fef83b415:13294'
+
+
+
+
 export type NFTdata = {
   room: number // location >> room 1 = ground floor; room 2 = first floor + mezzanine; room 3: rooftop area
   id: number
@@ -25,7 +46,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos1,
     rotation: artRot1,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536', // Example with urn path
     frame: canvasFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -36,7 +57,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos3,
     rotation: artRot3,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn3, // Example with urns declared above
     frame: canvasFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -48,7 +69,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos6,
     rotation: artRot6,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn6,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -59,7 +80,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos7,
     rotation: artRot7,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn7,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -70,7 +91,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos8,
     rotation: artRot8,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn8,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -81,7 +102,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos11,
     rotation: artRot11,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn11,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -92,7 +113,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos12,
     rotation: artRot12,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn12,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -103,7 +124,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos13,
     rotation: artRot13,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn13,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -114,7 +135,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos16,
     rotation: artRot16,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn16,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -125,7 +146,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos17,
     rotation: artRot17,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn17,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -136,7 +157,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos18,
     rotation: artRot18,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn18,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -147,7 +168,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos19,
     rotation: artRot19,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn19,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -158,7 +179,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos20,
     rotation: artRot20,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn20,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -169,7 +190,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos21,
     rotation: artRot21,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn21,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -180,7 +201,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos22,
     rotation: artRot22,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn22,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -191,7 +212,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos23,
     rotation: artRot23,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn23,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -202,7 +223,7 @@ export const nftCollection: NFTdata[] = [
     position: artPos24,
     rotation: artRot24,
     scale: Vector3.create(4, 4, 4),
-    urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536',
+    urn: urn24,
     frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
@@ -257,12 +278,3 @@ export function createNFT(
 export function removeNFTs(entity: Entity) {
   engine.removeEntity(entity)
 }
-
-
-
-export let urn1 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536'
-export let urn2 = 'urn:decentraland:ethereum:erc721:0xd73be539d6b2076bab83ca6ba62dfe189abc6bbe:64359'
-export let urn3 = 'urn:decentraland:ethereum:erc721:0x41a322b28d0ff354040e2cbc676f0320d8c8850d:3734'
-export let urn4 = 'urn:decentraland:ethereum:erc721:0xecf7ef42b57ee37a959bf507183c5dd6bf182081:100'
-export let urn5 = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:1540722'
-

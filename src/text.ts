@@ -1,13 +1,9 @@
-
-
-
-/// Text Panels and Customisable Titles here:
-
 import { engine, Transform, TextShape, Font, GltfContainer } from "@dcl/sdk/ecs"
-import { Color3, Color4, Quaternion, Vector3 } from "@dcl/sdk/math"
+import { Color4, Quaternion, Vector3 } from "@dcl/sdk/math"
 import { wordWrap } from "./helperFunctions"
 import { sceneCentrePosition } from "./structures"
 
+/// Text Panels and Customisable Titles here:
 
 /// Default NFT Museum Texts (feel free to remove and replace with custom models or code based text like below)
 export function createDefaultTexts() {

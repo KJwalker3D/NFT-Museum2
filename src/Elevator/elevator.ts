@@ -7,43 +7,52 @@ import { setCurrentFloor, currentFloor } from "./elevatorState";
 
 /// This file relies on audio code present in audio.ts
 
-const sceneParent = engine.addEntity();
-Transform.create(sceneParent, {
-    position: Vector3.create(16, 0, 16)
-});
-VisibilityComponent.create(sceneParent, { visible: false })
 
-
+// 3D models
 const arrowsButton = 'models/elevator/arrows.glb';
 const elevatorModel = 'models/elevator/elevator.glb';
 const buttonModels = ['models/elevator/button1.glb', 'models/elevator/button2.glb', 'models/elevator/button3.glb'];
 
 
-const buttonYOffsets = [0, 0.13, 0.28];
 
-
+// Sounds
 const callButtonSound = 'sounds/callButton.mp3'
 const buttonSound = 'sounds/button.mp3';
 const elevatorSound = 'sounds/hum2.mp3';
 const elevatorArrivalSound = 'sounds/elevatorPing.mp3';
-let isMoving = false
-let pathComplete = true;
 
+
+// Stops
 const floors = [
     { name: 'Ground Floor', height: 3.1 },
     { name: 'Second Floor', height: 11.45 },
     { name: 'Rooftop', height: 21.75 }
 ];
 
+// Elevator buttons
+const buttonPositionX = -28.935;
+const buttonOffsetY = -0.005;
+const buttonZpos1 = -20.7
+const buttonZpos2 = -13.45
+const buttonYOffsets = [0, 0.13, 0.28];
+
+
 // Call buttons
-const buttonPositions: Vector3[] = [
-    // ground floor
-    Vector3.create(26.7725, 1.47, 16.02),
-    // second floor
-    Vector3.create(26.3, 10.05, 16.02),
-    // rooftop
-    Vector3.create(25.1, 19.975, 15.99)
+const buttonPositions: Vector3[] = [  
+    Vector3.create(26.7725, 1.47, 16.02), // ground floor
+    Vector3.create(26.3, 10.05, 16.02), // second floor
+    Vector3.create(25.1, 19.975, 15.99)  // rooftop
 ];
+
+// Elevator positions
+const elevator1pos = Vector3.create(36.95 - 8, 3.1, 19.6)
+const elevator1rot = Quaternion.fromEulerDegrees(0, -90, 0)
+const elevator2pos = Vector3.create(28.95, 3.1, 12.35)
+const elevator2rot = Quaternion.fromEulerDegrees(0, -90, 0)
+
+
+let isMoving = false
+let pathComplete = true;
 
 
 function createElevator(position: Vector3, rotation: Quaternion) {
@@ -60,7 +69,6 @@ function createElevator(position: Vector3, rotation: Quaternion) {
 }
 
 
-// For elevators moving together use this moveToFloor function
 function moveToFloor(entity: Entity, floorIndex: number) {
     if (isMoving) return; // Ensure that both elevators are not already moving
 
@@ -70,8 +78,8 @@ function moveToFloor(entity: Entity, floorIndex: number) {
     const currentPosition1 = Transform.get(elevator).position;
     const currentPosition2 = Transform.get(elevator2).position;
 
-    const targetPosition1 = Vector3.create(currentPosition1.x, targetHeight, currentPosition1.z); // Keep X and Z constant for elevator 1
-    const targetPosition2 = Vector3.create(currentPosition2.x, targetHeight, currentPosition2.z); // Keep X and Z constant for elevator 2
+    const targetPosition1 = Vector3.create(currentPosition1.x, targetHeight, currentPosition1.z); 
+    const targetPosition2 = Vector3.create(currentPosition2.x, targetHeight, currentPosition2.z); 
 
     playAudioAtPlayer(elevatorSound);
     pathComplete = false;
@@ -79,21 +87,16 @@ function moveToFloor(entity: Entity, floorIndex: number) {
 
     // Move both elevators simultaneously
     utils.tweens.startTranslation(elevator, currentPosition1, targetPosition1, 5, utils.InterpolationType.LINEAR, () => {
-        // Callback when elevator 1 movement is complete
         pathComplete = true;
         console.log('path complete');
         setCurrentFloor(floorIndex);
         console.log(`current floor: ${currentFloor} index: ${floorIndex}`);
         playAudioAtPlayer(elevatorArrivalSound);
-        isMoving = false; // Mark both elevators as not moving
+        isMoving = false;
     });
 
-    utils.tweens.startTranslation(elevator2, currentPosition2, targetPosition2, 5, utils.InterpolationType.LINEAR, () => {
-        // No need to duplicate pathComplete, setCurrentFloor, console.log, and playAudioAtPlayer statements since they are common for both elevators
-    });
+    utils.tweens.startTranslation(elevator2, currentPosition2, targetPosition2, 5, utils.InterpolationType.LINEAR, () => {});
 }
-
-
 
 function createElevatorButton(parent: Entity, position: Vector3, modelSrc: string, yOffset: number, index: number, doorsShouldOpen: boolean) {
 
@@ -141,30 +144,21 @@ function createElevatorButton(parent: Entity, position: Vector3, modelSrc: strin
             const animateButton = Animator.getClip(button, 'Push1');
             animateButton.playing = true;
             animateButton.loop = false;
-
             console.log(`Elevator button pressed: ${floors[index].name}`);
-
-
-            // Start elevator movement
             moveToFloor(parent, index);
         }
     );
 }
 
-// Numbered elevator buttons (move them here)
 function initializeElevatorButtons(elevator: Entity, isLeftElevator: Boolean) {
     const buttons: Entity[] = [];
-    const buttonOffsetY = -0.005;
     const numFloors = floors.length;
 
-
     floors.forEach((_floor, index) => {
+
         const buttonPositionY = buttonOffsetY * (numFloors - index - 1);
-        const buttonPositionX = -28.935;
-
-
         const currentElevator = isLeftElevator ? elevator : elevator2;
-        const buttonZPOS = isLeftElevator ? -20.7 : -13.45;
+        const buttonZPOS = isLeftElevator ? buttonZpos1 : buttonZpos2;
 
         createElevatorButton(
             currentElevator,
@@ -186,7 +180,7 @@ function createCallButton(position: Vector3, rotation: Vector3, floorIndex: numb
         rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z)
     });
     const audioSourceEntity = engine.addEntity();
-    const audioSourcePosition = Vector3.create(position.x, position.y, position.z); // Create a new Vector3 with the same coordinates
+    const audioSourcePosition = Vector3.create(position.x, position.y, position.z); 
     Transform.create(audioSourceEntity, {
         position: audioSourcePosition,
     });
@@ -196,7 +190,6 @@ function createCallButton(position: Vector3, rotation: Vector3, floorIndex: numb
         loop: false,
         volume: 100
     })
-    let triggerCallButtonSound = AudioSource.getMutable(audioSourceEntity)
 
 
     GltfContainer.create(callButton, {
@@ -240,8 +233,8 @@ function initializeCallButtons() {
     });
 }
 
-const elevator = createElevator(Vector3.create(36.95 - 8, 3.1, 19.6), Quaternion.fromEulerDegrees(0, -90, 0));
-const elevator2 = createElevator(Vector3.create(28.95, 3.1, 12.35), Quaternion.fromEulerDegrees(0, -90, 0));
+const elevator = createElevator(elevator1pos, elevator1rot);
+const elevator2 = createElevator(elevator2pos, elevator2rot);
 
 
 initializeElevatorButtons(elevator, true);
