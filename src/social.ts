@@ -1,6 +1,6 @@
 import { ColliderLayer, GltfContainer, InputAction, Transform, TransformType, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { Quaternion, Vector3 } from "@dcl/sdk/math";
-import { Vector2, openExternalUrl } from "~system/RestrictedActions";
+import { openExternalUrl } from "~system/RestrictedActions";
 
 // Socials glb models:
 const discordShape = 'models/social_media/discord.glb'
@@ -11,11 +11,13 @@ const instagramShape = 'models/social_media/x.glb'
 const defaultScale = Vector3.create(0.8, 0.8, 0.8)
 
 
-const discordUrl = 'https://www.google.com/'
-const homepageUrl = 'https://www.google.com/'
-const telegramUrl = 'https://www.google.com/'
-const xUrl = 'https://www.google.com/'
-const instagramUrl = 'https://www.google.com/'
+export const discordUrl = 'https://linktr.ee/lowpolymodelsworld'
+export const homepageUrl = 'https://www.lowpolymodelsworld.com/'
+export const telegramUrl = 'https://linktr.ee/lowpolymodelsworld'
+export const xUrl = 'https://www.google.com/'
+export const instagramUrl = 'https://www.google.com/'
+export let linktreeURL = 'https://linktr.ee/lowpolymodelsworld'
+
 
 
 /// Positions

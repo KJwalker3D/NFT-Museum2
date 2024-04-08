@@ -1,8 +1,9 @@
-import { InputAction, Material, MeshCollider, MeshRenderer, Transform, TransformType, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
+import { InputAction, Material, MeshCollider, MeshRenderer, Transform, engine, pointerEventsSystem } from "@dcl/sdk/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/sdk/math";
 import { openExternalUrl } from "~system/RestrictedActions";
-import { artPos10, artPos3, artPos4, artPos5, artPos9, artRot10, artRot3, artRot4, artRot5, artRot9 } from "./artPositions";
-import { linktreeURL, logoImage, websiteURL } from "./artData";
+import { artPos10, artPos4, artPos5, artPos9, artRot10, artRot4, artRot5, artRot9 } from "./artPositions";
+import { logoImage, websiteURL } from "./artData";
+import { linktreeURL } from "../social";
 
 // For static images that aren't loaded in as NFTs
 
@@ -11,7 +12,7 @@ let verticalImageRender = 'https://bafkreia5xiavtlcbrvfr4os7om5bdzbzjdtvm4jcuki5
 
 
 export type ImageData = {
-  room: number, 
+  room: number,
   id: number,
   position: Vector3,
   rotation: Vector3,
@@ -24,11 +25,11 @@ export type ImageData = {
 
 export const imageArtCollection: ImageData[] = [
   {
-    room: 1, 
+    room: 1,
     id: 4,
-      position: artPos4,
-      rotation: artRot4,
-      scale: Vector3.create(1.5, 1.5, 1.5),
+    position: artPos4,
+    rotation: artRot4,
+    scale: Vector3.create(1.5, 1.5, 1.5),
     image: logoImage,
     hoverText: 'Click',
     url: linktreeURL,
@@ -71,71 +72,71 @@ export const imageArtCollection: ImageData[] = [
 
 
 export function createImageArt(
-    position: Vector3,
-    rotation: Vector3,
-    scale: Vector3,
-    image: string, // can be path to image file or url to hosted image
-    hoverText: string,
-    url: string,
-    hasAlpha: boolean
+  position: Vector3,
+  rotation: Vector3,
+  scale: Vector3,
+  image: string, // can be path to image file or url to hosted image
+  hoverText: string,
+  url: string,
+  hasAlpha: boolean
 ) {
 
-    let entity = engine.addEntity()
-    Transform.create(entity, {
-        position: position, 
-        rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
-        scale: scale 
+  let entity = engine.addEntity()
+  Transform.create(entity, {
+    position: position,
+    rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z),
+    scale: scale
+  })
+  MeshRenderer.setPlane(entity)
+  MeshCollider.setPlane(entity)
+
+  pointerEventsSystem.onPointerDown(
+    {
+      entity: entity,
+      opts: {
+        button: InputAction.IA_POINTER,
+        hoverText: hoverText,
+        maxDistance: 16
+      }
+    },
+    function () {
+      openExternalUrl({
+        url: url
+      })
+    }
+  )
+
+  const imageMaterial = Material.Texture.Common({ src: image });
+
+
+  if (!hasAlpha) {
+
+    Material.setPbrMaterial(entity, {
+      texture: imageMaterial,
+      roughness: 1,
+      specularIntensity: 0,
+      metallic: 0,
+      emissiveColor: Color3.White(),
+      emissiveIntensity: 1,
+      emissiveTexture: imageMaterial,
     })
-    MeshRenderer.setPlane(entity)
-    MeshCollider.setPlane(entity)
+  }
 
-    pointerEventsSystem.onPointerDown(
-        {
-          entity: entity,
-          opts: {
-            button: InputAction.IA_POINTER,
-            hoverText: hoverText,
-            maxDistance: 16
-          }
-        },
-        function () {
-         openExternalUrl({
-            url: url
-         })
-        }
-      )
+  else if (hasAlpha) {
 
-      const imageMaterial = Material.Texture.Common({ src: image });
+    Material.setPbrMaterial(entity, {
+      texture: imageMaterial,
+      roughness: 1,
+      specularIntensity: 0,
+      metallic: 0,
+      alphaTexture: imageMaterial,
+      //alphaTest: 0.95,
+      emissiveColor: Color3.Black(),
+      emissiveIntensity: 1,
+      emissiveTexture: imageMaterial,
 
+    })
+  }
 
-      if (!hasAlpha) {
-
-        Material.setPbrMaterial(entity, {
-          texture: imageMaterial,
-          roughness: 1,
-          specularIntensity: 0,
-          metallic: 0,
-          emissiveColor: Color3.White(),
-          emissiveIntensity: 1,
-          emissiveTexture: imageMaterial,
-        })
-      }
-
-      else if (hasAlpha) {
-
-        Material.setPbrMaterial(entity, {
-          texture: imageMaterial,
-          roughness: 1,
-          specularIntensity: 0,
-          metallic: 0,
-          alphaTexture: imageMaterial,
-          //alphaTest: 0.95,
-          emissiveColor: Color3.Black(),
-          emissiveIntensity: 1,
-          emissiveTexture: imageMaterial,
-          
-        })
-      }
-
-      return entity
+  return entity
 }

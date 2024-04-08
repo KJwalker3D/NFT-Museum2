@@ -5,20 +5,18 @@ import { playAudioAtPlayer } from "../Audio/audio";
 import { setCurrentFloor, currentFloor } from "./elevatorState";
 
 
-//add sound when elevator path complete
-
 /// This file relies on audio code present in audio.ts
 
 const sceneParent = engine.addEntity();
 Transform.create(sceneParent, {
     position: Vector3.create(16, 0, 16)
 });
-VisibilityComponent.create(sceneParent, {visible: false})
+VisibilityComponent.create(sceneParent, { visible: false })
 
 
-const arrowsButton = 'models/arrows.glb';
-const elevatorModel = 'models/elevator.glb';
-const buttonModels = ['models/button1.glb', 'models/button2.glb', 'models/button3.glb'];
+const arrowsButton = 'models/elevator/arrows.glb';
+const elevatorModel = 'models/elevator/elevator.glb';
+const buttonModels = ['models/elevator/button1.glb', 'models/elevator/button2.glb', 'models/elevator/button3.glb'];
 
 
 const buttonYOffsets = [0, 0.13, 0.28];
@@ -29,8 +27,6 @@ const buttonSound = 'sounds/button.mp3';
 const elevatorSound = 'sounds/hum2.mp3';
 const elevatorArrivalSound = 'sounds/elevatorPing.mp3';
 let isMoving = false
-let isMovingElevator1 = false;
-let isMovingElevator2 = false;
 let pathComplete = true;
 
 const floors = [
@@ -49,9 +45,6 @@ const buttonPositions: Vector3[] = [
     Vector3.create(25.1, 19.975, 15.99)
 ];
 
-// Uncomment the line below if working with one elevator only
-//let isMoving = false;
-
 
 function createElevator(position: Vector3, rotation: Quaternion) {
     const elevator = engine.addEntity();
@@ -66,51 +59,6 @@ function createElevator(position: Vector3, rotation: Quaternion) {
     return elevator;
 }
 
-
-// For independently moving elevators use this moveToFloor function instead.
-/*
-function moveToFloor(entity: Entity, floorIndex: number) {
-    
-    // Remove the line(s) below if only using one elevator
-    let isMoving;
-    if (entity === elevator) {
-        isMoving = isMovingElevator1;
-    } else if (entity === elevator2) {
-        isMoving = isMovingElevator2;
-    } else {
-        return;
-    }
-    // End of section to remove
-
-
-    if (isMoving) return;
-
-
-    if (floorIndex === currentFloor) {
-        return;
-    }
-
-   // Uncomment the line below if working with only one elevator
-   // isMoving = true;
-
-    const targetHeight = floors[floorIndex].height;
-    const currentPosition = Transform.get(entity).position;
-    const targetPosition = Vector3.create(currentPosition.x, targetHeight, currentPosition.z); // Keep X and Z constant
-    playAudioAtPlayer(elevatorSound)
-    pathComplete = false
-    setCurrentFloor(floorIndex);
-
-    utils.tweens.startTranslation(entity, currentPosition, targetPosition, 5, utils.InterpolationType.LINEAR, () => {
-        isMoving = false;
-        floorIndex = currentFloor;
-        pathComplete = true;
-        console.log('path complete');
-        setCurrentFloor(floorIndex);
-        console.log(`current floor: ${currentFloor} index: ${floorIndex}`)
-        playAudioAtPlayer(elevatorArrivalSound)
-    });
-}
-*/
 
 // For elevators moving together use this moveToFloor function
 function moveToFloor(entity: Entity, floorIndex: number) {
@@ -141,7 +89,6 @@ function moveToFloor(entity: Entity, floorIndex: number) {
     });
 
     utils.tweens.startTranslation(elevator2, currentPosition2, targetPosition2, 5, utils.InterpolationType.LINEAR, () => {
-        // Callback when elevator 2 movement is complete
         // No need to duplicate pathComplete, setCurrentFloor, console.log, and playAudioAtPlayer statements since they are common for both elevators
     });
 }
@@ -149,7 +96,7 @@ function moveToFloor(entity: Entity, floorIndex: number) {
 
 
 function createElevatorButton(parent: Entity, position: Vector3, modelSrc: string, yOffset: number, index: number, doorsShouldOpen: boolean) {
-    
+
     const button = engine.addEntity();
     const buttonPosition = Vector3.add(Transform.get(parent).position, position);
     Transform.create(button, {
@@ -157,18 +104,18 @@ function createElevatorButton(parent: Entity, position: Vector3, modelSrc: strin
         parent: parent
     });
 
-    
-        GltfContainer.create(button, {
-            src: modelSrc,
-            invisibleMeshesCollisionMask: ColliderLayer.CL_POINTER
-        });
 
-        AudioSource.create(button, {
-            audioClipUrl: buttonSound,
-            playing: false,
-            loop: false,
-            volume: 100
-        })
+    GltfContainer.create(button, {
+        src: modelSrc,
+        invisibleMeshesCollisionMask: ColliderLayer.CL_POINTER
+    });
+
+    AudioSource.create(button, {
+        audioClipUrl: buttonSound,
+        playing: false,
+        loop: false,
+        volume: 100
+    })
 
     Animator.create(button, {
         states: [
@@ -209,19 +156,19 @@ function initializeElevatorButtons(elevator: Entity, isLeftElevator: Boolean) {
     const buttons: Entity[] = [];
     const buttonOffsetY = -0.005;
     const numFloors = floors.length;
-    
+
 
     floors.forEach((_floor, index) => {
         const buttonPositionY = buttonOffsetY * (numFloors - index - 1);
         const buttonPositionX = -28.935;
 
-      
+
         const currentElevator = isLeftElevator ? elevator : elevator2;
         const buttonZPOS = isLeftElevator ? -20.7 : -13.45;
 
         createElevatorButton(
             currentElevator,
-            Vector3.create(buttonPositionX, buttonPositionY -4.41, buttonZPOS),
+            Vector3.create(buttonPositionX, buttonPositionY - 4.41, buttonZPOS),
             buttonModels[index],
             buttonYOffsets[index],
             index,
@@ -293,10 +240,7 @@ function initializeCallButtons() {
     });
 }
 
-// Creating first elevator
 const elevator = createElevator(Vector3.create(36.95 - 8, 3.1, 19.6), Quaternion.fromEulerDegrees(0, -90, 0));
-
-// Remove the three lines below if only using one elevator
 const elevator2 = createElevator(Vector3.create(28.95, 3.1, 12.35), Quaternion.fromEulerDegrees(0, -90, 0));
 
 

@@ -1,10 +1,9 @@
 import { NftFrameType, NftShape, Transform, engine } from "@dcl/ecs";
 import { Color3, Quaternion, Vector3 } from "@dcl/ecs-math";
-import { pointerEventsSystem, InputAction, MeshCollider, TransformType, Entity } from "@dcl/sdk/ecs";
+import { pointerEventsSystem, InputAction, MeshCollider, Entity } from "@dcl/sdk/ecs";
 import { openNftDialog } from "~system/RestrictedActions";
 import { artPos1, artRot1, artPos3, artRot3, artPos6, artRot6, artPos7, artRot7, artPos8, artRot8, artPos11, artRot11, artPos12, artRot12, artPos13, artPos16, artRot16, artPos17, artRot17, artPos18, artRot18, artPos19, artRot19, artPos20, artRot20, artPos21, artRot21, artPos22, artRot22, artPos23, artRot23, artPos24, artRot24, artRot13 } from "./artPositions";
-import { canvasFrame, noFrame, classicFrame } from "./nftFrames";
-import { artTitle1, artTitle11, artTitle12, artTitle13, artTitle16, artTitle17, artTitle18, artTitle19, artTitle20, artTitle21, artTitle22, artTitle23, artTitle24, artTitle3, artTitle6, artTitle7, artTitle8 } from "./artData";
+import { canvasFrame, classicFrame } from "./nftFrames";
 
 
 export type NFTdata = {

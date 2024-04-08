@@ -1,8 +1,8 @@
 import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 import { Color4 } from "@dcl/sdk/math";
-import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
+import ReactEcs, { UiEntity, Button } from "@dcl/sdk/react-ecs";
 import { tieredFontScale, tieredModalTextWrapScale, wordWrap } from "../helperFunctions";
-import { backgroundColor, pauseIcon, playIcon, skipIcon } from "./ui";
+import { pauseIcon, playIcon, skipIcon } from "./ui";
 import { nowPlayingElement, openMixcloud, playingArtist, skipSong, streamPlayingRef, togglePlaylist, updateNowPlayingTitle } from "../Audio/playlist";
 
 // Set Playlist to 'false' to hide the playlist UI:

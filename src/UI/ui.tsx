@@ -9,11 +9,8 @@ import { rewardUI } from './reward.ui';
 
 
 
-
-
-
-
 export const backgroundColor = Color4.create(0, 0, 0, 0.9) // semi transparent black
+
 export const pauseIcon = 'images/pauseIcon.png';
 export const playIcon = 'images/playIcon.png';
 export const skipIcon = 'images/skipIcon.png'
@@ -22,10 +19,9 @@ let rewardImage = 'images/wearable.png'
 let rewardName = 'Patch Pants'
 
 
-
 export function setupUi() {
     setupUiInfoEngine(),
-    ReactEcsRenderer.setUiRenderer(uiComponent)
+        ReactEcsRenderer.setUiRenderer(uiComponent)
 }
 
 export const uiComponent = () => [

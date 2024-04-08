@@ -1,4 +1,4 @@
-import { CONFIG } from "../config"
+import { CONFIG } from "./config"
 
 /// Change the TEST_CAMPAIGN_ID to match your campaign (find it on the rewards server)
 /// Change the TEST_CAMPAIGN_KEY to match the item from your campaign (on the rewards server)
@@ -24,7 +24,7 @@ export const ClaimConfig = {
             campaignKeys: {
                 // wearable
                 KEY_0: CONFIG.CONFIG_CLAIM_TESTING_ENABLED ? TEST_CAMPAIGN_KEY : "R04A1hLOTYmBVoNMOkNWMTR4t1+jRE/JgDk3/xwqb50=.ktcvpMUTwFnWa7603sBUIkmkymbLv5DrDXKlLYMS1Cw=",
-           
+
             },
         },
         CAMPAIGN_FOUND: {
@@ -34,5 +34,5 @@ export const ClaimConfig = {
             },
         },
     },
- 
+
 }

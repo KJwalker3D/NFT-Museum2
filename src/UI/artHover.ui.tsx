@@ -1,16 +1,14 @@
-import { Entity, InputAction, MeshCollider, PointerEventType, PointerEvents, Transform, UiCanvasInformation, engine } from "@dcl/ecs";
-import { Color4, Quaternion, Vector3 } from "@dcl/ecs-math";
+import { UiCanvasInformation, engine } from "@dcl/ecs";
+import { Color4, Vector3 } from "@dcl/ecs-math";
 import ReactEcs, { UiEntity, Label } from "@dcl/react-ecs";
-import { ArtComponent, ArtHover, currentArtworkId, findArtworkById, hoverVisible, setArtworkId, toggleHover } from "../Art/artHover";
+import { currentArtworkId, findArtworkById, hoverVisible, toggleHover } from "../Art/artHover";
 import { wordWrap, tieredModalTextWrapScale, breakLines, tieredFontScale } from "../helperFunctions";
 
 
 
 const Max_Chars = 38
-const Min_Chars = 25
 const titleFontSize = 22;
 const descriptionFontSize = 12
-const artHoverScale = Vector3.create(1, 1, 1) // Default size of the trigger area for art UI details
 
 const titleFont = 'serif'
 const descriptionFont = 'sans-serif'
@@ -20,15 +18,15 @@ const descriptionColor = Color4.White()
 
 const artFrame = 'images/artFrame.png'
 
+
 // Set all Art Titles and Descriptions in artData.ts 
 
-
 export function artDetailsUI() {
-    if (hoverVisible) {
-      const artwork = findArtworkById(currentArtworkId);
-      if (artwork && artwork.visible) {
-          const { title, description } = artwork;
-      const artTitleWrap = wordWrap(title, 12 * tieredModalTextWrapScale, 6) 
+  if (hoverVisible) {
+    const artwork = findArtworkById(currentArtworkId);
+    if (artwork && artwork.visible) {
+      const { title, description } = artwork;
+      const artTitleWrap = wordWrap(title, 12 * tieredModalTextWrapScale, 6)
       const artDescriptionWrap = breakLines(description, Max_Chars)
 
 
@@ -44,21 +42,21 @@ export function artDetailsUI() {
             maxHeight: `${UiCanvasInformation.get(engine.RootEntity).height * .2}`,
             maxWidth: `${UiCanvasInformation.get(engine.RootEntity).width * .1}`,
             minWidth: '200px',
-            
-  
+
+
           }}
           onMouseDown={toggleHover}
           uiBackground={{
-            texture: { src: artFrame }, 
-            textureMode: 'nine-slices', 
+            texture: { src: artFrame },
+            textureMode: 'nine-slices',
             textureSlices: {
               top: -0.0,
               bottom: -0.0,
               left: -0.0,
               right: -0.0,
-          },
+            },
           }}
-  
+
         >
           {/* Label displaying Art Title */}
           <Label key={'artTitle'}
@@ -76,7 +74,7 @@ export function artDetailsUI() {
             }}
             color={titleColor}
             onMouseDown={toggleHover}
-            
+
           />
           {/* Label displaying Art Details */}
           <Label key={'artDetails'}
@@ -96,11 +94,11 @@ export function artDetailsUI() {
             onMouseUp={toggleHover}
           />
         </UiEntity>
-  
-  
+
+
       );
-  
-    }}
-  
+
+    }
   }
-  
+
+}

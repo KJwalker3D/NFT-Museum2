@@ -3,6 +3,8 @@ import { Animator, engine, Transform, GltfContainer, ColliderLayer, Entity, poin
 import * as utils from '@dcl-sdk/utils';
 import { playAudioAtPlayer, togglePlay } from "../Audio/audio";
 import { artPosC, artPosD, artRotC, artRotD } from "./artPositions";
+import { openExternalUrl } from "~system/RestrictedActions";
+import { linktreeURL } from "../social";
 
 const kineticArtCircles = 'models/kineticArt-threeCircles.glb';
 const kineticArtCirclesClip = 'play2'
@@ -17,14 +19,16 @@ export type KineticData = {
     triggerPosition: Vector3
     triggerScale: Vector3
     modelPath: string
-    animationClip: string 
-    audio?: string   
-  }
+    animationClip: string
+    audio?: string | null
+    url: string
+    hoverText: string
+}
 
-  export const kineticArtCollection: KineticData[] = [
+export const kineticArtCollection: KineticData[] = [
     {
         room: 2,
-        id: 5, 
+        id: 5,
         position: {
             position: artPosC,
             rotation: Quaternion.fromEulerDegrees(artRotC.x, artRotC.y, artRotC.z),
@@ -33,7 +37,10 @@ export type KineticData = {
         triggerPosition: Vector3.create(0, 0, 0),
         triggerScale: Vector3.create(6, 5, 10), // trigger scale
         modelPath: kineticArtCircles,
-        animationClip: kineticArtCirclesClip
+        animationClip: kineticArtCirclesClip,
+        audio: null,
+        url: linktreeURL,
+        hoverText: 'Click'
     },
     {
         room: 2,
@@ -41,32 +48,37 @@ export type KineticData = {
         position: {
             position: artPosD, // art position
             rotation: Quaternion.fromEulerDegrees(artRotD.x, artRotD.y, artRotD.z), // rotation
-            scale: Vector3.create(0.8, 0.8, 0.8) 
+            scale: Vector3.create(0.8, 0.8, 0.8)
         },
         triggerPosition: Vector3.create(2, 0, 0),
         triggerScale: Vector3.create(10, 4, 10),
         modelPath: kineticArtCircuit,
-        animationClip: kineticArtCircuitClip
+        animationClip: kineticArtCircuitClip,
+        audio: null,
+        url: linktreeURL,
+        hoverText: 'Click'
     }
-  ]
+]
 
 
 
-export function createKineticArt( 
+export function createKineticArt(
     position: TransformType,
     triggerPosition: Vector3,
     triggerScale: Vector3,
     modelPath: string,
     animationClip: string,
-    audio: string | null = null // optional parameter to add sound
- ) {
+    audio: string | null = null, // optional parameter to add sound
+    url: string,
+    hoverText: string
+) {
 
     let entity = engine.addEntity();
     Transform.create(entity, {
         position: position.position,
         rotation: Quaternion.fromEulerDegrees(position.rotation.x, position.rotation.y, position.rotation.z),
         scale: position.scale
-    } )
+    })
 
     GltfContainer.create(entity, {
         src: modelPath,
@@ -83,14 +95,31 @@ export function createKineticArt(
         ]
     })
 
-    
+    pointerEventsSystem.onPointerDown(
+        {
+            entity: entity,
+            opts: {
+                button: InputAction.IA_POINTER,
+                hoverText: hoverText,
+            },
+        },
+        function () {
+            console.log('clicked artwork');
+            openExternalUrl({
+                url: url,
+            });
+        }
+    );
+
     utils.triggers.addTrigger(
-        entity, 
+        entity,
         utils.NO_LAYERS,
         utils.LAYER_1,
-        [{ type: 'box', 
-        position: triggerPosition, 
-        scale: triggerScale }],
+        [{
+            type: 'box',
+            position: triggerPosition,
+            scale: triggerScale
+        }],
         function (otherEntity) {
             let animateArt = Animator.playSingleAnimation(entity, animationClip, false)
             if (audio) {
@@ -103,12 +132,9 @@ export function createKineticArt(
             if (audio) {
                 togglePlay()
             }
-        }
-        
-        
-        )
-        //utils.triggers.enableDebugDraw(true)
-        return entity
+        })
+    //utils.triggers.enableDebugDraw(true)
+    return entity
 }
 
 

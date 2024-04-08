@@ -19,7 +19,7 @@ export function createDefaultTexts() {
         src: 'models/museumText.glb'
     })
 }
-
+//////////////////////
 
 
 

@@ -1,8 +1,8 @@
-
-// Styles of NFT frames
-
 import { NftFrameType } from "@dcl/sdk/ecs"
 
+
+
+// Styles of NFT frames
 export let classicFrame = NftFrameType.NFT_CLASSIC
 export let baroqueFrame = NftFrameType.NFT_BAROQUE_ORNAMENT
 export let diamondFrame = NftFrameType.NFT_DIAMOND_ORNAMENT

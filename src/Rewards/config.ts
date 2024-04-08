@@ -1,18 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
 const ENV = "prd"
-const DEBUG_FLAGS: Record<string,boolean> = {
-    "local":true,
-    "prd":false
+const DEBUG_FLAGS: Record<string, boolean> = {
+    "local": true,
+    "prd": false
 }
 
 class Config {

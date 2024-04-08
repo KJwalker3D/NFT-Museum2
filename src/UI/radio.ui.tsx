@@ -1,9 +1,9 @@
 import { UiCanvasInformation, engine } from "@dcl/sdk/ecs";
 import { Color4 } from "@dcl/sdk/math";
-import ReactEcs, { UiEntity, Label, Button } from "@dcl/sdk/react-ecs";
+import ReactEcs, { UiEntity, Button } from "@dcl/sdk/react-ecs";
 import { openRadio, toggleRadio } from "../Audio/radio";
 import { tieredFontScale, wordWrap } from "../helperFunctions";
-import { backgroundColor, pauseIcon, playIcon } from "./ui";
+import { pauseIcon, playIcon } from "./ui";
 import { radioPlaying } from "../Audio/audio";
 
 // Set Radio to 'true' to show the radio UI:
@@ -12,7 +12,6 @@ let Radio: Boolean = false
 let radioStationName = '24 House Radio'
 let radioStationNameWrap = wordWrap(radioStationName, 10, 3)
 let textColor = Color4.White()
-let bigFont = 14
 let smallFont = 10
 
 export function radioUI() {
@@ -31,7 +30,7 @@ export function radioUI() {
                     alignItems: 'center',
                     padding: 4,
                     position: {
-                        top: '8%', 
+                        top: '8%',
                         right: '0%',
                         bottom: '0%',
                         left: '96%'
@@ -40,7 +39,7 @@ export function radioUI() {
                     maxHeight: 200
                 }}
                 uiBackground={{
-                  //  color: backgroundColor
+                    //  color: backgroundColor
                 }}
             >
                 <UiEntity key={'radio-space'}
@@ -57,7 +56,7 @@ export function radioUI() {
                             height: `${canvasHeight * 0.02}`,
                             margin: '0 0 15 0' // Added space between buttons
                         }}
-                        value={radioStationName}
+                        value={radioStationNameWrap}
                         variant='primary'
                         fontSize={smallFont * tieredFontScale}
                         color={textColor}

@@ -1,10 +1,9 @@
 import { ColliderLayer, engine, GltfContainer, Transform, VideoState, MeshCollider, MeshRenderer, pointerEventsSystem, PointerEvents, InputAction } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math';
-import { CONFIG } from '../config';
+import { CONFIG } from './config';
 import { claimToken } from "./claim";
 import { ClaimConfig } from "./claimConfig";
 import * as utils from '@dcl-sdk/utils'
-import { rewardUI } from '../UI/reward.ui';
 
 // Lazy Loading: room: 3
 let dispenserModel = 'models/dispenser.glb'
@@ -17,53 +16,52 @@ export let rewardClaimed = false
 
 export function createWearableReward() {
 
-if (!rewardClaimed) {
+  if (!rewardClaimed) {
 
-  console.log('creating wearable reward')
-  CONFIG.init()
+    console.log('creating wearable reward')
+    CONFIG.init()
 
-  let entity = engine.addEntity()
-  Transform.create(entity, {
-    position: dispenserPosition,
-    scale: dispenserScale
-  })
+    let entity = engine.addEntity()
+    Transform.create(entity, {
+      position: dispenserPosition,
+      scale: dispenserScale
+    })
 
-  GltfContainer.create(entity, {
-    src: dispenserModel,
-    invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
-    visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
-  })
-
- 
-  // Remove line below to stop the dispenser from spinning
-  utils.perpetualMotions.startRotation(entity, Quaternion.fromEulerDegrees(0, 25, 0))
+    GltfContainer.create(entity, {
+      src: dispenserModel,
+      invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
+      visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
+    })
 
 
-  pointerEventsSystem.onPointerDown(
-    {
-      entity: entity,
-      opts: {
-        button: InputAction.IA_POINTER,
-        hoverText: dispenserHoverText,
-        maxDistance: 16
+    // Remove line below to stop the dispenser from spinning
+    utils.perpetualMotions.startRotation(entity, Quaternion.fromEulerDegrees(0, 25, 0))
+
+
+    pointerEventsSystem.onPointerDown(
+      {
+        entity: entity,
+        opts: {
+          button: InputAction.IA_POINTER,
+          hoverText: dispenserHoverText,
+          maxDistance: 16
+        }
+      },
+      function () {
+        reward = true
+        let camp = ClaimConfig.campaign.CAMPAIGN_TEST
+        claimToken(camp, camp.campaignKeys.KEY_0)
+        console.log('claimed Wearable gift')
+        utils.timers.setTimeout(() => { engine.removeEntity(entity), reward = false }, 1000)
+        rewardClaimed = true
+
       }
-    },
-    function () {
-      reward = true
-      //rewardUI('', '')
-      let camp = ClaimConfig.campaign.CAMPAIGN_TEST
-      claimToken(camp, camp.campaignKeys.KEY_0)
-      console.log('claimed Wearable gift')
-      utils.timers.setTimeout(() => { engine.removeEntity(entity), reward = false }, 1000)
-      rewardClaimed = true
-      
-    }
-  )
-  return entity
-}
-else {
-  console.log('reward already collected')
-}
+    )
+    return entity
+  }
+  else {
+    console.log('reward already collected')
+  }
 
 }
 

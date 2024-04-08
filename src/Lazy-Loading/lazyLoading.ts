@@ -4,14 +4,14 @@ import * as utils from '@dcl-sdk/utils'
 import { createVideoArt, videoCollection } from '../Art/videoArt'
 import { createKineticArt, kineticArtCollection } from '../Art/kineticArt'
 import { createImageArt, imageArtCollection } from '../Art/imageArt'
-import { createNFT, nftCollection } from '../Art/nft'
+import { createNFT, nftCollection } from '../Art/nftArt'
 import { createWearableReward, reward } from '../Rewards/rewards'
 
 
 export let scene1active = true
 
 
-export async function createLazyArea(position: Vector3, scale: Vector3, parentPos: Entity, id: number, ) {
+export async function createLazyArea(position: Vector3, scale: Vector3, parentPos: Entity, id: number,) {
   const entity = engine.addEntity()
 
   Transform.create(entity, {
@@ -19,7 +19,7 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
     scale: scale,
     parent: parentPos
   })
- 
+
 
   const box = engine.addEntity()
   Transform.create(box, { parent: parentPos, scale: scale })
@@ -36,9 +36,11 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
     box,
     utils.LAYER_2,
     utils.LAYER_1,
-    [{ type: 'box', 
-    position: position,
-    scale: scale }],
+    [{
+      type: 'box',
+      position: position,
+      scale: scale
+    }],
     async () => {
       if (scene1active) {
         console.log(`ACTIVE`)
@@ -63,7 +65,7 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
         }
         for (const kineticArt of kineticArtCollection) {
           if (kineticArt.room === id) {
-            const kinetic = createKineticArt(kineticArt.position, kineticArt.triggerPosition, kineticArt.triggerScale, kineticArt.modelPath, kineticArt.animationClip)
+            const kinetic = createKineticArt(kineticArt.position, kineticArt.triggerPosition, kineticArt.triggerScale, kineticArt.modelPath, kineticArt.animationClip, kineticArt.audio, kineticArt.url, kineticArt.hoverText)
             createdKineticArt.push(kinetic)
           }
         }
@@ -147,7 +149,7 @@ export function creatAllLazyAreas() {
   })
 
 
-  
+
   createLazyArea(Vector3.create(6.65, 10.5, 8), Vector3.create(30, 10, 30), lazyArea3, 3)
   createLazyArea(Vector3.create(6.65, 5.5, 8), Vector3.create(26.2, 10, 32), lazyArea2, 2)
   createLazyArea(Vector3.create(8.5, 1.5, 16), Vector3.create(16.2, 10, 26), lazyArea, 1)

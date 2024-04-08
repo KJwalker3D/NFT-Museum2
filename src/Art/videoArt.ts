@@ -1,23 +1,10 @@
-import {
-  engine,
-  Transform,
-  MeshRenderer,
-  MeshCollider,
-  Material,
-  VideoPlayer,
-  TextureUnion,
-  InputAction,
-  pointerEventsSystem,
-  NftFrameType,
-  TransformType,
-  Entity,
-} from '@dcl/sdk/ecs';
+import { engine, Transform, MeshRenderer, MeshCollider, Material, VideoPlayer, InputAction, pointerEventsSystem, Entity} from '@dcl/sdk/ecs';
 import * as utils from '@dcl-sdk/utils';
 import { openExternalUrl } from '~system/RestrictedActions';
 import { Quaternion, Color3, Color4, Vector3 } from '@dcl/sdk/math';
 import { artPos14, artPos15, artPos2, artPos25, artPos26, artRot14, artRot15, artRot2, artRot25, artRot26 } from './artPositions';
 import {  togglePlay } from '../Audio/audio';
-import { linktreeURL, websiteURL } from './artData';
+import { homepageUrl, linktreeURL } from '../social';
 
 let videoPlayer: any = null;
 
@@ -61,7 +48,7 @@ export const videoCollection: VideoData[] = [
     image: horizontalVideoMVFW23placeholder,
     video: horizontalVideoMVFW23,
     hoverText: 'Click',
-    website: websiteURL,
+    website: homepageUrl,
     triggerScale: Vector3.create(4, 2, 10),
     triggerPosition: Vector3.create(artPos2.x + 2, artPos2.y -1, artPos2.z),
     audio: true

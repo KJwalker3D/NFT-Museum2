@@ -14,82 +14,82 @@ export function setupEventDetailsUIScaling(inModalScale: number, inFontScale: nu
     tieredModalScale = inModalScale
     tieredFontScale = inFontScale
     tieredModalTextWrapScale = inModalTextWrapScale
-  }
+}
 
 
-  export function updateUIScalingWithCanvasInfo(canvasInfo: PBUiCanvasInformation) {
+export function updateUIScalingWithCanvasInfo(canvasInfo: PBUiCanvasInformation) {
 
     devicePixelRatioScale = 1920 / 1080 / canvasInfo.devicePixelRatio
-  
+
     console.log('updateUIScalingWithCanvasInfo', canvasInfo, 'devicePixelRatioScale', devicePixelRatioScale)
-  
+
     const PIXEL_RATIO_THREADHOLD = 1.2
 
     if (canvasInfo.width > 1920 && canvasInfo.height > 1080) {
-      tieredModalScale = 2
-      tieredFontScale = 2
-      tieredModalTextWrapScale = 1.08
+        tieredModalScale = 2
+        tieredFontScale = 2
+        tieredModalTextWrapScale = 1.08
     } else {
-      tieredModalScale = 1.1
-      tieredFontScale = 1.1
-      tieredModalTextWrapScale = 0.9
+        tieredModalScale = 1.1
+        tieredFontScale = 1.1
+        tieredModalTextWrapScale = 0.9
     }
     console.log(
-      'updateUIScalingWithCanvasInfo',
-      canvasInfo,
-      'devicePixelRatioScale',
-      devicePixelRatioScale,
-      'tieredModalScale',
-      tieredModalScale,
-      'tieredFontScale',
-      tieredFontScale,
-      'tieredModalTextWrapScale',
-      tieredModalTextWrapScale
+        'updateUIScalingWithCanvasInfo',
+        canvasInfo,
+        'devicePixelRatioScale',
+        devicePixelRatioScale,
+        'tieredModalScale',
+        tieredModalScale,
+        'tieredFontScale',
+        tieredFontScale,
+        'tieredModalTextWrapScale',
+        tieredModalTextWrapScale
     )
     const scale = canvasInfo.height / 1080
     setupEventDetailsUIScaling(scale, scale, scale)
-  }
+}
 
-  export let canvasInfo: PBUiCanvasInformation = {
+export let canvasInfo: PBUiCanvasInformation = {
     width: 0,
     height: 0,
     devicePixelRatio: 1,
     interactableArea: undefined
-  }
-  
+}
 
-  export function setupUiInfoEngine() {
+
+export function setupUiInfoEngine() {
     if (setupUiInfoEngineAlready) return
-  
+
     setupUiInfoEngineAlready = true
-  
+
     let maxWarningCount = 20
     let warningCount = 0
     engine.addSystem((deltaTime) => {
-      const uiCanvasInfo = UiCanvasInformation.getOrNull(engine.RootEntity)
-  
-      if (!uiCanvasInfo) {
-        warningCount++
-        if (warningCount < maxWarningCount) {
-          console.log('setupUiInfoEngine', 'WARNING ', warningCount, 'screen data missing: ', uiCanvasInfo)
+        const uiCanvasInfo = UiCanvasInformation.getOrNull(engine.RootEntity)
+
+        if (!uiCanvasInfo) {
+            warningCount++
+            if (warningCount < maxWarningCount) {
+                console.log('setupUiInfoEngine', 'WARNING ', warningCount, 'screen data missing: ', uiCanvasInfo)
+            }
+            return
+        } else if (maxWarningCount > 0) {
+            maxWarningCount = 0
+            console.log('setupUiInfoEngine', 'FIXED ' + 'screen data resolved: ', uiCanvasInfo)
         }
-        return
-      } else if (maxWarningCount > 0) {
-        maxWarningCount = 0
-        console.log('setupUiInfoEngine', 'FIXED ' + 'screen data resolved: ', uiCanvasInfo)
-      }
-  
-      if (canvasInfo.width === uiCanvasInfo.width && canvasInfo.height === uiCanvasInfo.height) return
-  
-      console.log('setupUiInfoEngine', 'Updated', 'Width', canvasInfo.width, 'Height:', canvasInfo.height)
-      canvasInfo.width = uiCanvasInfo.width
-      canvasInfo.height = uiCanvasInfo.height
-      canvasInfo.devicePixelRatio = uiCanvasInfo.devicePixelRatio
-      canvasInfo.interactableArea = uiCanvasInfo.interactableArea
-  
-      updateUIScalingWithCanvasInfo(canvasInfo)
+
+        if (canvasInfo.width === uiCanvasInfo.width && canvasInfo.height === uiCanvasInfo.height) return
+
+        console.log('setupUiInfoEngine', 'Updated', 'Width', canvasInfo.width, 'Height:', canvasInfo.height)
+        canvasInfo.width = uiCanvasInfo.width
+        canvasInfo.height = uiCanvasInfo.height
+        canvasInfo.devicePixelRatio = uiCanvasInfo.devicePixelRatio
+        canvasInfo.interactableArea = uiCanvasInfo.interactableArea
+
+        updateUIScalingWithCanvasInfo(canvasInfo)
     })
-  }
+}
 
 
 export function splitTextIntoLines(
@@ -267,9 +267,8 @@ export function getRandomHexColor(): string {
     const letters = "0123456789ABCDEF";
     let color = "#";
     for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-  }
-  
-  
+}
+

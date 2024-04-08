@@ -1,6 +1,5 @@
 import { getRealm } from "~system/Runtime"
 import { signedFetch } from "~system/SignedFetch"
-// import { GAME_STATE } from "../gameData"
 import { ClaimConfig, ClaimConfigInstType } from "./claimConfig"
 import { getUserData } from "~system/UserIdentity"
 import * as utils from '@dcl-sdk/utils'

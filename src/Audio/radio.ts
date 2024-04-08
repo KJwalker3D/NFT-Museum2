@@ -29,7 +29,7 @@ export function setRadioPlaying(value: boolean) {
 }
 
 export function openRadio() {
-  openExternalUrl({url: "https://onlineradiobox.com/ro/24house/?cs=ro.24house"})
+  openExternalUrl({ url: "https://onlineradiobox.com/ro/24house/?cs=ro.24house" })
 }
 
 export function playRadio() {
