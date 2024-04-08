@@ -302,6 +302,12 @@ createAllDoors()
 Inside `doors.ts` there's a function called `createAllDoors()` within which you can define the amount of doors, their positions and rotations.
 
 
+# Customize Social Links: 
+
+
+
+# Customize Texts: 
+
 
 # Find an NFT Urn
 
@@ -309,11 +315,11 @@ To display an NFT you need its urn, here's how to get it:
 
 ```typescript
 Example URN: 'urn:decentraland:ethereum:erc721:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d:558536'
-Example URN: 'urn:decentraland:ethereum:erc721:`contract adress`:`identifier`'
+Example URN: 'urn:decentraland:ethereum:erc721:contract-address:identifier'
 ```
 
 The example above fetches an NFT with the contract address `0x06012c8cf97BEaD5deAe237070F9587f8E7A266d`, and the specific identifier `558536`. 
-The corresponding NFT can be found in OpenSea at (https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536)[https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536].
+The corresponding NFT can be found in OpenSea at [https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536](https://opensea.io/assets/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d/558536).
 
 
 
@@ -326,7 +332,7 @@ See the contents of the Rewards files for further info.
 
 ## External Image Hosting 
 
-To host your images on an external site, instead of uploading them as files in your scene, you can use CORS friendly hosting services such as (NFT.storage) [https://classic.nft.storage/]. Upload your image, click `Actions` > `View URL` and copy the full url from the browser. 
+To host your images on an external site, instead of uploading them as files in your scene, you can use CORS friendly hosting services such as [NFT.storage] (https://classic.nft.storage/). Upload your image, click `Actions` > `View URL` and copy the full url from the browser. 
 
 
 ## Change Artwork Positions 
