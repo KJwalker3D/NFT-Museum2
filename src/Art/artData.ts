@@ -1,5 +1,5 @@
- import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
- import { sceneCentrePosition } from "../structures";
+import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
+import { sceneCentrePosition } from "../structures";
 
 
 

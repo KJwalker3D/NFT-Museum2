@@ -38,7 +38,7 @@ const buttonYOffsets = [0, 0.13, 0.28];
 
 
 // Call buttons
-const buttonPositions: Vector3[] = [  
+const buttonPositions: Vector3[] = [
     Vector3.create(26.7725, 1.47, 16.02), // ground floor
     Vector3.create(26.3, 10.05, 16.02), // second floor
     Vector3.create(25.1, 19.975, 15.99)  // rooftop
@@ -78,8 +78,8 @@ function moveToFloor(entity: Entity, floorIndex: number) {
     const currentPosition1 = Transform.get(elevator).position;
     const currentPosition2 = Transform.get(elevator2).position;
 
-    const targetPosition1 = Vector3.create(currentPosition1.x, targetHeight, currentPosition1.z); 
-    const targetPosition2 = Vector3.create(currentPosition2.x, targetHeight, currentPosition2.z); 
+    const targetPosition1 = Vector3.create(currentPosition1.x, targetHeight, currentPosition1.z);
+    const targetPosition2 = Vector3.create(currentPosition2.x, targetHeight, currentPosition2.z);
 
     playAudioAtPlayer(elevatorSound);
     pathComplete = false;
@@ -95,7 +95,7 @@ function moveToFloor(entity: Entity, floorIndex: number) {
         isMoving = false;
     });
 
-    utils.tweens.startTranslation(elevator2, currentPosition2, targetPosition2, 5, utils.InterpolationType.LINEAR, () => {});
+    utils.tweens.startTranslation(elevator2, currentPosition2, targetPosition2, 5, utils.InterpolationType.LINEAR, () => { });
 }
 
 function createElevatorButton(parent: Entity, position: Vector3, modelSrc: string, yOffset: number, index: number, doorsShouldOpen: boolean) {
@@ -180,7 +180,7 @@ function createCallButton(position: Vector3, rotation: Vector3, floorIndex: numb
         rotation: Quaternion.fromEulerDegrees(rotation.x, rotation.y, rotation.z)
     });
     const audioSourceEntity = engine.addEntity();
-    const audioSourcePosition = Vector3.create(position.x, position.y, position.z); 
+    const audioSourcePosition = Vector3.create(position.x, position.y, position.z);
     Transform.create(audioSourceEntity, {
         position: audioSourcePosition,
     });

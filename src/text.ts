@@ -3,7 +3,7 @@ import { Color4, Quaternion, Vector3 } from "@dcl/sdk/math"
 import { wordWrap } from "./helperFunctions"
 import { sceneCentrePosition } from "./structures"
 
-/// Text Panels and Customisable Titles here:
+/// Text Panels and Customisable Titles:
 
 /// Default NFT Museum Texts (feel free to remove and replace with custom models or code based text like below)
 export function createDefaultTexts() {
@@ -15,7 +15,6 @@ export function createDefaultTexts() {
         src: 'models/museumText.glb'
     })
 }
-//////////////////////
 
 
 
@@ -62,7 +61,7 @@ const museumSignFontColor = Color4.Black()
 export function createText(
     position: Vector3,
     rotation: Vector3,
-    text: string, 
+    text: string,
     font: Font,
     fontSize: number,
     textColor: Color4,
@@ -78,8 +77,8 @@ export function createText(
         fontSize: fontSize,
         font: font,
         textColor: textColor
-  
-      })
+
+    })
 }
 
 

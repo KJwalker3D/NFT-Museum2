@@ -33,19 +33,15 @@ let prevRadio: boolean = false;
 
 // Function to toggle between stream and radio playing
 export function togglePlay() {
-  // Get the current states of stream and radio playing
   const streamPlaying = isStreamPlaying();
   const radioPlaying = isRadioPlaying();
-
   console.log('toggle audio');
 
-  // Toggle the states of stream and radio playing
   if (streamPlaying) {
     togglePlaylist();
     prevPlaylist = true;
     prevRadio = false;
     console.log(`playlist playing: ${streamPlaying}`);
-    //Playlist = false
   }
 
   if (radioPlaying) {
@@ -65,27 +61,18 @@ export function togglePlay() {
 }
 
 // Global function to play an audio clip at the player's location
-export function playAudioAtPlayer(audioClipUrl: string, volume: number = 100) {
-  // Get the player's entity
+export function playAudioAtPlayer(audioClipUrl: string, volume: number = 1) {
   if (!audioEntity) {
-    // Create the audio entity if it doesn't exist
     audioEntity = engine.addEntity();
-
-    // Attach the audio entity to the player's name tag position
     AvatarAttach.create(audioEntity, {
       anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG
     });
-
-    // Create AudioSource component
     AudioSource.createOrReplace(audioEntity, {
       audioClipUrl: audioClipUrl,
       loop: false,
       volume: volume
     });
   }
-
-  // Set the audio clip URL and play the audio
   AudioSource.playSound(audioEntity, audioClipUrl, true);
-
   console.log('Audio played at player location:', audioClipUrl);
 }

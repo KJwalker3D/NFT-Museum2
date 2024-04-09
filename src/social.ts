@@ -32,27 +32,27 @@ const instagramHoverText = 'Instagram'
 
 /// Positions
 // South social links
-const Xsouth =  {
+const Xsouth = {
     position: Vector3.create(3, 1.92, 2.75),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const discordSouth =  {
+const discordSouth = {
     position: Vector3.create(4.5, 1.92, 2.75),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const homepageSouth =  {
+const homepageSouth = {
     position: Vector3.create(6, 1.92, 2.75),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const instagramSouth =  {
+const instagramSouth = {
     position: Vector3.create(7.5, 1.92, 2.75),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const telegramSouth =  {
+const telegramSouth = {
     position: Vector3.create(9, 1.92, 2.75),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
@@ -60,27 +60,27 @@ const telegramSouth =  {
 
 
 // North social links
-const Xnorth =  {
+const Xnorth = {
     position: Vector3.create(9, 1.92, 29.25),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const discordNorth =  {
+const discordNorth = {
     position: Vector3.create(7.5, 1.92, 29.25),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const homepageNorth =  {
+const homepageNorth = {
     position: Vector3.create(6, 1.92, 29.25),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const instagramNorth =  {
+const instagramNorth = {
     position: Vector3.create(4.5, 1.92, 29.25),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
 }
-const telegramNorth =  {
+const telegramNorth = {
     position: Vector3.create(3, 1.92, 29.25),
     rotation: Quaternion.fromEulerDegrees(0, 0, 0),
     scale: defaultScale
@@ -107,19 +107,19 @@ export function createSocialLink(
     })
     pointerEventsSystem.onPointerDown(
         {
-          entity: entity,
-          opts: {
-            button: InputAction.IA_POINTER,
-            hoverText: hoverText,
-          },
+            entity: entity,
+            opts: {
+                button: InputAction.IA_POINTER,
+                hoverText: hoverText,
+            },
         },
         function () {
-          console.log('clicked artwork');
-          openExternalUrl({
-            url: url
-          });
+            console.log('clicked artwork');
+            openExternalUrl({
+                url: url
+            });
         }
-      );
+    );
 }
 
 export function createSocials() {
@@ -183,5 +183,5 @@ export function createSocials() {
         telegramHoverText,
         telegramUrl
     )
-    
+
 }
