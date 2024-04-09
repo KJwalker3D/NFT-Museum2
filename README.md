@@ -5,6 +5,7 @@ This project is a scene template for an SDK7 NFT Museum with lazy loading and di
 
 
 ---
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/9ddd6caa-fa3e-426d-8797-e219feed8bd2)
 
 
 ## Try it out
@@ -47,6 +48,7 @@ GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb'})
 
 To disable the visual aid, remove or comment out the code above.
 
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/87322db7-23a2-4354-a357-8d0ad773eab7)
 
 ---
 
@@ -88,10 +90,13 @@ To change the NFT art on display:
 ```
 
 
+
+
 3. You can adjust, add, and remove NFTs as needed. Just ensure that the artwork ID, position, and rotation all match.
 
 By default, clicking on an NFT will open the default NFT UI, displaying details about the NFT.
 
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/e4001bb2-c16e-4df0-8186-973dd73c773e)
 
 ---
 
@@ -136,6 +141,9 @@ To change the image art on display:
 
 
 3. You can adjust, add, and remove images as needed. Just ensure that the artwork ID, position, and rotation all match.
+
+
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/e79e13fd-c2d6-4a78-978e-de234421a4b4)
 
 
 ---
@@ -234,6 +242,9 @@ To change the 3D art on display:
 
 
 3. Adjust, add, and remove 3D artworks as needed, ensuring that the artwork ID, position, rotation, and scale all match.
+
+
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/bf5cbe01-bd21-4024-8796-7c838a5a9448)
 
 
 ---
@@ -393,6 +404,8 @@ import { ElevatorModule } from './elevator'
 ElevatorModule.createElevator
 ```
 
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/5d36bf4c-e9d3-479f-a169-287a7a531038)
+
 
 ---
 
@@ -418,6 +431,8 @@ Inside `doors.ts` there's a function called `createAllDoors()` within which you 
 To customize the social media links, navigate to `social.ts` and update the urls to match your desired sites. You can also adjust the 3D model paths, positions, rotations, hover texts and scale in this file. 
 
 
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/a1bff109-57a8-4122-95d1-2335d6000c49)
+
 ---
 
 
@@ -429,6 +444,10 @@ To customize the text visible on the NFT Museum, you can hide all visible text f
 2. Open `texts.ts` to customize any element of the texts on display including value, font, size and color.
 
 
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/0587ba1a-cc80-4545-8d7c-06cfc6ffaaf8) ![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/5a68c999-ac2a-410b-9896-bd251e4ebdfd)
+
+
+
 ---
 
 
@@ -437,6 +456,9 @@ To customize the text visible on the NFT Museum, you can hide all visible text f
 To set up rewards claiming, copy and paste the `Rewards` folder into your project directory.
 See the contents of the Rewards files for further info. 
 
+
+
+![image](https://github.com/KatherineJoelle/NFT-Museum2/assets/53322457/a15c5291-72ce-4f1b-b7ef-6a1d63b14848)
 
 ---
 
