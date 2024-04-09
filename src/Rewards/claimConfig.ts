@@ -1,38 +1,28 @@
-import { CONFIG } from "./config"
-
-/// Change the TEST_CAMPAIGN_ID to match your campaign (find it on the rewards server)
-/// Change the TEST_CAMPAIGN_KEY to match the item from your campaign (on the rewards server)
-
+import { CONFIG } from './config'
 
 export type ClaimConfigInstType = {
-    campaign: string,
-    campaignKeys: Record<string, string>
+  campaign: string
+  campaignKeys: Record<string, string>
 }
 
-const TEST_CAMPAIGN_ID = '3478b75f-a344-4fc9-8039-37ff1c2a6f9d'
-const FOUND_CAMPAIGN_ID = '91b33aec-8afd-48fe-a3e4-04882ef66d7b'
-//non captcha
-const TEST_CAMPAIGN_KEY = 'qpb9r3ttTAGTnDopTqjBMpGzOuyK/Uj+o+QEiC72bXs=.3/i0YE0m8TeRjUppz2+xkXt5o/wjQJhYOcgeyc6GWB4='
-const FOUND_CAMPAIGN_KEY = '82hIAcRgTpmZdv8GJVXDsZGzOuyK/Uj+o+QEiC72bXs=.GBI58Owa/G3nwH+FvbEglGwEnQ2i1r1B97QgeLBBKH8='
+export const USE_CAPTCHA: boolean = true
 
+const TEST_CAMPAIGN_ID = '0x464f38a93a6c34bb85d1915761ef39acdac2197e'
+//'7a7c87db-801a-4427-bf2b-2fab3d518b58'
+//non captcha
+const TEST_CAMPAIGN_KEY = 'ZN3zqBl2RVqp7dolXribbWbjQaKkuU0vhggk18iv3Jc=.taU/DJWHfeWI4kpnQ8Xr8n3N42EFQKqqEHWlK/DBls4='
+//'eyJpZCI6IjY2NThmOGRiLWZjNGItNDQyMC05NTUzLWYyZDQxODRjZDY3YiIsImNhbXBhaWduX2lkIjoiN2E3Yzg3ZGItODAxYS00NDI3LWJmMmItMmZhYjNkNTE4YjU4In0=.lu0GNQ/5Tjl4QvAvJuFJ5hhjIPfyaeqVcWluMX/3WyY='
 
 export const ClaimConfig = {
-    rewardsServer: 'https://rewards.decentraland.org',
-    campaign: {
-        CAMPAIGN_TEST: {
-            campaign: CONFIG.CONFIG_CLAIM_TESTING_ENABLED ? TEST_CAMPAIGN_ID : '3478b75f-a344-4fc9-8039-37ff1c2a6f9d',
-            campaignKeys: {
-                // wearable
-                KEY_0: CONFIG.CONFIG_CLAIM_TESTING_ENABLED ? TEST_CAMPAIGN_KEY : "R04A1hLOTYmBVoNMOkNWMTR4t1+jRE/JgDk3/xwqb50=.ktcvpMUTwFnWa7603sBUIkmkymbLv5DrDXKlLYMS1Cw=",
-
-            },
-        },
-        CAMPAIGN_FOUND: {
-            campaign: CONFIG.CONFIG_CLAIM_TESTING_ENABLED ? FOUND_CAMPAIGN_ID : '91b33aec-8afd-48fe-a3e4-04882ef66d7b',
-            campaignKeys: {
-                KEY_3: CONFIG.CONFIG_CLAIM_TESTING_ENABLED ? FOUND_CAMPAIGN_KEY : '82hIAcRgTpmZdv8GJVXDsZGzOuyK/Uj+o+QEiC72bXs=.GBI58Owa/G3nwH+FvbEglGwEnQ2i1r1B97QgeLBBKH8='
-            },
-        },
-    },
-
+  // for production: 'https://rewards.decentraland.org'
+  // for testing: 'https://rewards.decentraland.zone'
+  rewardsServer: 'https://rewards.decentraland.zone',
+  campaign: {
+    CAMPAIGN_TEST: {
+      campaign: CONFIG.CONFIG_CLAIM_TESTING_ENABLED ? TEST_CAMPAIGN_ID : 'PROVIDE_CAMPAIGN_ID_HERE',
+      campaignKeys: {
+        KEY_0: CONFIG.CONFIG_CLAIM_TESTING_ENABLED ? TEST_CAMPAIGN_KEY : 'PROVIDE_PRODUCTION_KEY_HERE'
+      }
+    }
+  }
 }
