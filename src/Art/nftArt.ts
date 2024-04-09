@@ -3,7 +3,7 @@ import { Color3, Quaternion, Vector3 } from "@dcl/ecs-math";
 import { pointerEventsSystem, InputAction, MeshCollider, Entity } from "@dcl/sdk/ecs";
 import { openNftDialog } from "~system/RestrictedActions";
 import { artPos1, artRot1, artPos3, artRot3, artPos6, artRot6, artPos7, artRot7, artPos8, artRot8, artPos11, artRot11, artPos12, artRot12, artPos13, artPos16, artRot16, artPos17, artRot17, artPos18, artRot18, artPos19, artRot19, artPos20, artRot20, artPos21, artRot21, artPos22, artRot22, artPos23, artRot23, artPos24, artRot24, artRot13 } from "./artPositions";
-import { canvasFrame, classicFrame } from "./nftFrames";
+import { classicFrame } from "./nftFrames";
 
 
 
@@ -47,7 +47,7 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot1,
     scale: Vector3.create(4, 4, 4),
     urn: 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:558536', // Example with urn path
-    frame: canvasFrame,
+    frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
   },
@@ -58,7 +58,7 @@ export const nftCollection: NFTdata[] = [
     rotation: artRot3,
     scale: Vector3.create(4, 4, 4),
     urn: urn3, // Example with urns declared above
-    frame: canvasFrame,
+    frame: classicFrame,
     color: Color3.Yellow(),
     hoverText: 'Click'
   },

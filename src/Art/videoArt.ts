@@ -35,7 +35,8 @@ export type VideoData = {
   website: string,
   triggerScale: Vector3,
   triggerPosition: Vector3,
-  audio?: boolean
+  audio?: boolean,
+  hasAlpha?: boolean // optional parameter, add 'hasAlpha: true' to a videoCollection array for videos with alpha
 }
 
 export const videoCollection: VideoData[] = [
@@ -51,7 +52,7 @@ export const videoCollection: VideoData[] = [
     website: homepageUrl,
     triggerScale: Vector3.create(4, 2, 10),
     triggerPosition: Vector3.create(artPos2.x + 2, artPos2.y - 1, artPos2.z),
-    audio: true
+    audio: true,
   },
   {
     room: 2,
@@ -121,7 +122,8 @@ export async function createVideoArt(
   website: string,
   triggerScale: Vector3,
   triggerPosition: Vector3,
-  audio: boolean = true
+  audio: boolean = true,
+  hasAlpha: boolean = false
 ) {
 
   const entity = engine.addEntity();
@@ -149,6 +151,21 @@ export async function createVideoArt(
     emissiveIntensity: 1,
     emissiveTexture: imageMaterial,
   });
+
+  if (hasAlpha) {
+    Material.setPbrMaterial(entity, {
+      texture: imageMaterial,
+      roughness: 1,
+      specularIntensity: 0,
+      metallic: 0,
+      emissiveColor: Color3.White(),
+      emissiveIntensity: 1,
+      emissiveTexture: imageMaterial,
+      transparencyMode: 1,
+      alphaTexture: imageMaterial,
+      alphaTest: 0.5
+    });
+  }
 
   pointerEventsSystem.onPointerDown(
     {
@@ -218,6 +235,20 @@ export async function createVideoArt(
             emissiveIntensity: 1,
             emissiveTexture: videoTexture,
           });
+          if (hasAlpha) {
+            Material.setPbrMaterial(entity, {
+              texture: videoTexture,
+              roughness: 1,
+              specularIntensity: 0,
+              metallic: 0,
+              emissiveColor: Color3.White(),
+              emissiveIntensity: 1,
+              emissiveTexture: videoTexture,
+              transparencyMode: 1,
+              alphaTexture: videoTexture,
+              alphaTest: 0.5
+            });
+          }
           isImage = false;
           if (audio === true) {
             togglePlay(); // Toggle audio play state

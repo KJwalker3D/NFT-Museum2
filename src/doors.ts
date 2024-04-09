@@ -6,9 +6,9 @@ import { playAudioAtPlayer } from "./Audio/audio";
 
 
 // Audio for the sliding doors depends on audio.ts
-export let doorLmodel = 'models/doorM1.glb'
-export let doorRmodel = 'models/doorM2.glb'
-export let singleDoor = 'models/doorBig.glb'
+export let doorLmodel = 'models/slidingDoor1.glb'
+export let doorRmodel = 'models/slidingDoor2.glb'
+export let singleDoor = 'models/slidingDoor-big.glb'
 export let closeDoorOffset = 0
 export let openDoorOffset = 1
 export let doorSound = 'sounds/slidingDoors.mp3'

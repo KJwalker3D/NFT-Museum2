@@ -130,9 +130,10 @@ export function createImageArt(
       roughness: 1,
       specularIntensity: 0,
       metallic: 0,
+      transparencyMode: 1,
       alphaTexture: imageMaterial,
-      //alphaTest: 0.95,
-      emissiveColor: Color3.Black(),
+      alphaTest: 0.5,
+      emissiveColor: Color3.White(),
       emissiveIntensity: 1,
       emissiveTexture: imageMaterial,
 

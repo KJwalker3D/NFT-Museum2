@@ -18,7 +18,7 @@ const buttonModels = ['models/elevator/button1.glb', 'models/elevator/button2.gl
 // Sounds
 const callButtonSound = 'sounds/callButton.mp3'
 const buttonSound = 'sounds/button.mp3';
-const elevatorSound = 'sounds/hum2.mp3';
+const elevatorSound = 'sounds/elevatorHum.mp3';
 const elevatorArrivalSound = 'sounds/elevatorPing.mp3';
 
 
