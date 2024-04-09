@@ -1,15 +1,15 @@
-// import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
-// import { sceneCentrePosition } from "../structures";
+ import { GltfContainer, Transform, engine } from "@dcl/sdk/ecs";
+ import { sceneCentrePosition } from "../structures";
 
 
 
 
 // Make artNumbers visible to help with placing and naming items in the gallery:
-/*
+
  const artNumbers = engine.addEntity()
  Transform.create(artNumbers, { position: sceneCentrePosition })
  GltfContainer.create(artNumbers, { src: 'models/artNumbers.glb' })
-*/
+
 
 
 

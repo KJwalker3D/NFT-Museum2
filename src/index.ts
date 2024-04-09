@@ -7,7 +7,7 @@ import { artHoverSystem, changeArtHoverSystem, createArtHovers } from './Art/art
 import { engine } from '@dcl/sdk/ecs'
 import { creatAllLazyAreas } from './Lazy-Loading/lazyLoading'
 import { createSocials } from './social'
-import { createCustomTextPanels, createDefaultTexts } from './text'
+import { createCustomTextPanels, createCustomTextTitles, createDefaultTexts } from './text'
 import { shufflePlaylist, playlist, playCurrentSong } from './Audio/playlist'
 import { playRadio } from './Audio/radio'
 
@@ -26,8 +26,8 @@ export function main() {
 
 
     // Change the active function below to toggle between default and custom title texts
-    createDefaultTexts()
-    //createCustomTextTitles()
+    //createDefaultTexts()
+    createCustomTextTitles()
 
     // Customise in text.ts
     createCustomTextPanels()

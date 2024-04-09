@@ -53,7 +53,7 @@ const elevatorFontSize = 8
 const elevatorFontColor = Color4.Black()
 
 // Museum Sign
-const museumSignText = 'M \n U \n S \n E \n U \n M' // Vertical text
+const museumSignText = ' M \n U \n S \n E \n U \n M' // Vertical text
 const museumSignFont = mono
 const museumSignFontSize = 9
 const museumSignFontColor = Color4.Black()
