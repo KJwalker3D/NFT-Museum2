@@ -141,7 +141,7 @@ export function createElevatorDoors(
 export function initializeElevatorDoors() {
     // Elevator doors, west ground floor
     createElevatorDoors(
-        Vector3.create(26.9, 2.15, 19.635),
+        Vector3.create(26.9, 2.1, 19.635),
         Vector3.create(0, 90, 0),
         doorLmodel,
         doorRmodel,
@@ -163,7 +163,7 @@ export function initializeElevatorDoors() {
 
     // Elevator doors, east ground floor
     createElevatorDoors(
-        Vector3.create(26.9, 2.2, 12.36),
+        Vector3.create(26.9, 2.1, 12.36),
         Vector3.create(0, 90, 0),
         doorLmodel,
         doorRmodel,

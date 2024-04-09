@@ -216,8 +216,8 @@ To change the 3D art on display:
    - `triggerPosition`: The position of the trigger box. The 3D art animation will play when a player is in this area.
    - `triggerScale`: The scale of the trigger box. The 3D art animation will play when a player is inside the trigger box.
    - `modelPath`: The path to the 3D model. You can switch this to a path in your project folder.
-   - `animationClip`: The name of the animation clip you want to be triggered when a player approaches the art.
-   - `audio`: The audio that will play when a player approaches the 3D art. If set to null, no audio will play.
+   - `animationClip`: The name of the animation clip you want to be triggered when a player approaches the art. Defaults to null if no animation is provided.
+   - `audio`: The audio that will play when a player approaches the 3D art. Defaults to null if no audio is provided.
    - `url`: The website that will open when the 3D art is clicked. Change it to your desired URL. For organization purposes, all the URLs are in `social.ts`.
    - `hoverText`: The text that appears when the cursor is on the 3D art.
 

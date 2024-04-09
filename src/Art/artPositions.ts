@@ -20,13 +20,13 @@ export const artRot3 = Vector3.create(0, -90, 0)
 
 // South door
 // room: 1
-export const artPos4 = Vector3.create(12.15, 3, 7.89)
+export const artPos4 = Vector3.create(12.15, 3, 7.75)
 export const artRot4 = Vector3.create(0, 180, 0)
 
 
 // North door
 // room: 1
-export const artPos5 = Vector3.create(12.18, 3, 24.15)
+export const artPos5 = Vector3.create(12.18, 3, 24.2)
 export const artRot5 = Vector3.create(0, 0, 0)
 ////////////
 

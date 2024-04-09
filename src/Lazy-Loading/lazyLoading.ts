@@ -65,7 +65,7 @@ export async function createLazyArea(position: Vector3, scale: Vector3, parentPo
         }
         for (const kineticArt of kineticArtCollection) {
           if (kineticArt.room === id) {
-            const kinetic = createKineticArt(kineticArt.position, kineticArt.triggerPosition, kineticArt.triggerScale, kineticArt.modelPath, kineticArt.animationClip, kineticArt.audio, kineticArt.url, kineticArt.hoverText)
+            const kinetic = createKineticArt(kineticArt.position, kineticArt.rotation, kineticArt.scale, kineticArt.triggerPosition, kineticArt.triggerScale, kineticArt.modelPath, kineticArt.animationClip, kineticArt.audio, kineticArt.url, kineticArt.hoverText)
             createdKineticArt.push(kinetic)
           }
         }
