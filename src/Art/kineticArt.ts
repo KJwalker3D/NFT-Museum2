@@ -33,15 +33,15 @@ export type KineticData = {
 }
 
 export const kineticArtCollection: KineticData[] = [
-    
+
     {
         room: 1,
         id: 27,
         position: Vector3.create(artPosA.x, artPosA.y - 0.58, artPosA.z + 0.1),
         rotation: Quaternion.fromEulerDegrees(artRotA.x, artRotA.y, artRotA.z),
-        scale: Vector3.create(0.5, 0.5, 0.5), 
+        scale: Vector3.create(0.5, 0.5, 0.5),
         triggerPosition: Vector3.create(0, 0, 0),
-        triggerScale: Vector3.create(6, 5, 10), 
+        triggerScale: Vector3.create(6, 5, 10),
         modelPath: truck,
         url: linktreeURL,
         hoverText: 'Click'
@@ -51,9 +51,9 @@ export const kineticArtCollection: KineticData[] = [
         id: 28,
         position: Vector3.create(artPosB.x + 0, artPosB.y - 0.58, artPosB.z - 0.1),
         rotation: Quaternion.fromEulerDegrees(artRotB.x, artRotB.y, artRotB.z),
-        scale: Vector3.create(0.75, 0.75, 0.75), 
+        scale: Vector3.create(0.75, 0.75, 0.75),
         triggerPosition: Vector3.create(0, 0, 0),
-        triggerScale: Vector3.create(6, 5, 10), 
+        triggerScale: Vector3.create(6, 5, 10),
         modelPath: cone,
         url: linktreeURL,
         hoverText: 'Click'
@@ -63,9 +63,9 @@ export const kineticArtCollection: KineticData[] = [
         id: 29,
         position: artPosC,
         rotation: Quaternion.fromEulerDegrees(artRotC.x, artRotC.y, artRotC.z),
-        scale: Vector3.create(0.5, 0.5, 0.5), 
+        scale: Vector3.create(0.5, 0.5, 0.5),
         triggerPosition: Vector3.create(0, 0, 0),
-        triggerScale: Vector3.create(6, 5, 10), 
+        triggerScale: Vector3.create(6, 5, 10),
         modelPath: kineticArtCircles,
         animationClip: kineticArtCirclesClip,
         audio: null,
@@ -75,7 +75,7 @@ export const kineticArtCollection: KineticData[] = [
     {
         room: 2,
         id: 30,
-        position: artPosD, 
+        position: artPosD,
         rotation: Quaternion.fromEulerDegrees(artRotD.x, artRotD.y, artRotD.z), // rotation
         scale: Vector3.create(0.8, 0.8, 0.8),
         triggerPosition: Vector3.create(2, 0, 0),
