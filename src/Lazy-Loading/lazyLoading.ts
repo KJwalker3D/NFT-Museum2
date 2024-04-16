@@ -60,7 +60,7 @@ export function createLazyArea(position: Vector3, scale: Vector3, parentPos: Ent
         for (const video of videoCollection) {
           if (video.room === id) {
             try {
-              const videoArt = await createVideoArt(video.position, video.rotation, video.scale, video.image, video.video, video.hoverText, video.website, video.triggerScale, video.triggerPosition);
+              const videoArt = await createVideoArt(video);
               if (videoArt) {
                 createdVideos.push(videoArt);
               } else {
