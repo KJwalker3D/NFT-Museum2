@@ -70,7 +70,6 @@ export function alreadyClaimedUI() {
 		onAccept: () => {
 			console.log('accepted')
 			prompt.hide()
-			rewardValue = false
 		},
 		acceptLabel: 'Ok',
 		useDarkTheme: true,
