@@ -6,7 +6,7 @@ import { openExternalUrl } from "~system/RestrictedActions";
 
 
 /// This is the Playlist, set to false to remove it
-export let streamPlayingRef: { value: boolean } = { value: true }; // Set an initial value
+export let streamPlayingRef: { value: boolean } = { value: false }; // Set an initial value
 
 ///// PLAYLIST
 

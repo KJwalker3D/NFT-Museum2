@@ -6,7 +6,7 @@ import { pauseIcon, playIcon, skipIcon } from "./ui";
 import { nowPlayingElement, openMixcloud, playingArtist, skipSong, streamPlayingRef, togglePlaylist, updateNowPlayingTitle } from "../Audio/playlist";
 
 // Set Playlist to 'false' to hide the playlist UI:
-let Playlist: Boolean = true;
+let Playlist: Boolean = false;
 
 let songData = 'RED ALBERT Playlist';
 let songDataWrap = wordWrap(songData, 8 * tieredModalTextWrapScale, 6);
@@ -113,7 +113,5 @@ export function playlistUI() {
                 </UiEntity>
             </UiEntity>
         );
-    } else {
-        return null; // Return null if Playlist is false
-    }
+    } 
 }
